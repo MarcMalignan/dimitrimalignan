@@ -1,8 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { HashRouter, Switch, Route, Link } from 'react-router-dom';
 
 import './Main.scss';
 
-import Hello from './components/Hello/Hello';
+import Home from './pages/Home/Home';
+import Bio from './pages/Bio/Bio';
 
-ReactDOM.render(<Hello />, document.getElementById('root'));
+const App = () => (
+  <HashRouter>
+    <Switch>
+      <Route exact path='/' component={Home}/>
+      <Route path='/bio' component={Bio}/>
+    </Switch>
+  </HashRouter>
+);
+
+ReactDOM.render((
+  <App />
+), document.getElementById('root'));
