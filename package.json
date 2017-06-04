@@ -4,6 +4,10 @@
   "description": "www.dimitrimalignan.com",
   "author": "Marc Malignan",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://MetalMonkey@bitbucket.org/MetalMonkey/dimitrimalignan.git"
+  },
   "devDependencies": {
     "babel-core": "^6.24.1",
     "babel-loader": "^7.0.0",
