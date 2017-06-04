@@ -12,9 +12,14 @@
     "babel-core": "^6.24.1",
     "babel-loader": "^7.0.0",
     "css-loader": "^0.28.4",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb-base": "^11.2.0",
+    "eslint-plugin-import": "^2.3.0",
+    "eslint-plugin-jsx-a11y": "^5.0.3",
     "extract-text-webpack-plugin": "^2.1.0",
     "node-sass": "^4.5.3",
     "npm-run-all": "^4.0.2",
+    "pre-commit": "^1.2.2",
     "sass-loader": "^6.0.5",
     "style-loader": "^0.18.1",
     "webpack": "^2.6.1",
@@ -24,6 +29,11 @@
     "build": "run-s build:*",
     "build:app": "webpack",
     "build:html": "cp index.html dist/index.html",
+    "lint": "run-p lint:*",
+    "lint:js": "eslint app/js/**",
     "start": "webpack-dev-server --progress --colors"
-  }
+  },
+  "pre-commit": [
+    "lint"
+  ]
 }
