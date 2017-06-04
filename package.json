@@ -14,13 +14,16 @@
     "css-loader": "^0.28.4",
     "extract-text-webpack-plugin": "^2.1.0",
     "node-sass": "^4.5.3",
+    "npm-run-all": "^4.0.2",
     "sass-loader": "^6.0.5",
     "style-loader": "^0.18.1",
     "webpack": "^2.6.1",
     "webpack-dev-server": "^2.4.5"
   },
   "scripts": {
-    "build": "webpack",
+    "build": "run-s build:*",
+    "build:app": "webpack",
+    "build:html": "cp index.html dist/index.html",
     "start": "webpack-dev-server --progress --colors"
   }
 }
