@@ -3,5 +3,13 @@
   "version": "1.0.0",
   "description": "www.dimitrimalignan.com",
   "author": "Marc Malignan",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "webpack": "^2.6.1"
+  },
+  "scripts": {
+    "build": "webpack -w"
+  }
 }
