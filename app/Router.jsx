@@ -8,8 +8,8 @@ class Router extends React.Component {
   constructor(props) {
     super(props);
     this.routes = [
-      { path: '/', component: Home },
       { path: '/bio', component: Bio },
+      { path: '*', component: Home },
     ];
   }
 
