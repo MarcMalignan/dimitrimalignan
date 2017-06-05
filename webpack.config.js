@@ -1,3 +1,4 @@
+var webpack = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var path = require('path');
 
@@ -28,6 +29,12 @@ module.exports = {
     extensions: ['.js', '.jsx']
   },
   plugins: [
+    new webpack.DefinePlugin({
+      'process.env': {
+        'NODE_ENV': JSON.stringify('production')
+      }
+    }),
+    new webpack.optimize.UglifyJsPlugin(),
     new ExtractTextPlugin({
       filename: 'bundle.css',
       allChunks: true
