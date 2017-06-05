@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 
-import './style/Main.scss';
+import './style/main.scss';
 
 import Nav from './components/Nav/Nav';
 import Router from './Router';

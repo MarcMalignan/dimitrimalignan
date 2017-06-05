@@ -38,7 +38,7 @@
     "build:app": "webpack",
     "build:html": "cp index.html dist/index.html",
     "lint": "run-p lint:*",
-    "lint:js": "eslint app/js/**",
+    "lint:js": "eslint --ext .js,.jsx app",
     "start": "webpack-dev-server --progress --colors"
   },
   "pre-commit": [
