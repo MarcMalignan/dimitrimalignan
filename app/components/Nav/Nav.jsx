@@ -1,6 +1,7 @@
 import React from 'react';
 import { withRouter, Link } from 'react-router-dom';
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
 
 import './Nav.scss';
 
@@ -40,8 +41,8 @@ class Nav extends React.Component {
 }
 
 Nav.propTypes = {
-  location: React.PropTypes.shape({
-    pathname: React.PropTypes.string,
+  location: PropTypes.shape({
+    pathname: PropTypes.string,
   }),
 };
 
