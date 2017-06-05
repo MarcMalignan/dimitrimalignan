@@ -1,5 +1,5 @@
 import React from 'react';
-import { HashRouter, Switch, Route, Link } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 
 import Home from './pages/Home/Home';
 import Bio from './pages/Bio/Bio';
@@ -19,9 +19,7 @@ class Router extends React.Component {
     );
 
     return (
-      <HashRouter>
-        <Switch>{listRoutes}</Switch>
-      </HashRouter>
+      <Switch>{listRoutes}</Switch>
     )
   }
 };
