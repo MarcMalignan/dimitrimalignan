@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
+import classNames from 'classnames';
 
 import './Nav.scss';
 
@@ -17,11 +18,20 @@ class Nav extends React.Component {
   }
 
   render() {
-    const listLinks = this.links.map(link => (
-      <li className="Nav-item" key={link.url}>
-        <Link className="Nav-item-link" to={link.url}>{link.label}</Link>
-      </li>
-    ));
+    const pathname = this.props.location.pathname;
+
+    const listLinks = this.links.map((link) => {
+      const classes = classNames(
+        'Nav-item',
+        { active: pathname === link.url },
+      );
+
+      return (
+        <li className={classes} key={link.url}>
+          <Link className="Nav-item-link" to={link.url}>{link.label}</Link>
+        </li>
+      );
+    });
 
     return (
       <ul className="Nav">{listLinks}</ul>
@@ -29,4 +39,16 @@ class Nav extends React.Component {
   }
 }
 
-export default Nav;
+Nav.propTypes = {
+  location: React.PropTypes.shape({
+    pathname: React.PropTypes.string,
+  }),
+};
+
+Nav.defaultProps = {
+  location: {
+    pathname: '/',
+  },
+};
+
+export default withRouter(Nav);

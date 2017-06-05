@@ -8,8 +8,26 @@
   text-align: center;
 
   &-item {
+    position: relative;
     display: inline-block;
-    padding: 0 10px;
+    margin: 0 10px;
+
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      right: 50%;
+      height: 1px;
+      background: $text-color;
+      transition: all .3s;
+    }
+
+    &:hover:after,
+    &.active:after {
+      left: 0;
+      right: 0;
+    }
 
     &-link {
       @include fontTitle();
