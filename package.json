@@ -25,6 +25,7 @@
     "eslint-plugin-jsx-a11y": "^5.0.3",
     "eslint-plugin-react": "^7.0.1",
     "extract-text-webpack-plugin": "^2.1.0",
+    "http-server": "^0.10.0",
     "node-sass": "^4.5.3",
     "npm-run-all": "^4.0.2",
     "pre-commit": "^1.2.2",
@@ -39,7 +40,8 @@
     "build:html": "cp index.html dist/index.html",
     "lint": "run-p lint:*",
     "lint:js": "eslint --ext .js,.jsx app",
-    "start": "webpack-dev-server --progress --colors"
+    "start": "webpack-dev-server --progress --colors",
+    "start:dist": "http-server dist -p 3000"
   },
   "pre-commit": [
     "lint"
