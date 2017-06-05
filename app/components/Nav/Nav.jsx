@@ -7,8 +7,8 @@ class Nav extends React.Component {
   constructor(props) {
     super(props);
     this.links = [
-      { url: '/', label: 'Home' },
-      { url: '/bio', label: 'Bio' },
+      { url: '/', label: 'Accueil' },
+      { url: '/bio', label: 'Biographie' },
     ];
   }
 

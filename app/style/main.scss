@@ -1,18 +1,21 @@
+@import 'fonts';
 @import 'variables';
 
 body {
   margin: 0;
   background: $bg-color;
   color: $text-color;
+  @include fontText();
 }
 
 h1 {
+  @include fontTitle();
   text-align: center;
-  font-size: 40px;
+  font-size: 80px;
 }
 
 #app {
-  width: 100%;
   max-width: 1000px;
   margin: 0 auto;
+  padding: 0 5%;
 }
