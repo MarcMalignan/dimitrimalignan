@@ -2,17 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { HashRouter } from 'react-router-dom';
 
-import './style/main.scss';
-
-import Nav from './components/Nav/Nav';
+import Header from './components/Header/Header';
 import Router from './Router';
+
+import './style/main.scss';
 
 ReactDOM.render((
   <HashRouter>
     <div id="app">
-      <div id="header">
-        <Nav />
-      </div>
+      <Header />
       <div id="content">
         <Router />
       </div>

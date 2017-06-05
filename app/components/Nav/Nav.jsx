@@ -9,6 +9,10 @@ class Nav extends React.Component {
     this.links = [
       { url: '/', label: 'Accueil' },
       { url: '/bio', label: 'Biographie' },
+      { url: '/photos', label: 'Photos' },
+      { url: '/videos', label: 'Vidéos' },
+      { url: '/agenda', label: 'Agenda' },
+      { url: '/contact', label: 'Contact' },
     ];
   }
 

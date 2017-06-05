@@ -8,12 +8,6 @@ body {
   @include fontText();
 }
 
-h1 {
-  @include fontTitle();
-  text-align: center;
-  font-size: 80px;
-}
-
 #app {
   max-width: 1000px;
   margin: 0 auto;
