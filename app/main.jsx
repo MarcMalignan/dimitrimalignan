@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 
 import './style/main.scss';
 
@@ -8,7 +8,7 @@ import Nav from './components/Nav/Nav';
 import Router from './Router';
 
 ReactDOM.render((
-  <BrowserRouter>
+  <HashRouter>
     <div id="app">
       <div id="header">
         <Nav />
@@ -17,5 +17,5 @@ ReactDOM.render((
         <Router />
       </div>
     </div>
-  </BrowserRouter>
+  </HashRouter>
 ), document.getElementById('root'));
