@@ -5,7 +5,8 @@ module.exports = {
   entry: './app/main.jsx',
   output: {
     path: path.join(__dirname, 'dist'),
-    filename: 'bundle.js'
+    filename: 'bundle.js',
+    sourceMapFilename: 'bundle.js.map'
   },
   module: {
     loaders: [
