@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import './Nav.scss';
+
 class Nav extends React.Component {
   constructor(props) {
     super(props);
@@ -12,13 +14,13 @@ class Nav extends React.Component {
 
   render() {
     const listLinks = this.links.map(link => (
-      <li key={link.url}>
-        <Link to={link.url}>{link.label}</Link>
+      <li className="Nav-item" key={link.url}>
+        <Link className="Nav-item-link" to={link.url}>{link.label}</Link>
       </li>
     ));
 
     return (
-      <ul>{listLinks}</ul>
+      <ul className="Nav">{listLinks}</ul>
     );
   }
 }

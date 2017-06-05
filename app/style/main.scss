@@ -1,3 +1,18 @@
+@import 'variables';
+
 body {
-  background: silver;
+  margin: 0;
+  background: $bg-color;
+  color: $text-color;
+}
+
+h1 {
+  text-align: center;
+  font-size: 40px;
+}
+
+#app {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
 }

@@ -1,0 +1,21 @@
+@import '../../style/variables';
+
+.Nav {
+  list-style: none;
+  margin: 0;
+  padding: 10px 0;
+  text-align: center;
+
+  &-item {
+    display: inline-block;
+    padding: 0 10px;
+
+    &-link {
+      display: block;
+      padding: 10px;
+      color: $text-color;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+  }
+}

@@ -1,9 +1,9 @@
 import React from 'react';
 
-import Hello from '../../components/Hello/Hello';
-
 const Home = () => (
-  <Hello />
+  <div className="Page Home">
+    <h1>Dimitri Malignan</h1>
+  </div>
 );
 
 export default Home;
