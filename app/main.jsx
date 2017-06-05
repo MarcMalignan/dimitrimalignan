@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { HashRouter, Switch, Route, Link } from 'react-router-dom';
 
-import './Main.scss';
+import './style/Main.scss';
 
 import Home from './pages/Home/Home';
 import Bio from './pages/Bio/Bio';
