@@ -12,7 +12,7 @@ body {
   background-color: $bg-color;
   background-position: center;
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: auto 100%;
   color: $text-color;
   @include fontText();
 }
