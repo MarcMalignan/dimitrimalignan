@@ -1,4 +1,6 @@
 var webpack = require('webpack');
+var CleanWebpackPlugin = require('clean-webpack-plugin');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var path = require('path');
 
@@ -7,7 +9,7 @@ module.exports = function(env) {
     entry: './app/main.jsx',
     output: {
       path: path.join(__dirname, 'dist'),
-      filename: 'bundle.js'
+      filename: '[hash].bundle.js'
     },
     module: {
       loaders: [
@@ -29,8 +31,12 @@ module.exports = function(env) {
       extensions: ['.js', '.jsx']
     },
     plugins: [
+      new CleanWebpackPlugin(['dist']),
+      new HtmlWebpackPlugin({
+        template: 'index.ejs'
+      }),
       new ExtractTextPlugin({
-        filename: 'bundle.css',
+        filename: '[hash].bundle.css',
         allChunks: true
       })
     ]
