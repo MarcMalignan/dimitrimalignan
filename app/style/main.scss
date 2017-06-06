@@ -1,9 +1,18 @@
 @import 'fonts';
 @import 'variables';
 
+html {
+  height: 100%;
+}
+
 body {
+  min-height: 100%;
   margin: 0;
-  background: $bg-color;
+  background-image: url('/images/background.jpg');
+  background-color: $bg-color;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
   color: $text-color;
   @include fontText();
 }
