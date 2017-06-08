@@ -24,6 +24,13 @@ module.exports = function(env) {
             'css-loader',
             'sass-loader'
           ])
+        },
+        {
+          test: /\.jpg$/,
+          loader: 'file-loader',
+          options: {
+            name: './images/[name].[hash].[ext]'
+          }
         }
       ]
     },
