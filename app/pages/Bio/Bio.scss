@@ -1,0 +1,16 @@
+.Bio {
+  &-content {
+    padding: 40px;
+    background: rgba(0, 0, 0, .9);
+
+    p {
+      margin: 0 0 20px;
+      padding-left: 10px;
+      text-align: justify;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}

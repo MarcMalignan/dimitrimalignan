@@ -18,7 +18,13 @@ body {
 }
 
 #app {
-  max-width: 1000px;
+  max-width: 900px;
   margin: 0 auto;
   padding: 0 5%;
+}
+
+#content {
+  padding-top: 40px;
+  font-size: 16px;
+  line-height: 22px;
 }

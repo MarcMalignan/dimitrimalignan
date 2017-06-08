@@ -2,5 +2,9 @@
   "extends": "airbnb",
   "env": {
     "browser": true
+  },
+  "rules": {
+    "react/no-array-index-key": 0,
+    "react/no-danger": 0
   }
 }
