@@ -1,0 +1,61 @@
+@import '../../style/variables';
+@import '../../style/media-queries';
+
+.Agenda {
+
+  &-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    &-item {
+      padding: 20px 0;
+      border-bottom: 1px solid $separator-color;
+
+      &:last-child {
+        padding-bottom: 20px;
+        border-bottom: none;
+      }
+
+      &-header {
+        display: flex;
+
+        @include sizeMobile {
+          display: block;
+        }
+      }
+
+      &-type {
+        text-transform: uppercase;
+      }
+
+      &-title {
+        flex-grow: 1;
+        color: $accent-color;
+        text-align: center;
+
+        a {
+          color: $accent-color;
+        }
+      }
+
+      &-date {
+        text-align: right;
+      }
+
+      &-date,
+      &-type {
+        width: 20%;
+
+        @include sizeMobile {
+          width: auto;
+          text-align: center;
+        }
+      }
+
+      &-location {
+        text-align: center;
+      }
+    }
+  }
+}

@@ -1,67 +1,67 @@
 [
   {
-    "type": "recital",
-    "title": "« Les Nuits du Piano-Paris »",
+    "type": "Récital",
+    "title": "Les Nuits du Piano-Paris",
     "date": "22 Juin - 20h",
     "location": "Auditorium AXA-Tour Majunga, La Défense (Puteaux)",
     "link": "http://paris.lesnuitsdupiano.fr/"
   },
   {
-    "type": "concert",
+    "type": "Concert",
     "title": "Festival « Nohant-Chopin »",
     "date": "22 Juillet - 18h",
     "location": "Parc du domaine de George Sand, Nohant-Vic (Indre)",
     "link": "https://festivalnohant.com/"
   },
   {
-    "type": "recital",
+    "type": "Récital",
     "title": "Festival « Les Nuits Musicales du Rouergue »",
     "date": "28 Juillet - 21h",
     "location": "Chapelle des Pénitents Noirs, Villefranche-de-Rouergue (Aveyron)",
     "link": "http://www.aveyron-culture.com/diffusio/agenda/villefranche-de-rouergue/nuits-musicales-du-rouergue_TFO118627.php"
   },
   {
-    "type": "recital",
+    "type": "Récital",
     "title": "Festival « Un Piano Sous les Arbres »",
     "date": "24 Août - 18h",
     "location": "Orangerie, Lunel-Viel (Hérault)",
     "link": "http://unpianosouslesarbres.com/"
   },
   {
-    "type": "concert",
-    "title": "« Tournée des lauréats du Concours Mihail Jora »",
+    "type": "Concert",
+    "title": "Tournée des lauréats du Concours Mihail Jora",
     "date": "14 Septembre",
     "location": "Institut Culturel Italien, Copenhague",
     "link": "https://www.societateamuzicala.ro/laureatii-concursului-mihail-jora-la-copenhaga"
   },
   {
-    "type": "concert",
-    "title": "« Tournée des lauréats du Concours Mihail Jora »",
+    "type": "Concert",
+    "title": "Tournée des lauréats du Concours Mihail Jora",
     "date": "19 Septembre",
     "location": "St Martin-In-The-Fields, Londres",
     "link": "https://www.societateamuzicala.ro/st-martin-fields"
   },
   {
-    "type": "recital",
-    "title": "« APG World Connect »",
+    "type": "Récital",
+    "title": "APG World Connect",
     "date": "2 Novembre",
     "location": "Fairmont Hotel, Monaco",
     "link": "http://worldconnect.apg-ga.com/"
   },
   {
-    "type": "recital",
+    "type": "Récital",
     "date": "22 Novembre",
     "location": "Automobile Club de France, Paris"
   },
   {
-    "type": "concert",
-    "title": "Orchestre Symphonique de Craiova/Gian Luigi Zampieri",
+    "type": "Concert",
+    "title": "Orchestre Symphonique de Craiova / Gian Luigi Zampieri",
     "date": "23 Février 2018",
     "location": "Filarmonica Oltenia, Craiova (Roumanie)"
   },
   {
-    "type": "recital",
-    "title": "« Les Matinées du Piano »",
+    "type": "Récital",
+    "title": "Les Matinées du Piano",
     "date": "15 Avril 2018 - 10h45",
     "location": "Salle de l'Institut, Orléans",
     "link": "http://www.oci-piano.com/fr/matinees-du-piano/"
