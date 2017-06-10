@@ -9,17 +9,17 @@ import './Agenda.scss';
 const Agenda = () => {
   const listEvents = data.map((event, index) => (
     <li key={index} className="Agenda-list-item">
-      <div className="Agenda-list-item-header">
-        <div className="Agenda-list-item-type">{event.type}</div>
+      <div className="Agenda-list-item-type">{event.type}</div>
+      <div className="Agenda-list-item-info">
         <div className="Agenda-list-item-title">
           {event.link ?
             <a href={event.link} target="_blank">{event.title}</a> :
             event.title || event.type
           }
         </div>
-        <div className="Agenda-list-item-date">{event.date}</div>
+        <div className="Agenda-list-item-location">{event.location}</div>
       </div>
-      <div className="Agenda-list-item-location">{event.location}</div>
+      <div className="Agenda-list-item-date">{event.date}</div>
     </li>
   ));
 
