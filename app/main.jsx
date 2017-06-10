@@ -14,6 +14,9 @@ ReactDOM.render((
       <div id="content">
         <Router />
       </div>
+      <div id="footer">
+        <span>Dimitri Malignan © 2017</span>
+      </div>
     </div>
   </HashRouter>
 ), document.getElementById('root'));
