@@ -12,4 +12,5 @@ rules:
   no-url-protocols: 0
   property-sort-order: 0
   pseudo-element: 0
+  single-line-per-selector: 2
   trailing-semicolon: 2
