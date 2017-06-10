@@ -20,17 +20,25 @@
       right: 50%;
       height: 1px;
       background: $text-color;
-      transition: all $duration-fast;
+      transition: left $duration-fast, right $duration-fast;
     }
 
-    &:hover:after,
-    &.active:after {
-      left: 0;
-      right: 0;
+    &:hover {
+      &:after {
+        left: 0;
+        right: 0;
+      }
+    }
+
+    &.active {
+      &:after {
+        left: 0;
+        right: 0;
+      }
     }
 
     &-link {
-      @include fontTitle();
+      @include fontTitle;
       display: block;
       padding: 10px 15px;
       color: $text-color;

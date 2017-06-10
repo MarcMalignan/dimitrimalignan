@@ -2,16 +2,16 @@
 @import url('https://fonts.googleapis.com/css?family=Oswald:200');
 @import url('https://fonts.googleapis.com/css?family=Raleway:400,700');
 
-@mixin fontLogo() {
+@mixin fontLogo {
   font-family: 'Cormorant SC', serif;
   font-weight: 400;
 }
 
-@mixin fontTitle() {
+@mixin fontTitle {
   font-family: 'Oswald', sans-serif;
   font-weight: 200;
 }
 
-@mixin fontText() {
+@mixin fontText {
   font-family: 'Raleway', sans-serif;
 }
