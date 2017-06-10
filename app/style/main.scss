@@ -1,3 +1,4 @@
+@import 'animations';
 @import 'fonts';
 @import 'variables';
 
@@ -27,4 +28,8 @@ body {
   padding-top: 40px;
   font-size: 16px;
   line-height: 22px;
+}
+
+.Page {
+  animation: fadeIn $duration-fast forwards;
 }
