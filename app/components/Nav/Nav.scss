@@ -20,7 +20,11 @@
       right: 50%;
       height: 1px;
       background: $text-color;
-      transition: left $duration-fast, right $duration-fast;
+      transition: background-color $duration-fast, left $duration-fast, right $duration-fast;
+    }
+
+    a {
+      transition: color $duration-fast;
     }
 
     &:hover {
@@ -34,6 +38,11 @@
       &:after {
         left: 0;
         right: 0;
+        background-color: $accent-color;
+      }
+
+      a {
+        color: $accent-color;
       }
     }
 
