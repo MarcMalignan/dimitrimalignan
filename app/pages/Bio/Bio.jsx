@@ -1,5 +1,6 @@
 import React from 'react';
 
+import Page from '../../components/Page/Page';
 import ContentPanel from '../../components/ContentPanel/ContentPanel';
 import data from './Bio.data.json';
 
@@ -14,11 +15,9 @@ const Home = () => {
   });
 
   return (
-    <div className="Page Bio">
-      <div className="Bio-content">
-        <ContentPanel>{listParagraphs}</ContentPanel>
-      </div>
-    </div>
+    <Page pageName="Bio">
+      <ContentPanel>{listParagraphs}</ContentPanel>
+    </Page>
   );
 };
 

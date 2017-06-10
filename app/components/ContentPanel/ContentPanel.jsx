@@ -8,7 +8,10 @@ const ContentPanel = props => (
 );
 
 ContentPanel.propTypes = {
-  children: PropTypes.arrayOf(PropTypes.object),
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.object),
+    PropTypes.shape({}),
+  ]),
 };
 
 ContentPanel.defaultProps = {

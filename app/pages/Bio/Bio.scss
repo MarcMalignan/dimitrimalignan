@@ -1,15 +1,12 @@
 .Bio {
 
-  &-content {
+  p {
+    margin: 0 0 20px;
+    padding-left: 10px;
+    text-align: justify;
 
-    p {
-      margin: 0 0 20px;
-      padding-left: 10px;
-      text-align: justify;
-
-      &:last-child {
-        margin-bottom: 0;
-      }
+    &:last-child {
+      margin-bottom: 0;
     }
   }
 }
