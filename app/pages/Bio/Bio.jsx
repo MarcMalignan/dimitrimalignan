@@ -7,7 +7,7 @@ import data from './Bio.data.json';
 import './Bio.scss';
 
 const Home = () => {
-  const listParagraphs = data.paragraphs.map((p, index) => {
+  const listParagraphs = data.map((p, index) => {
     const innerHtml = { __html: p };
     return (
       <p key={index} dangerouslySetInnerHTML={innerHtml} />
