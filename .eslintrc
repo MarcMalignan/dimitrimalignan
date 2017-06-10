@@ -4,6 +4,7 @@
     "browser": true
   },
   "rules": {
+    "react/jsx-no-target-blank": 0,
     "react/no-array-index-key": 0,
     "react/no-danger": 0
   }
