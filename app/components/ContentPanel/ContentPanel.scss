@@ -1,6 +1,11 @@
 @import '../../style/variables';
+@import '../../style/media-queries';
 
 .ContentPanel {
   padding: 40px;
   background: $panel-content-bg;
+
+  @include sizeMobile {
+    padding: 20px;
+  }
 }

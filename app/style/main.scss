@@ -12,7 +12,6 @@ body,
 }
 
 body {
-  @include fontText;
   margin: 0;
   background-image: url('../images/background.jpg');
   background-color: $bg-color;
@@ -23,23 +22,24 @@ body {
 }
 
 #app {
+  @include fontText;
   display: flex;
   flex-direction: column;
   max-width: 900px;
   margin: 0 auto;
   padding: 0 5%;
 
-  @include sizeMobile {
-    padding: 0;
-  }
-
   #content {
     flex-grow: 1;
     margin-top: 40px;
+    font-size: 16px;
+    line-height: 22px;
     overflow: auto;
 
     @include sizeMobile {
       margin-top: 0;
+      font-size: 14px;
+      line-height: 18px;
     }
   }
 
