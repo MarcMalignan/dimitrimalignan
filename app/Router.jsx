@@ -3,12 +3,14 @@ import { Switch, Route } from 'react-router-dom';
 
 import Home from './pages/Home/Home';
 import Bio from './pages/Bio/Bio';
+import Agenda from './pages/Agenda/Agenda';
 
 class Router extends React.Component {
   constructor(props) {
     super(props);
     this.routes = [
       { path: '/bio', component: Bio },
+      { path: '/agenda', component: Agenda },
       { path: '*', component: Home },
     ];
   }
