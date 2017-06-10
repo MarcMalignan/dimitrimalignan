@@ -3,9 +3,10 @@ files:
 rules:
   class-name-format: 0
   empty-args: 2
+  final-newline: 2
   force-pseudo-nesting: 2
   mixin-name-format: 0
-  mixins-before-declarations: 2
+  mixins-before-declarations: 0
   no-ids: 0
   no-transition-all: 2
   no-url-domains: 0
@@ -14,3 +15,4 @@ rules:
   pseudo-element: 0
   single-line-per-selector: 2
   trailing-semicolon: 2
+  quotes: 2

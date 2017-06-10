@@ -1,6 +1,7 @@
 @import 'animations';
 @import 'fonts';
 @import 'variables';
+@import 'media-queries';
 
 html,
 body,
@@ -28,8 +29,17 @@ body {
   margin: 0 auto;
   padding: 0 5%;
 
+  @include sizeMobile {
+    padding: 0;
+  }
+
   #content {
     flex-grow: 1;
+    margin-top: 40px;
     overflow: auto;
+
+    @include sizeMobile {
+      margin-top: 0;
+    }
   }
 }
