@@ -45,7 +45,8 @@ module.exports = function(env) {
       new ExtractTextPlugin({
         filename: '[hash].bundle.css',
         allChunks: true
-      })
+      }),
+      new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/)
     ]
   };
 
