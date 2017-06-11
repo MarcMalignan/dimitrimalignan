@@ -40,7 +40,9 @@ class Presse extends React.Component {
           <span className="Presse-article-author">{article.author}</span>
           <span className="Presse-article-date">{article.formattedDate}</span>
         </div>
-        <div className="Presse-article-content">{Presse.listParagraphs(article.content)}</div>
+        <blockquote className="Presse-article-content">
+          {Presse.listParagraphs(article.content)}
+        </blockquote>
       </div>
     ));
   }

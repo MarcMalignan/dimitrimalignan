@@ -1,5 +1,6 @@
 @import '../../style/variables';
 @import '../../style/media-queries';
+@import '../../style/fonts';
 
 .Presse {
   &-article {
@@ -23,6 +24,12 @@
           display: none;
         }
       }
+    }
+
+    &-content {
+      margin: 0;
+      padding-left: 20px;
+      border-left: 5px solid $accent-color;
     }
 
     &-source,
