@@ -3,6 +3,18 @@
 
 .Presse {
   &-article {
+    padding: 20px 0;
+    border-bottom: 1px solid $separator-color;
+
+    &:first-child {
+      padding-top: 0;
+    }
+
+    &:last-child {
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
     &-header {
       margin-bottom: 20px;
 
@@ -26,8 +38,13 @@
       color: $accent-color;
     }
 
+    &-author {
+      font-style: italic;
+    }
+
     &-date {
       float: right;
+      font-size: 14px;
 
       @include sizeMobile {
         float: none;

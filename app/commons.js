@@ -3,6 +3,8 @@ import 'moment/locale/fr';
 
 export default {
   formatDate(date) {
+    if (!date) return '';
+
     const hasTime = date.includes('T');
 
     let format = 'D MMM YYYY';
