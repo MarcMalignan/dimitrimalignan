@@ -1,5 +1,6 @@
 @import '../../style/fonts';
 @import '../../style/media-queries';
+@import '../../style/variables';
 
 .Header {
   text-align: center;
@@ -14,6 +15,11 @@
     @include sizeMobile {
       font-size: 30px;
       line-height: 80px;
+    }
+
+    a {
+      color: $text-color;
+      text-decoration: none;
     }
   }
 }
