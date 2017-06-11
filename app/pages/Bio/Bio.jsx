@@ -6,19 +6,30 @@ import data from './Bio.data.json';
 
 import './Bio.scss';
 
-const Home = () => {
-  const listParagraphs = data.map((p, index) => {
-    const innerHtml = { __html: p };
+class Bio extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      bio: data,
+    };
+  }
+
+  listParagraphs() {
+    return this.state.bio.map((p, index) => {
+      const innerHtml = { __html: p };
+      return (
+        <p key={index} dangerouslySetInnerHTML={innerHtml} />
+      );
+    });
+  }
+
+  render() {
     return (
-      <p key={index} dangerouslySetInnerHTML={innerHtml} />
+      <Page pageName="Bio">
+        <ContentPanel>{this.listParagraphs()}</ContentPanel>
+      </Page>
     );
-  });
+  }
+}
 
-  return (
-    <Page pageName="Bio">
-      <ContentPanel>{listParagraphs}</ContentPanel>
-    </Page>
-  );
-};
-
-export default Home;
+export default Bio;
