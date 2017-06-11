@@ -9,18 +9,6 @@ import data from './Agenda.data.json';
 import './Agenda.scss';
 
 class Agenda extends React.Component {
-  static sortByDate(a, b) {
-    if (a.date < b.date) return -1;
-    if (a.date > b.date) return 1;
-    return 0;
-  }
-
-  static sortByDateReverse(a, b) {
-    if (a.date < b.date) return 1;
-    if (a.date > b.date) return -1;
-    return 0;
-  }
-
   static computeDates(events) {
     return events.map(event => Object.assign(event, {
       formattedDate: commons.formatDate(event.date),
@@ -82,8 +70,8 @@ class Agenda extends React.Component {
     const events = Agenda.computeDates(data);
     const splitted = Agenda.splitEvents(events);
 
-    splitted.futureEvents.sort(Agenda.sortByDate);
-    splitted.oldEvents.sort(Agenda.sortByDateReverse);
+    splitted.futureEvents.sort(commons.sortByDate);
+    splitted.oldEvents.sort(commons.sortByDate).reverse();
 
     this.state = splitted;
   }

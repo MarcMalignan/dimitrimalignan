@@ -2,6 +2,12 @@ import moment from 'moment';
 import 'moment/locale/fr';
 
 export default {
+  sortByDate(a, b) {
+    if (a.date < b.date || !a.date) return -1;
+    if (a.date > b.date || !b.date) return 1;
+    return 0;
+  },
+
   formatDate(date) {
     if (!date) return '';
 

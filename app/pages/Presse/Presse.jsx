@@ -27,6 +27,7 @@ class Presse extends React.Component {
     super(props);
 
     const articles = Presse.computeDates(data);
+    articles.sort(commons.sortByDate).reverse();
 
     this.state = { articles };
   }
