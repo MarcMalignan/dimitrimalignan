@@ -9,12 +9,16 @@ import data from './Agenda.data.json';
 import './Agenda.scss';
 
 class Agenda extends React.Component {
-  static sortEvents(events) {
-    return events.sort((a, b) => {
-      if (a.date < b.date) return -1;
-      if (a.date > b.date) return 1;
-      return 0;
-    });
+  static sortByDate(a, b) {
+    if (a.date < b.date) return -1;
+    if (a.date > b.date) return 1;
+    return 0;
+  }
+
+  static sortByDateReverse(a, b) {
+    if (a.date < b.date) return 1;
+    if (a.date > b.date) return -1;
+    return 0;
   }
 
   static computeDates(events) {
@@ -86,10 +90,13 @@ class Agenda extends React.Component {
       oldEvents: [],
     };
 
-    let events = Agenda.sortEvents(data);
-    events = Agenda.computeDates(events);
+    const events = Agenda.computeDates(data);
+    const splitted = Agenda.splitEvents(events);
 
-    this.state = Agenda.splitEvents(events);
+    splitted.futureEvents.sort(Agenda.sortByDate);
+    splitted.oldEvents.sort(Agenda.sortByDateReverse);
+
+    this.state = splitted;
   }
 
   render() {
