@@ -4,8 +4,6 @@ import Page from '../../components/Page/Page';
 import ContentPanel from '../../components/ContentPanel/ContentPanel';
 import data from './Bio.data.json';
 
-import './Bio.scss';
-
 class Bio extends React.Component {
   constructor(props) {
     super(props);

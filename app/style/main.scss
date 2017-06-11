@@ -57,6 +57,15 @@ body {
         margin-bottom: 20px;
       }
     }
+
+    p {
+      margin: 0 0 20px;
+      text-align: justify;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
   }
 
   #footer {

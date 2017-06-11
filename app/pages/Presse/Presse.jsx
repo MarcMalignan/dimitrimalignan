@@ -12,6 +12,15 @@ class Presse extends React.Component {
     }));
   }
 
+  static listParagraphs(content) {
+    return content.map((p, index) => {
+      const innerHtml = { __html: p };
+      return (
+        <p key={index} dangerouslySetInnerHTML={innerHtml} />
+      );
+    });
+  }
+
   constructor(props) {
     super(props);
 
@@ -26,7 +35,7 @@ class Presse extends React.Component {
         <div className="Presse-article-source">{article.source}</div>
         <div className="Presse-article-author">{article.author}</div>
         <div className="Presse-article-date">{article.formattedDate}</div>
-        <div className="Presse-article-content">{article.content}</div>
+        <div className="Presse-article-content">{Presse.listParagraphs(article.content)}</div>
       </div>
     ));
   }
