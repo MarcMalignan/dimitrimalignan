@@ -32,7 +32,7 @@ body {
   #content {
     flex-grow: 1;
     margin-top: 4vh;
-    padding: 0 5%;
+    padding: 0 3%;
     font-size: 16px;
     line-height: 22px;
     overflow-y: auto;
@@ -40,9 +40,20 @@ body {
 
     @include sizeMobile {
       margin-top: 0;
-      padding: 0;
       font-size: 14px;
       line-height: 18px;
+    }
+
+    &::-webkit-scrollbar {
+      width: 1px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: $accent-color-dark;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: $accent-color;
     }
 
     h1 {
