@@ -4,6 +4,7 @@ import { Switch, Route } from 'react-router-dom';
 import Home from './pages/Home/Home';
 import Agenda from './pages/Agenda/Agenda';
 import Bio from './pages/Bio/Bio';
+import Photos from './pages/Photos/Photos';
 import Presse from './pages/Presse/Presse';
 
 class Router extends React.Component {
@@ -12,6 +13,7 @@ class Router extends React.Component {
     this.routes = [
       { path: '/agenda', component: Agenda },
       { path: '/bio', component: Bio },
+      { path: '/photos', component: Photos },
       { path: '/presse', component: Presse },
       { path: '*', component: Home },
     ];

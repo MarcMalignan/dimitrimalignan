@@ -27,10 +27,10 @@ module.exports = (env) => {
           ]),
         },
         {
-          test: /\.jpg$/,
+          test: /\.(jpg|JPG)$/,
           loader: 'file-loader',
           options: {
-            name: './images/[name].[hash].[ext]',
+            name: '[path][name].[hash].[ext]',
           },
         },
       ],
