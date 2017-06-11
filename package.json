@@ -46,7 +46,7 @@
   "scripts": {
     "build": "webpack -p --env production",
     "lint": "run-s lint:*",
-    "lint:js": "eslint --ext .js,.jsx . --ignore node_modules",
+    "lint:js": "eslint . --ext .js,.jsx --ignore-path .gitignore",
     "lint:sass": "sass-lint -v -q",
     "start": "webpack-dev-server --progress --colors",
     "start:dist": "http-server dist -p 3000"
