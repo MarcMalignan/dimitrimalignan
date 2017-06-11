@@ -59,7 +59,7 @@ body {
     }
 
     p {
-      margin: 0 0 20px;
+      margin: 0 0 $paragraph-margin;
       text-align: justify;
 
       &:last-child {

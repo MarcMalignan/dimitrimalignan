@@ -10,7 +10,7 @@
 
     &-item {
       display: flex;
-      padding: 20px 0;
+      padding: $paragraph-margin 0;
       border-bottom: 1px solid $separator-color;
 
       @include sizeMobile {
