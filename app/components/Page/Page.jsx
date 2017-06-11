@@ -4,18 +4,26 @@ import PropTypes from 'prop-types';
 
 import './Page.scss';
 
-const Page = (props) => {
-  const classes = classNames(
-    'Page',
-    props.pageName,
-  );
+class Page extends React.Component {
+  constructor(props) {
+    super(props);
 
-  return (
-    <div className={classes}>
-      <div className="Page-content">{props.children}</div>
-    </div>
-  );
-};
+    const pageClass = classNames(
+      'Page',
+      props.pageName,
+    );
+
+    this.state = { pageClass };
+  }
+
+  render() {
+    return (
+      <div className={this.state.pageClass}>
+        <div className="Page-content">{this.props.children}</div>
+      </div>
+    );
+  }
+}
 
 Page.propTypes = {
   pageName: PropTypes.string,
