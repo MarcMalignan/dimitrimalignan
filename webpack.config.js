@@ -23,6 +23,7 @@ module.exports = (env) => {
           loader: ExtractTextPlugin.extract([
             'css-loader',
             'sass-loader',
+            'postcss-loader',
           ]),
         },
         {
