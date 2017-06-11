@@ -5,6 +5,8 @@ import Page from '../../components/Page/Page';
 import ContentPanel from '../../components/ContentPanel/ContentPanel';
 import data from './Presse.data.json';
 
+import './Presse.scss';
+
 class Presse extends React.Component {
   static computeDates(articles) {
     return articles.map(article => Object.assign(article, {
@@ -32,9 +34,12 @@ class Presse extends React.Component {
   listArticles() {
     return this.state.articles.map((article, index) => (
       <div key={index} className="Presse-article">
-        <div className="Presse-article-source">{article.source}</div>
-        <div className="Presse-article-author">{article.author}</div>
-        <div className="Presse-article-date">{article.formattedDate}</div>
+        <div className="Presse-article-header">
+          <span className="Presse-article-source">{article.source}</span>
+          <span className="Presse-article-header-separator"> - </span>
+          <span className="Presse-article-author">{article.author}</span>
+          <span className="Presse-article-date">{article.formattedDate}</span>
+        </div>
         <div className="Presse-article-content">{Presse.listParagraphs(article.content)}</div>
       </div>
     ));

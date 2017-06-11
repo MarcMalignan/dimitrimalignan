@@ -1,0 +1,37 @@
+@import '../../style/variables';
+@import '../../style/media-queries';
+
+.Presse {
+  &-article {
+    &-header {
+      margin-bottom: 20px;
+
+      &-separator {
+        @include sizeMobile {
+          display: none;
+        }
+      }
+    }
+
+    &-source,
+    &-author,
+    &-date {
+      @include sizeMobile {
+        display: block;
+        text-align: center;
+      }
+    }
+
+    &-source {
+      color: $accent-color;
+    }
+
+    &-date {
+      float: right;
+
+      @include sizeMobile {
+        float: none;
+      }
+    }
+  }
+}
