@@ -16,6 +16,11 @@ class Page extends React.Component {
     this.state = { pageClass };
   }
 
+  componentDidMount() {
+    const pageTitle = this.props.pageTitle || this.props.pageName;
+    document.title = `Dimitri Malignan - ${pageTitle}`;
+  }
+
   render() {
     return (
       <div className={this.state.pageClass}>
@@ -27,6 +32,7 @@ class Page extends React.Component {
 
 Page.propTypes = {
   pageName: PropTypes.string,
+  pageTitle: PropTypes.string,
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.object),
     PropTypes.shape({}),
@@ -35,6 +41,7 @@ Page.propTypes = {
 
 Page.defaultProps = {
   pageName: '',
+  pageTitle: '',
   children: [],
 };
 

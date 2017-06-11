@@ -23,7 +23,7 @@ class Bio extends React.Component {
 
   render() {
     return (
-      <Page pageName="Bio">
+      <Page pageName="Bio" pageTitle="Biographie">
         <ContentPanel>{this.listParagraphs()}</ContentPanel>
       </Page>
     );
