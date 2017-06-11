@@ -8,20 +8,23 @@ import './Nav.scss';
 class Nav extends React.Component {
   constructor(props) {
     super(props);
-    this.links = [
-      { url: '/', label: 'Accueil' },
-      { url: '/bio', label: 'Biographie' },
-      { url: '/photos', label: 'Photos' },
-      { url: '/videos', label: 'Vidéos' },
-      { url: '/agenda', label: 'Agenda' },
-      { url: '/contact', label: 'Contact' },
-    ];
+    this.state = {
+      links: [
+        { url: '/', label: 'Accueil' },
+        { url: '/bio', label: 'Bio' },
+        { url: '/photos', label: 'Photos' },
+        { url: '/media', label: 'Média' },
+        { url: '/presse', label: 'Presse' },
+        { url: '/agenda', label: 'Agenda' },
+        { url: '/contact', label: 'Contact' },
+      ],
+    };
   }
 
   render() {
     const pathname = this.props.location.pathname;
 
-    const listLinks = this.links.map((link) => {
+    const listLinks = this.state.links.map((link) => {
       const classes = classNames(
         'Nav-item',
         { active: pathname === link.url },
