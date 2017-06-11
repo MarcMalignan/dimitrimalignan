@@ -1,7 +1,7 @@
 import React from 'react';
 import moment from 'moment';
-import 'moment/locale/fr';
 
+import commons from '../../commons';
 import Page from '../../components/Page/Page';
 import ContentPanel from '../../components/ContentPanel/ContentPanel';
 import data from './Agenda.data.json';
@@ -23,7 +23,7 @@ class Agenda extends React.Component {
 
   static computeDates(events) {
     return events.map(event => Object.assign(event, {
-      formattedDate: Agenda.formatDate(event.date),
+      formattedDate: commons.formatDate(event.date),
     }));
   }
 
@@ -42,15 +42,6 @@ class Agenda extends React.Component {
     });
 
     return splitted;
-  }
-
-  static formatDate(date) {
-    const hasTime = date.includes('T');
-
-    let format = 'D MMM YYYY';
-    format += hasTime ? ' - HH[h]mm' : '';
-
-    return moment(date).format(format);
   }
 
   static listEvents(events) {
@@ -82,8 +73,6 @@ class Agenda extends React.Component {
 
   constructor(props) {
     super(props);
-
-    moment.locale('fr');
 
     this.state = {
       futureEvents: [],

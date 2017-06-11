@@ -1,15 +1,23 @@
 import React from 'react';
 
+import commons from '../../commons';
 import Page from '../../components/Page/Page';
 import ContentPanel from '../../components/ContentPanel/ContentPanel';
 import data from './Presse.data.json';
 
 class Presse extends React.Component {
+  static computeDates(articles) {
+    return articles.map(article => Object.assign(article, {
+      formattedDate: commons.formatDate(article.date),
+    }));
+  }
+
   constructor(props) {
     super(props);
-    this.state = {
-      articles: data,
-    };
+
+    const articles = Presse.computeDates(data);
+
+    this.state = { articles };
   }
 
   listArticles() {
@@ -17,7 +25,7 @@ class Presse extends React.Component {
       <div key={index} className="Presse-article">
         <div className="Presse-article-source">{article.source}</div>
         <div className="Presse-article-author">{article.author}</div>
-        <div className="Presse-article-date">{article.date}</div>
+        <div className="Presse-article-date">{article.formattedDate}</div>
         <div className="Presse-article-content">{article.content}</div>
       </div>
     ));
