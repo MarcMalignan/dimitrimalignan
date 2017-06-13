@@ -1,6 +1,22 @@
 .Photos {
-  &-photo {
-    display: block;
-    max-width: 100%;
+
+  &-gallery {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    margin: 0 -10px -10px 0;
+
+    &-item {
+      flex: auto;
+      flex-basis: 33.333%;
+      min-width: 250px;
+      padding: 0 10px 10px 0;
+      box-sizing: border-box;
+
+      img {
+        display: block;
+        width: 100%;
+      }
+    }
   }
 }

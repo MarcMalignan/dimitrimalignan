@@ -17,10 +17,12 @@ class Photos extends React.Component {
   listPhotos() {
     return this.state.photos.map((photo, index) => {
       // eslint-disable-next-line global-require, import/no-dynamic-require
-      const img = require(`../../../images/gallery/fullres/${photo.filename}`);
+      const img = require(`../../../images/gallery/thumbs/${photo.filename}`);
 
       return (
-        <img key={index} className="Photos-photo" src={img} alt="" />
+        <div key={index} className="Photos-gallery-item">
+          <img src={img} alt="" />
+        </div>
       );
     });
   }
@@ -28,7 +30,9 @@ class Photos extends React.Component {
   render() {
     return (
       <Page pageName="Photos">
-        <ContentPanel>{this.listPhotos()}</ContentPanel>
+        <ContentPanel>
+          <div className="Photos-gallery">{this.listPhotos()}</div>
+        </ContentPanel>
       </Page>
     );
   }
