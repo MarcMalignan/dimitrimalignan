@@ -16,14 +16,16 @@ class Photos extends React.Component {
 
   listPhotos() {
     return this.state.photos.map((photo, index) => {
-      // eslint-disable-next-line global-require, import/no-dynamic-require
-      const img = require(`../../../images/gallery/thumbs/${photo.filename}`);
+      /* eslint-disable global-require, import/no-dynamic-require */
+      const thumb = require(`../../../images/gallery/thumbs/${photo.filename}`);
+      const fullres = require(`../../../images/gallery/fullres/${photo.filename}`);
+      /* eslint-enable global-require, import/no-dynamic-require */
 
       return (
         <div key={index} className="Photos-gallery-item">
-          <div className="Photos-gallery-item-wrapper">
-            <img src={img} alt="" />
-          </div>
+          <a className="Photos-gallery-item-wrapper" href={fullres} target="_blank">
+            <img src={thumb} alt="" />
+          </a>
         </div>
       );
     });

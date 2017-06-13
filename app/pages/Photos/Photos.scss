@@ -30,6 +30,7 @@ $spacing: 20px;
 
       &-wrapper {
         position: relative;
+        display: block;
         cursor: pointer;
 
         &:after {
