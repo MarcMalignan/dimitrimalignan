@@ -58,4 +58,55 @@ $spacing: 20px;
       }
     }
   }
+
+  &-highres {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 3%;
+    text-align: center;
+    background: $overlay-bg;
+    z-index: 2;
+
+    &-img {
+      flex-grow: 1;
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    &-close {
+      padding-bottom: $paragraph-margin;
+      line-height: 40px;
+      font-size: 40px;
+      text-align: right;
+
+      @include sizeMobile {
+        line-height: 30px;
+        font-size: 30px;
+      }
+
+      span {
+        cursor: pointer;
+      }
+    }
+
+    &-info {
+      padding: $paragraph-margin 0;
+
+      &-fullres {
+        color: $accent-color;
+      }
+
+      &-copyright {
+        font-size: 14px;
+        font-style: italic;
+      }
+    }
+  }
 }
