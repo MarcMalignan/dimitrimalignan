@@ -21,7 +21,9 @@ class Photos extends React.Component {
 
       return (
         <div key={index} className="Photos-gallery-item">
-          <img src={img} alt="" />
+          <div className="Photos-gallery-item-wrapper">
+            <img src={img} alt="" />
+          </div>
         </div>
       );
     });

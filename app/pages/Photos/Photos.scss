@@ -1,21 +1,59 @@
+@import '../../style/variables';
+@import '../../style/media-queries';
+
+$spacing: 20px;
+
 .Photos {
 
   &-gallery {
     display: flex;
     flex-flow: row wrap;
     align-items: center;
-    margin: 0 -10px -10px 0;
+    margin: 0 (-$spacing) (-$spacing) 0;
+
+    @include sizeMobile {
+      margin-right: 0;
+    }
 
     &-item {
       flex: auto;
       flex-basis: 33.333%;
       min-width: 250px;
-      padding: 0 10px 10px 0;
+      padding: 0 $spacing $spacing 0;
       box-sizing: border-box;
 
-      img {
-        display: block;
-        width: 100%;
+      @include sizeMobile {
+        flex-basis: 100%;
+        min-width: 0;
+        padding-right: 0;
+      }
+
+      &-wrapper {
+        position: relative;
+        cursor: pointer;
+
+        &:after {
+          content: '';
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          background: $accent-color;
+          opacity: 0;
+          transition: opacity $duration-medium;
+        }
+
+        &:hover {
+          &:after {
+            opacity: .5;
+          }
+        }
+
+        img {
+          display: block;
+          width: 100%;
+        }
       }
     }
   }
