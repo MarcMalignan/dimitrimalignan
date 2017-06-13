@@ -17,7 +17,7 @@ class Photos extends React.Component {
   listPhotos() {
     return this.state.photos.map((photo, index) => {
       // eslint-disable-next-line global-require, import/no-dynamic-require
-      const img = require(`../../../images/gallery/${photo.filename}`);
+      const img = require(`../../../images/gallery/fullres/${photo.filename}`);
 
       return (
         <img key={index} className="Photos-photo" src={img} alt="" />
