@@ -43,7 +43,7 @@ class Photos extends React.Component {
 
     if (!photo) return null;
 
-    const src = `../../../images/gallery/fullres/${photo.filename}`;
+    const src = `../../../images/gallery/highres/${photo.filename}`;
     const style = {
       backgroundImage: `url(${src})`,
     };
@@ -55,11 +55,7 @@ class Photos extends React.Component {
         </div>
         <div className="Photos-highres-img" style={style} />
         <div className="Photos-highres-info">
-          <a
-            className="Photos-highres-info-fullres"
-            href={src}
-            target="_blank"
-          >Voir la version haute définition</a>
+          <a href={src} target="_blank">Voir la version haute définition</a>
           <div className="Photos-highres-info-copyright">© {photo.copyright}</div>
         </div>
       </div>
