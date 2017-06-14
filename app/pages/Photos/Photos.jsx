@@ -9,13 +9,24 @@ import './Photos.scss';
 class Photos extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = {
       photos: data,
     };
+
+    this.removeHighRes = this.removeHighRes.bind(this);
   }
 
   setHighRes(highres) {
     this.setState({ highres });
+    document.addEventListener('keyup', this.removeHighRes);
+  }
+
+  removeHighRes(e) {
+    if (e.keyCode === 27) {
+      this.setState({ highres: undefined });
+      document.removeEventListener('keyup', this.removeHighRes);
+    }
   }
 
   listPhotos() {
