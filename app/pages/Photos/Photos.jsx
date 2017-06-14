@@ -14,33 +14,30 @@ class Photos extends React.Component {
       photos: data,
     };
 
-    this.removeHighRes = this.removeHighRes.bind(this);
+    this.closeHighres = this.closeHighres.bind(this);
   }
 
-  setHighRes(highres) {
+  openHighres(highres) {
     this.setState({ highres });
-    document.addEventListener('keyup', this.removeHighRes);
+    document.addEventListener('keyup', this.closeHighres);
   }
 
-  removeHighRes(e) {
+  closeHighres(e) {
     if (e.keyCode === 27) {
       this.setState({ highres: undefined });
-      document.removeEventListener('keyup', this.removeHighRes);
+      document.removeEventListener('keyup', this.closeHighres);
     }
   }
 
   listPhotos() {
     return this.state.photos.map((photo, index) => {
-      /* eslint-disable global-require, import/no-dynamic-require */
-      const thumb = require(`../../../images/gallery/thumbs/${photo.filename}`);
-      // const fullres = require(`../../../images/gallery/fullres/${photo.filename}`);
-      /* eslint-enable global-require, import/no-dynamic-require */
+      const thumb = `../../../images/gallery/thumbs/${photo.filename}`;
 
       return (
         <div key={index} className="Photos-gallery-item">
           <div
             className="Photos-gallery-item-wrapper"
-            onClick={() => this.setHighRes(photo)}
+            onClick={() => this.openHighres(photo)}
           >
             <img src={thumb} alt="" />
           </div>
