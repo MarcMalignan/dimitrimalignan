@@ -18,13 +18,22 @@ class Media extends React.Component {
   listVideos() {
     return this.state.videos.map((video) => {
       const src = `//www.dailymotion.com/embed/video/${video.id}`;
+      const href = `//www.dailymotion.com/video/${video.id}`;
+
       return (
         <div key={video.id} className="Videos-list-item">
-          <iframe
-            title={video.title}
-            src={src}
-            allowFullScreen="true"
-          />
+          <a
+            className="Videos-list-item-link"
+            href={href}
+            target="_blank"
+          >{video.title}</a>
+          <div className="Videos-list-item-wrapper">
+            <iframe
+              title={video.title}
+              src={src}
+              allowFullScreen="true"
+            />
+          </div>
         </div>
       );
     });
