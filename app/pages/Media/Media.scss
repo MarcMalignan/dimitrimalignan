@@ -6,39 +6,14 @@ $video-width-mobile: 100%;
 
 .Media {
 
-  .Videos {
+  .Video {
 
-    &-list {
+    &-wrapper {
+      width: 75%;
+      margin: 0 auto ($paragraph-margin * 2);
 
-      &-item {
-
-        &-link {
-          display: block;
-          margin-bottom: $paragraph-margin;
-          text-align: center;
-          color: $accent-color;
-        }
-
-        &-wrapper {
-          position: relative;
-          width: $video-width;
-          padding-bottom: 9 / 16 * $video-width;
-          margin: 0 auto ($paragraph-margin * 2);
-
-          @include sizeMobile {
-            width: $video-width-mobile;
-            padding-bottom: 9 / 16 * $video-width-mobile;
-          }
-
-          iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-          }
-        }
+      @include sizeMobile {
+        width: 100%;
       }
     }
   }
