@@ -21,7 +21,6 @@ class Media extends React.Component {
       <Video
         key={video.id}
         videoId={video.id}
-        type={video.type}
         title={video.title}
       />
     ));
