@@ -4,6 +4,8 @@ import Page from '../../components/Page/Page';
 import ContentPanel from '../../components/ContentPanel/ContentPanel';
 import data from './Media.data.json';
 
+import './Media.scss';
+
 class Media extends React.Component {
 
   constructor(props) {
@@ -17,12 +19,13 @@ class Media extends React.Component {
     return this.state.videos.map((video) => {
       const src = `//www.dailymotion.com/embed/video/${video.id}`;
       return (
-        <iframe
-          key={video.id}
-          title={video.title}
-          src={src}
-          allowFullScreen="true"
-        />
+        <div key={video.id} className="Videos-list-item">
+          <iframe
+            title={video.title}
+            src={src}
+            allowFullScreen="true"
+          />
+        </div>
       );
     });
   }
@@ -30,9 +33,11 @@ class Media extends React.Component {
   render() {
     return (
       <Page pageName="Media">
-        <ContentPanel>
+        <ContentPanel className="Videos">
           <h1>Vidéos</h1>
-          {this.listVideos()}
+          <div className="Videos-list">
+            {this.listVideos()}
+          </div>
         </ContentPanel>
       </Page>
     );
