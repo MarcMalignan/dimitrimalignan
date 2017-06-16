@@ -1,12 +1,17 @@
 @import '../../style/variables';
+@import '../../style/media-queries';
 
 .Video {
 
   &-link {
-    display: block;
+    display: none;
     margin-bottom: $paragraph-margin;
     text-align: center;
     color: $accent-color;
+
+    @include sizeMobile {
+      display: block;
+    }
   }
 
   &-ratio {
