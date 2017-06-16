@@ -15,13 +15,11 @@ const Video = (props) => {
         target="_blank"
       >{props.title}</a>
       <div className="Video-wrapper">
-        <div className="Video-ratio">
-          <iframe
-            title={props.title}
-            src={src}
-            allowFullScreen="true"
-          />
-        </div>
+        <iframe
+          title={props.title}
+          src={src}
+          allowFullScreen="true"
+        />
       </div>
     </div>
   );

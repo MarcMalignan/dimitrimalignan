@@ -7,14 +7,16 @@ $video-width-mobile: 100%;
 .Media {
 
   .Video {
+    width: 75%;
+    margin: 0 auto;
+    padding-bottom: $paragraph-margin * 2;
 
-    &-wrapper {
-      width: 75%;
-      margin: 0 auto ($paragraph-margin * 2);
+    @include sizeMobile {
+      width: 100%;
+    }
 
-      @include sizeMobile {
-        width: 100%;
-      }
+    &:last-child {
+      padding-bottom: 0;
     }
   }
 }
