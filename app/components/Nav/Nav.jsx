@@ -21,10 +21,10 @@ class Nav extends React.Component {
     };
   }
 
-  render() {
+  listLinks() {
     const pathname = this.props.location.pathname;
 
-    const listLinks = this.state.links.map((link) => {
+    return this.state.links.map((link) => {
       const classes = classNames(
         'Nav-item',
         { active: pathname === link.url },
@@ -36,9 +36,11 @@ class Nav extends React.Component {
         </li>
       );
     });
+  }
 
+  render() {
     return (
-      <ul className="Nav">{listLinks}</ul>
+      <ul className="Nav">{this.listLinks()}</ul>
     );
   }
 }
