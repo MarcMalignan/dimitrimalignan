@@ -4,6 +4,7 @@ import { HashRouter } from 'react-router-dom';
 
 import Header from './components/Header/Header';
 import Router from './Router';
+import Footer from './components/Footer/Footer';
 
 import './style/main.scss';
 
@@ -14,9 +15,7 @@ ReactDOM.render((
       <div id="content">
         <Router />
       </div>
-      <div id="footer">
-        <span>Dimitri Malignan © 2017</span>
-      </div>
+      <Footer />
     </div>
   </HashRouter>
 ), document.getElementById('root'));
