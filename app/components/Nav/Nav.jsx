@@ -26,13 +26,13 @@ class Nav extends React.Component {
 
     return this.state.links.map((link) => {
       const classes = classNames(
-        'Nav-item',
+        'Nav-list-item',
         { active: pathname === link.url },
       );
 
       return (
         <li className={classes} key={link.url}>
-          <Link className="Nav-item-link" to={link.url}>{link.label}</Link>
+          <Link className="Nav-list-item-link" to={link.url}>{link.label}</Link>
         </li>
       );
     });
@@ -40,7 +40,14 @@ class Nav extends React.Component {
 
   render() {
     return (
-      <ul className="Nav">{this.listLinks()}</ul>
+      <div className="Nav">
+        <div className="Nav-burger">
+          <div />
+          <div />
+          <div />
+        </div>
+        <ul className="Nav-list">{this.listLinks()}</ul>
+      </div>
     );
   }
 }

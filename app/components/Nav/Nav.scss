@@ -2,63 +2,95 @@
 @import '../../style/variables';
 @import '../../style/media-queries';
 
+$brg: 39px;
+$brg-padding: 10px;
+$brg-nb: 3;
+
 .Nav {
-  list-style: none;
-  margin: 0;
-  padding: 0;
   text-align: center;
 
-  @include sizeMobile {
-    display: none;
-  }
-
-  &-item {
-    position: relative;
-    display: inline-block;
-    margin: 0 10px;
-
-    &:after {
-      content: '';
+  &-burger {
+    @include sizeMobile {
       position: absolute;
-      bottom: 0;
-      left: 50%;
-      right: 50%;
-      height: 1px;
-      background: $text-color;
-      transition: background-color $duration-fast, left $duration-fast, right $duration-fast;
-    }
+      top: ($logo-height-mobile - $brg) / 2;
+      right: $app-padding;
+      width: $brg;
+      height: $brg;
+      padding: $brg-padding;
+      border: 1px solid $accent-color;
+      box-sizing: border-box;
+      cursor: pointer;
 
-    a {
-      transition: color $duration-fast;
-    }
+      div {
+        display: block;
+        height: 1px;
+        margin-bottom: (($brg - ($brg-padding*2) - $brg-nb) / ($brg-nb - 1)) - 1;
+        background-color: $accent-color;
 
-    &:hover {
-      &:after {
-        left: 0;
-        right: 0;
+        &:last-child {
+          margin-bottom: 0;
+        }
       }
     }
+  }
 
-    &.active {
+  &-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    @include sizeMobile {
+      display: none;
+    }
+
+    &-item {
+      position: relative;
+      display: inline-block;
+      margin: 0 10px;
+
       &:after {
-        left: 0;
-        right: 0;
-        background-color: $accent-color;
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        right: 50%;
+        height: 1px;
+        background: $text-color;
+        transition: background-color $duration-fast, left $duration-fast, right $duration-fast;
       }
 
       a {
-        color: $accent-color;
+        transition: color $duration-fast;
       }
-    }
 
-    &-link {
-      @include fontTitle;
-      display: block;
-      padding: 10px 15px;
-      color: $text-color;
-      text-decoration: none;
-      text-transform: uppercase;
-      font-size: 20px;
+      &:hover {
+        &:after {
+          left: 0;
+          right: 0;
+        }
+      }
+
+      &.active {
+        &:after {
+          left: 0;
+          right: 0;
+          background-color: $accent-color;
+        }
+
+        a {
+          color: $accent-color;
+        }
+      }
+
+      &-link {
+        @include fontTitle;
+        display: block;
+        padding: 10px 15px;
+        color: $text-color;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-size: 20px;
+      }
     }
   }
 }
