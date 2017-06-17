@@ -10,10 +10,16 @@ class Modal extends React.Component {
   }
 
   componentDidMount() {
+    if (this.props.closeOnClick === true) {
+      document.addEventListener('click', this.close);
+    }
     document.addEventListener('keyup', this.close);
   }
 
   componentWillUnmount() {
+    if (this.props.closeOnClick === true) {
+      document.removeEventListener('click', this.close);
+    }
     document.removeEventListener('keyup', this.close);
   }
 
@@ -41,11 +47,13 @@ Modal.propTypes = {
     PropTypes.shape({}),
   ]),
   onClose: PropTypes.func,
+  closeOnClick: PropTypes.bool,
 };
 
 Modal.defaultProps = {
   children: [],
   onClose: () => {},
+  closeOnClick: false,
 };
 
 export default Modal;

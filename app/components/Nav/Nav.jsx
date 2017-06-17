@@ -52,7 +52,7 @@ class Nav extends React.Component {
     if (!this.state.modal) return null;
 
     return (
-      <Modal onClose={() => { this.closeModal(); }}>
+      <Modal closeOnClick onClose={() => { this.closeModal(); }}>
         <ul className="Nav-list mobile">{this.listLinks()}</ul>
       </Modal>
     );
