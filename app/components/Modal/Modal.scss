@@ -13,6 +13,7 @@
   padding: 3%;
   text-align: center;
   background: $overlay-bg;
+  z-index: 1;
 
   &-close {
     padding-bottom: $paragraph-margin;

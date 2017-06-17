@@ -92,5 +92,9 @@ $brg-nb: 3;
         font-size: 20px;
       }
     }
+
+    &.mobile {
+      display: block;
+    }
   }
 }

@@ -3,6 +3,8 @@ import { withRouter, Link } from 'react-router-dom';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
+import Modal from '../../components/Modal/Modal';
+
 import './Nav.scss';
 
 class Nav extends React.Component {
@@ -38,15 +40,34 @@ class Nav extends React.Component {
     });
   }
 
+  openModal() {
+    this.setState({ modal: true });
+  }
+
+  closeModal() {
+    this.setState({ modal: false });
+  }
+
+  renderModal() {
+    if (!this.state.modal) return null;
+
+    return (
+      <Modal onClose={() => { this.closeModal(); }}>
+        <ul className="Nav-list mobile">{this.listLinks()}</ul>
+      </Modal>
+    );
+  }
+
   render() {
     return (
       <div className="Nav">
-        <div className="Nav-burger">
+        <div className="Nav-burger" onClick={() => this.openModal()}>
           <div />
           <div />
           <div />
         </div>
         <ul className="Nav-list">{this.listLinks()}</ul>
+        {this.renderModal()}
       </div>
     );
   }
