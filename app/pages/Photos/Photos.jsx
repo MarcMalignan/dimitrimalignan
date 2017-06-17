@@ -23,7 +23,7 @@ class Photos extends React.Component {
   }
 
   closeHighres(e) {
-    if (e.keyCode === 27) {
+    if (e.type === 'click' || (e.type === 'keyup' && e.keyCode === 27)) {
       this.setState({ highres: undefined });
       document.removeEventListener('keyup', this.closeHighres);
     }
@@ -59,7 +59,7 @@ class Photos extends React.Component {
     return (
       <div className="Photos-highres">
         <div className="Photos-highres-close">
-          <span onClick={() => this.setHighRes()}>✕</span>
+          <span onClick={this.closeHighres}>✕</span>
         </div>
         <div className="Photos-highres-img" style={style} />
         <div className="Photos-highres-info">
