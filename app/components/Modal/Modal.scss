@@ -1,0 +1,37 @@
+@import '../../style/variables';
+@import '../../style/media-queries';
+
+.Modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 3%;
+  text-align: center;
+  background: $overlay-bg;
+
+  &-close {
+    padding-bottom: $paragraph-margin;
+    line-height: 40px;
+    font-size: 40px;
+    text-align: right;
+
+    @include sizeMobile {
+      line-height: 30px;
+      font-size: 30px;
+    }
+
+    span {
+      color: $accent-color;
+      cursor: pointer;
+    }
+  }
+
+  &-content {
+    flex-grow: 1;
+  }
+}

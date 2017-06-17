@@ -2,6 +2,7 @@ import React from 'react';
 
 import Page from '../../components/Page/Page';
 import ContentPanel from '../../components/ContentPanel/ContentPanel';
+import Modal from '../../components/Modal/Modal';
 import data from './Photos.data.json';
 
 import './Photos.scss';
@@ -12,21 +13,8 @@ class Photos extends React.Component {
 
     this.state = {
       photos: data,
+      modal: false,
     };
-
-    this.closeHighres = this.closeHighres.bind(this);
-  }
-
-  openHighres(highres) {
-    this.setState({ highres });
-    document.addEventListener('keyup', this.closeHighres);
-  }
-
-  closeHighres(e) {
-    if (e.type === 'click' || (e.type === 'keyup' && e.keyCode === 27)) {
-      this.setState({ highres: undefined });
-      document.removeEventListener('keyup', this.closeHighres);
-    }
   }
 
   listPhotos() {
@@ -37,7 +25,7 @@ class Photos extends React.Component {
         <div key={index} className="Photos-gallery-item">
           <div
             className="Photos-gallery-item-wrapper"
-            onClick={() => this.openHighres(photo)}
+            onClick={() => this.openModal(photo)}
           >
             <img src={thumb} alt="" />
           </div>
@@ -46,7 +34,15 @@ class Photos extends React.Component {
     });
   }
 
-  renderHighRes() {
+  openModal(highres) {
+    this.setState({ highres });
+  }
+
+  closeModal() {
+    this.setState({ highres: undefined });
+  }
+
+  renderModal() {
     const photo = this.state.highres;
 
     if (!photo) return null;
@@ -57,16 +53,13 @@ class Photos extends React.Component {
     };
 
     return (
-      <div className="Photos-highres">
-        <div className="Photos-highres-close">
-          <span onClick={this.closeHighres}>✕</span>
-        </div>
+      <Modal onClose={() => { this.closeModal(); }}>
         <div className="Photos-highres-img" style={style} />
         <div className="Photos-highres-info">
           <a href={src} target="_blank">Voir la version haute définition</a>
           <div className="Photos-highres-info-copyright">© {photo.copyright}</div>
         </div>
-      </div>
+      </Modal>
     );
   }
 
@@ -76,7 +69,7 @@ class Photos extends React.Component {
         <ContentPanel>
           <div className="Photos-gallery">{this.listPhotos()}</div>
         </ContentPanel>
-        { this.renderHighRes() }
+        {this.renderModal()}
       </Page>
     );
   }
