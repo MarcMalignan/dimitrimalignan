@@ -5,6 +5,10 @@ import PropTypes from 'prop-types';
 import './Page.scss';
 
 class Page extends React.Component {
+  static scrollTop() {
+    document.getElementById('content').scrollTop = 0;
+  }
+
   constructor(props) {
     super(props);
 
@@ -17,6 +21,8 @@ class Page extends React.Component {
   }
 
   componentDidMount() {
+    Page.scrollTop();
+
     const pageTitle = this.props.pageTitle || this.props.pageName;
     document.title = `Dimitri Malignan - ${pageTitle}`;
   }
