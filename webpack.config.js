@@ -55,7 +55,7 @@ module.exports = (env) => {
         title,
         background: themeColor,
         logo: './images/favicon.png',
-        prefix: 'images/favicons/[hash].',
+        prefix: 'images/favicons-[hash]/',
         inject: true,
         icons: {
           android: true,
