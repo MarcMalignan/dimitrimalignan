@@ -2,9 +2,13 @@ const webpack = require('webpack');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const path = require('path');
 
 module.exports = (env) => {
+  const title = 'Dimitri Malignan';
+  const themeColor = '#223f6b';
+
   const config = {
     entry: './app/main.jsx',
     output: {
@@ -46,6 +50,27 @@ module.exports = (env) => {
       new ExtractTextPlugin({
         filename: '[hash].bundle.css',
         allChunks: true,
+      }),
+      new FaviconsWebpackPlugin({
+        title,
+        background: themeColor,
+        logo: './images/favicon.png',
+        prefix: 'images/favicons/[hash].',
+        inject: true,
+        icons: {
+          android: true,
+          appleIcon: true,
+          appleStartup: false,
+          coast: false,
+          favicons: true,
+          firefox: false,
+          opengraph: false,
+          twitter: false,
+          yandex: false,
+          windows: false,
+        },
+        emitStats: false,
+        persistentCache: false,
       }),
       new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
     ],
