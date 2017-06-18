@@ -3,6 +3,9 @@
   "env": {
     "browser": true
   },
+  "globals": {
+    "ga": true
+  },
   "rules": {
     "jsx-a11y/no-static-element-interactions": 0,
     "linebreak-style": 0,
