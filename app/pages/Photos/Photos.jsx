@@ -1,3 +1,4 @@
+/* eslint-disable global-require, import/no-dynamic-require */
 import React from 'react';
 
 import Page from '../../components/Page/Page';
@@ -19,7 +20,7 @@ class Photos extends React.Component {
 
   listPhotos() {
     return this.state.photos.map((photo, index) => {
-      const thumb = `../../../images/gallery/thumbs/${photo.filename}`;
+      const thumb = require(`../../../images/gallery/thumbs/${photo.filename}`);
 
       return (
         <div key={index} className="Photos-gallery-item">
@@ -47,16 +48,18 @@ class Photos extends React.Component {
 
     if (!photo) return null;
 
-    const src = `../../../images/gallery/highres/${photo.filename}`;
+    const srcHighres = require(`../../../images/gallery/highres/${photo.filename}`);
+    const srcFullres = require(`../../../images/gallery/fullres/${photo.filename}`);
+
     const style = {
-      backgroundImage: `url(${src})`,
+      backgroundImage: `url(${srcHighres})`,
     };
 
     return (
       <Modal onClose={() => { this.closeModal(); }}>
         <div className="Photos-highres-img" style={style} />
         <div className="Photos-highres-info">
-          <a href={src} target="_blank">Voir la version haute définition</a>
+          <a href={srcFullres} target="_blank">Voir la version haute définition</a>
           <div className="Photos-highres-info-copyright">© {photo.copyright}</div>
         </div>
       </Modal>
