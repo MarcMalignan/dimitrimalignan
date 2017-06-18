@@ -27,7 +27,7 @@ module.exports = (env) => {
           ]),
         },
         {
-          test: /\.jpg$/,
+          test: /\.(jpe?g|svg)$/,
           loader: 'file-loader',
           options: {
             name: '[path][name].[hash].[ext]',

@@ -6,6 +6,9 @@ import data from './Contact.data.json';
 
 import './Contact.scss';
 
+import iconFacebook from '../../../images/icons/facebook.svg';
+import iconGmail from '../../../images/icons/gmail.svg';
+
 class Contact extends React.Component {
   constructor(props) {
     super(props);
@@ -24,12 +27,12 @@ class Contact extends React.Component {
           <div className="Contact-main">
             <div className="Contact-main-link">
               <a href={this.state.contact.facebook} target="_blank">
-                <img src="../../../images/icons/facebook.svg" alt="Facebook" />
+                <img src={iconFacebook} alt="Facebook" />
               </a>
             </div>
             <div className="Contact-main-link">
               <a href={email} target="_blank">
-                <img src="../../../images/icons/gmail.svg" alt="Facebook" />
+                <img src={iconGmail} alt="Facebook" />
               </a>
             </div>
           </div>
