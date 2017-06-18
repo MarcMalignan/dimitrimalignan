@@ -38,7 +38,13 @@ class Contact extends React.Component {
           </div>
         </ContentPanel>
         <ContentPanel>
-          <a href={emailManager} target="_blank">Manager</a>
+          <div className="Contact-info">
+            <p>
+              <span>Ce site est développé et maintenu par </span>
+              <a href={emailManager} target="_blank">Marc Malignan</a>
+              <span>.</span>
+            </p>
+          </div>
         </ContentPanel>
       </Page>
     );
