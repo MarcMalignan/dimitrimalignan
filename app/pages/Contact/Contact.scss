@@ -1,0 +1,21 @@
+.Contact {
+
+  &-main {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    &-link {
+      width: 25%;
+
+      a {
+        display: block;
+
+        img {
+          display: block;
+          width: 100%;
+        }
+      }
+    }
+  }
+}
