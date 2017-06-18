@@ -11,11 +11,12 @@
 
     &-link {
       flex-basis: 25%;
-      padding: $paragraph-margin;
+      padding: $paragraph-margin * 1.5;
       box-sizing: border-box;
 
       @include sizeMobile {
-        flex-basis: 75%;
+        flex-basis: 51%;
+        padding: $paragraph-margin;
       }
 
       a {
