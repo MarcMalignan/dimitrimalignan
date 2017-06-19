@@ -26,11 +26,18 @@ class Page extends React.Component {
   }
 
   componentDidMount() {
+    this.setTitle();
     Page.sendAnalytics();
     Page.scrollTop();
+  }
 
+  setTitle() {
     const pageTitle = this.props.pageTitle || this.props.pageName;
-    document.title = `Dimitri Malignan - ${pageTitle}`;
+
+    let title = 'Dimitri Malignan';
+    title += pageTitle === 'Home' ? '' : ` - ${pageTitle}`;
+
+    document.title = title;
   }
 
   render() {
