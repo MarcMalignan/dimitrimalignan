@@ -33,21 +33,43 @@ class Agenda extends React.Component {
   }
 
   static listEvents(events) {
-    return events.map((event, index) => (
-      <li key={index} className="Agenda-list-item">
-        <div className="Agenda-list-item-type">{event.type}</div>
-        <div className="Agenda-list-item-info">
-          <div className="Agenda-list-item-title">
-            {event.link ?
-              <a href={event.link} target="_blank">{event.title}</a> :
-              event.title || event.type
-            }
+    return events.map((event, index) => {
+      const title = event.title || event.type;
+
+      return (
+        <li
+          key={index}
+          className="Agenda-list-item"
+          itemScope
+          itemType="http://schema.org/MusicEvent"
+        >
+          <div className="Agenda-list-item-type">{event.type}</div>
+          <div className="Agenda-list-item-info">
+            <div
+              className="Agenda-list-item-title"
+              itemProp="name"
+            >
+              {event.link ?
+                <a href={event.link} itemProp="url" target="_blank">{title}</a> : title
+              }
+            </div>
+            <div
+              className="Agenda-list-item-location"
+              itemProp="location"
+              itemScope
+              itemType="http://schema.org/MusicVenue"
+            >
+              <meta itemProp="name" content={event.location} />
+              <meta itemProp="address" content={event.location} />
+              <span>{event.location}</span>
+            </div>
           </div>
-          <div className="Agenda-list-item-location">{event.location}</div>
-        </div>
-        <div className="Agenda-list-item-date">{event.formattedDate}</div>
-      </li>
-    ));
+          <div className="Agenda-list-item-date">{event.formattedDate}</div>
+          <meta itemProp="startDate" content={event.date} />
+          <meta itemProp="performer" content="Dimitri Malignan" />
+        </li>
+      );
+    });
   }
 
   static renderEvents(events, title) {
