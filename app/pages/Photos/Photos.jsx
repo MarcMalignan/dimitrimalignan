@@ -20,16 +20,26 @@ class Photos extends React.Component {
 
   listPhotos() {
     return this.state.photos.map((photo, index) => {
-      const thumb = require(`../../../images/gallery/thumbs/${photo.filename}`);
+      const srcThumb = require(`../../../images/gallery/thumbs/${photo.filename}`);
+      const srcFullres = require(`../../../images/gallery/fullres/${photo.filename}`);
 
       return (
-        <div key={index} className="Photos-gallery-item">
+        <div
+          key={index}
+          className="Photos-gallery-item"
+          itemProp="associatedMedia"
+          itemScope
+          itemType="http://schema.org/ImageObject"
+        >
           <div
             className="Photos-gallery-item-wrapper"
             onClick={() => this.openModal(photo)}
           >
-            <img src={thumb} alt="" />
+            <img src={srcThumb} alt="" />
           </div>
+          <meta itemProp="author" content={photo.copyright} />
+          <meta itemProp="thumbnail" content={`http://www.dimitrimalignan.com/${srcThumb}`} />
+          <meta itemProp="contentUrl" content={`http://www.dimitrimalignan.com/${srcFullres}`} />
         </div>
       );
     });
@@ -70,7 +80,11 @@ class Photos extends React.Component {
     return (
       <Page pageName="Photos">
         <ContentPanel>
-          <div className="Photos-gallery">{this.listPhotos()}</div>
+          <div
+            className="Photos-gallery"
+            itemScope
+            itemType="http://schema.org/ImageGallery"
+          >{this.listPhotos()}</div>
         </ContentPanel>
         {this.renderModal()}
       </Page>
