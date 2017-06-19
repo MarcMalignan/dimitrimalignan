@@ -80,6 +80,9 @@ module.exports = (env) => {
     config.devtool = 'source-map';
   } else {
     config.devtool = 'eval';
+    config.devServer = {
+      historyApiFallback: true,
+    };
   }
 
   return config;
