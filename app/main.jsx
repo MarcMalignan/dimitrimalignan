@@ -12,9 +12,9 @@ ReactDOM.render((
   <BrowserRouter>
     <div id="app">
       <Header />
-      <div id="content">
+      <main id="content">
         <Router />
-      </div>
+      </main>
       <Footer />
     </div>
   </BrowserRouter>

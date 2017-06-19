@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import './ContentPanel.scss';
 
 const ContentPanel = props => (
-  <div className="ContentPanel">{props.children}</div>
+  <section className="ContentPanel">{props.children}</section>
 );
 
 ContentPanel.propTypes = {

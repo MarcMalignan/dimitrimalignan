@@ -60,7 +60,7 @@ class Nav extends React.Component {
 
   render() {
     return (
-      <div className="Nav">
+      <nav className="Nav">
         <div className="Nav-burger" onClick={() => this.openModal()}>
           <div />
           <div />
@@ -68,7 +68,7 @@ class Nav extends React.Component {
         </div>
         <ul className="Nav-list">{this.listLinks()}</ul>
         {this.renderModal()}
-      </div>
+      </nav>
     );
   }
 }
