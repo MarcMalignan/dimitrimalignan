@@ -10,11 +10,6 @@ import Photos from './pages/Photos/Photos';
 import Presse from './pages/Presse/Presse';
 
 class Router extends React.Component {
-  static onRouteChange() {
-    ga('set', 'page', location.hash.substr(1));
-    ga('send', 'pageview');
-  }
-
   constructor(props) {
     super(props);
     this.routes = [
@@ -26,11 +21,6 @@ class Router extends React.Component {
       { path: '/presse', component: Presse },
       { path: '*', component: Home },
     ];
-  }
-
-  componentDidMount() {
-    Router.onRouteChange();
-    window.onpopstate = Router.onRouteChange;
   }
 
   render() {

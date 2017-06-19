@@ -9,6 +9,11 @@ class Page extends React.Component {
     document.getElementById('content').scrollTop = 0;
   }
 
+  static sendAnalytics() {
+    ga('set', 'page', location.pathname);
+    ga('send', 'pageview');
+  }
+
   constructor(props) {
     super(props);
 
@@ -21,6 +26,7 @@ class Page extends React.Component {
   }
 
   componentDidMount() {
+    Page.sendAnalytics();
     Page.scrollTop();
 
     const pageTitle = this.props.pageTitle || this.props.pageName;
