@@ -45,7 +45,9 @@
     "webpack-dev-server": "^2.4.5"
   },
   "scripts": {
-    "build": "webpack -p --env production",
+    "build": "run-s build:*",
+    "build:webpack": "webpack -p --env production",
+    "build:htaccess": "cp .htaccess dist/",
     "lint": "run-s lint:*",
     "lint:js": "eslint . --ext .js,.jsx --ignore-path .gitignore",
     "lint:sass": "sass-lint -v -q",
