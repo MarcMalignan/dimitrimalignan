@@ -34,16 +34,30 @@ class Presse extends React.Component {
 
   listArticles() {
     return this.state.articles.map((article, index) => (
-      <div key={index} className="Presse-article">
+      <div
+        key={index}
+        className="Presse-article"
+        itemScope
+        itemType="http://schema.org/Article"
+      >
         <div className="Presse-article-header">
-          <span className="Presse-article-source">{article.source}</span>
+          <span
+            className="Presse-article-source"
+            itemProp="publisher"
+            itemScope
+            itemType="http://schema.org/Organization"
+          >
+            <span itemProp="name">{article.source}</span>
+          </span>
           <span className="Presse-article-header-separator"> - </span>
-          <span className="Presse-article-author">{article.author}</span>
+          <span className="Presse-article-author" itemProp="author">{article.author}</span>
           <span className="Presse-article-date">{article.formattedDate}</span>
         </div>
-        <blockquote className="Presse-article-content">
+        <blockquote className="Presse-article-content" itemProp="text">
           {Presse.listParagraphs(article.content)}
         </blockquote>
+        <meta itemProp="datePublished" content={article.date} />
+        <meta itemProp="headline" content={article.source} />
       </div>
     ));
   }
