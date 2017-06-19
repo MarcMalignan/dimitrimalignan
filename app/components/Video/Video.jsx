@@ -8,7 +8,12 @@ const Video = (props) => {
   const href = `//www.dailymotion.com/video/${props.videoId}`;
 
   return (
-    <div className="Video">
+    <div
+      className="Video"
+      itemProp="associatedMedia"
+      itemScope
+      itemType="http://schema.org/VideoObject"
+    >
       <a
         className="Video-link"
         href={href}
@@ -19,8 +24,12 @@ const Video = (props) => {
           title={props.title}
           src={src}
           allowFullScreen="true"
+          itemProp="embedUrl"
         />
       </div>
+      <meta itemProp="name" content={props.title} />
+      <meta itemProp="description" content={props.title} />
+      <meta itemProp="uploadDate" content={props.date} />
     </div>
   );
 };
@@ -28,11 +37,13 @@ const Video = (props) => {
 Video.propTypes = {
   videoId: PropTypes.string,
   title: PropTypes.string,
+  date: PropTypes.string,
 };
 
 Video.defaultProps = {
   videoId: '',
   title: '',
+  date: '',
 };
 
 export default Video;

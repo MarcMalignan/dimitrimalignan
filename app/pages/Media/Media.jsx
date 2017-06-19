@@ -22,6 +22,7 @@ class Media extends React.Component {
         key={video.id}
         videoId={video.id}
         title={video.title}
+        date={video.date}
       />
     ));
   }
@@ -31,7 +32,11 @@ class Media extends React.Component {
       <Page pageName="Media">
         <ContentPanel>
           <h1>Vidéos</h1>
-          {this.listVideos()}
+          <div
+            className="Media-videos"
+            itemScope
+            itemType="http://schema.org/VideoGallery"
+          >{this.listVideos()}</div>
         </ContentPanel>
       </Page>
     );
