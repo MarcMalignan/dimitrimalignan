@@ -33,17 +33,8 @@ module.exports = (env) => {
         {
           test: /\.(jpe?g|svg)$/,
           loader: 'file-loader',
-          include: path.join(__dirname, 'images/gallery'),
           options: {
             name: '[path][name].[ext]',
-          },
-        },
-        {
-          test: /\.(jpe?g|svg)$/,
-          loader: 'file-loader',
-          exclude: path.join(__dirname, 'images/gallery'),
-          options: {
-            name: '[path][name].[hash].[ext]',
           },
         },
       ],
