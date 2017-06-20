@@ -2,6 +2,8 @@ import React from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
+import Meta from '../../utils/Meta';
+
 import './Page.scss';
 
 class Page extends React.Component {
@@ -29,6 +31,7 @@ class Page extends React.Component {
     this.setTitle();
     Page.sendAnalytics();
     Page.scrollTop();
+    Meta.updateFacebookMeta();
   }
 
   setTitle() {
