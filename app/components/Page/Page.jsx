@@ -32,6 +32,7 @@ class Page extends React.Component {
     Page.sendAnalytics();
     Page.scrollTop();
     Meta.updateFacebookMeta();
+    Meta.updateTwitterMeta();
   }
 
   setTitle() {
