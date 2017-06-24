@@ -27,6 +27,7 @@ class Page extends React.Component {
 
   componentDidMount() {
     this.setTitle();
+    this.setDescription();
     Page.sendAnalytics();
     Page.scrollTop();
   }
@@ -38,6 +39,23 @@ class Page extends React.Component {
     title += pageTitle === 'Home' ? '' : ` - ${pageTitle}`;
 
     document.title = title;
+  }
+
+  setDescription() {
+    let desc;
+
+    // TODO : add descriptions for all pages
+    switch (this.props.pageName) {
+      case 'Bio': desc = ''; break;
+      case 'Photos': desc = ''; break;
+      case 'Media': desc = ''; break;
+      case 'Presse': desc = ''; break;
+      case 'Agenda': desc = ''; break;
+      case 'Contact': desc = ''; break;
+      default: desc = 'Dimitri Malignan Pianiste français né en 1998, Prix Cortot de l\'Ecole Normale de Musique de Paris à 19 ans, lauréat de nombreux concours internationaux de piano'; break;
+    }
+
+    document.getElementById('metaDesc').content = desc;
   }
 
   render() {
