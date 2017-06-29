@@ -52,7 +52,7 @@ class Page extends React.Component {
       case 'Presse': desc = ''; break;
       case 'Agenda': desc = ''; break;
       case 'Contact': desc = ''; break;
-      default: desc = 'Dimitri Malignan Pianiste français né en 1998, Prix Cortot de l\'Ecole Normale de Musique de Paris à 19 ans, lauréat de nombreux concours internationaux de piano'; break;
+      default: desc = 'Site officiel de Dimitri Malignan, Pianiste français né en 1998, Prix Cortot de l\'Ecole Normale de Musique de Paris, lauréat de nombreux concours internationaux'; break;
     }
 
     document.getElementById('metaDesc').content = desc;
