@@ -1,9 +1,9 @@
 import React from 'react';
 
+import commons from '../../commons';
 import Page from '../../components/Page/Page';
 import ContentPanel from '../../components/ContentPanel/ContentPanel';
 import Video from '../../components/Video/Video';
-import data from './Media.data.json';
 
 import './Media.scss';
 
@@ -11,12 +11,17 @@ class Media extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {
-      videos: data.videos,
-    };
+    this.state = {};
+  }
+
+  componentDidMount() {
+    commons.getData('media', (media) => {
+      this.setState({ videos: media.videos });
+    });
   }
 
   listVideos() {
+    if (!this.state.videos) return null;
     return this.state.videos.map(video => (
       <Video
         key={video.id}
