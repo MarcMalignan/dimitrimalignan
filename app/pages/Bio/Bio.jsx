@@ -18,7 +18,7 @@ class Bio extends React.Component {
   }
 
   listParagraphs() {
-    if (!this.state.bio) return undefined;
+    if (!this.state.bio) return null;
     return this.state.bio.map((p, index) => {
       const innerHtml = { __html: p };
       return (
