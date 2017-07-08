@@ -3,6 +3,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const path = require('path');
 
 module.exports = (env) => {
@@ -71,6 +72,9 @@ module.exports = (env) => {
         },
         emitStats: false,
         persistentCache: false,
+      }),
+      new BundleAnalyzerPlugin({
+        openAnalyzer: false,
       }),
       new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
     ],
