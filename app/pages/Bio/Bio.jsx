@@ -1,7 +1,6 @@
 import React from 'react';
 
 import commons from '../../commons';
-
 import Page from '../../components/Page/Page';
 import ContentPanel from '../../components/ContentPanel/ContentPanel';
 
