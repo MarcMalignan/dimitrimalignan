@@ -1,20 +1,6 @@
 [
   {
     "type": "Récital",
-    "title": "Concerts de Midi & Demi",
-    "date": "2017-12-21T12:30:00+02:00",
-    "location": "Salle Cortot, Paris",
-    "link": "http://www.sallecortot.com/"
-  },
-  {
-    "type": "Concert",
-    "title": "Concert privé",
-    "date": "2017-10-03",
-    "location": "Salle Cortot, Paris",
-    "link": "http://www.sallecortot.com/"
-  },
-  {
-    "type": "Récital",
     "title": "Les Nuits du Piano-Paris",
     "date": "2017-06-22T20:00:00+02:00",
     "location": "Auditorium AXA-Tour Majunga, La Défense (Puteaux)",
@@ -56,6 +42,13 @@
     "link": "https://www.societateamuzicala.ro/st-martin-fields"
   },
   {
+    "type": "Concert",
+    "title": "Concert privé",
+    "date": "2017-10-03",
+    "location": "Salle Cortot, Paris",
+    "link": "http://www.sallecortot.com/"
+  },
+  {
     "type": "Récital",
     "title": "APG World Connect",
     "date": "2017-11-02",
@@ -67,6 +60,13 @@
     "title": "Récital privé",
     "date": "2017-11-22",
     "location": "Automobile Club de France, Paris"
+  },
+  {
+    "type": "Récital",
+    "title": "Concerts de Midi & Demi",
+    "date": "2017-12-21T12:30:00+02:00",
+    "location": "Salle Cortot, Paris",
+    "link": "http://www.sallecortot.com/"
   },
   {
     "type": "Concert",
