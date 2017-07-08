@@ -3,7 +3,6 @@ import React from 'react';
 import commons from '../../commons';
 import Page from '../../components/Page/Page';
 import ContentPanel from '../../components/ContentPanel/ContentPanel';
-import data from './Presse.data.json';
 
 import './Presse.scss';
 
@@ -25,14 +24,20 @@ class Presse extends React.Component {
 
   constructor(props) {
     super(props);
+    this.state = {};
+  }
 
-    const articles = Presse.computeDates(data);
-    articles.sort(commons.sortByDate).reverse();
+  componentDidMount() {
+    commons.getData('presse', (presse) => {
+      const articles = Presse.computeDates(presse);
+      articles.sort(commons.sortByDate).reverse();
 
-    this.state = { articles };
+      this.setState({ articles });
+    });
   }
 
   listArticles() {
+    if (!this.state.articles) return null;
     return this.state.articles.map((article, index) => (
       <div
         key={index}
