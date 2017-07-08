@@ -73,9 +73,6 @@ module.exports = (env) => {
         emitStats: false,
         persistentCache: false,
       }),
-      new BundleAnalyzerPlugin({
-        openAnalyzer: false,
-      }),
       new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
     ],
   };
@@ -87,6 +84,9 @@ module.exports = (env) => {
     config.devServer = {
       historyApiFallback: true,
     };
+    config.plugins.push(new BundleAnalyzerPlugin({
+      openAnalyzer: false,
+    }));
   }
 
   return config;
