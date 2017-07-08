@@ -1,10 +1,10 @@
 /* eslint-disable global-require, import/no-dynamic-require */
 import React from 'react';
 
+import commons from '../../commons';
 import Page from '../../components/Page/Page';
 import ContentPanel from '../../components/ContentPanel/ContentPanel';
 import Modal from '../../components/Modal/Modal';
-import data from './Photos.data.json';
 
 import './Photos.scss';
 
@@ -13,12 +13,18 @@ class Photos extends React.Component {
     super(props);
 
     this.state = {
-      photos: data,
       modal: false,
     };
   }
 
+  componentDidMount() {
+    commons.getData('photos', (photos) => {
+      this.setState({ photos });
+    });
+  }
+
   listPhotos() {
+    if (!this.state.photos) return null;
     return this.state.photos.map((photo, index) => {
       const srcThumb = require(`../../../images/gallery/thumbs/${photo.filename}`);
       const srcFullres = require(`../../../images/gallery/fullres/${photo.filename}`);
