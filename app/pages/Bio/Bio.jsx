@@ -1,18 +1,24 @@
 import React from 'react';
 
+import commons from '../../commons';
+
 import Page from '../../components/Page/Page';
 import ContentPanel from '../../components/ContentPanel/ContentPanel';
-import data from './Bio.data.json';
 
 class Bio extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      bio: data,
-    };
+    this.state = {};
+  }
+
+  componentDidMount() {
+    commons.getData('bio', (bio) => {
+      this.setState({ bio });
+    });
   }
 
   listParagraphs() {
+    if (!this.state.bio) return undefined;
     return this.state.bio.map((p, index) => {
       const innerHtml = { __html: p };
       return (

@@ -1,3 +1,4 @@
+import axios from 'axios';
 import moment from 'moment';
 import 'moment/locale/fr';
 
@@ -18,5 +19,11 @@ export default {
 
     moment.locale('fr');
     return moment(date).format(format);
+  },
+
+  getData(type, callback) {
+    axios.get(`https://raw.githubusercontent.com/MarcMalignan/dimitrimalignan-data/master/data/${type}.json`)
+    .then(file => file.data)
+    .then(callback);
   },
 };
