@@ -1,8 +1,8 @@
 import React from 'react';
 
+import commons from '../../commons';
 import Page from '../../components/Page/Page';
 import ContentPanel from '../../components/ContentPanel/ContentPanel';
-import data from './Contact.data.json';
 
 import './Contact.scss';
 
@@ -12,12 +12,18 @@ import iconGmail from '../../../images/icons/gmail.svg';
 class Contact extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      contact: data,
-    };
+    this.state = {};
+  }
+
+  componentDidMount() {
+    commons.getData('contact', (contact) => {
+      this.setState({ contact });
+    });
   }
 
   render() {
+    if (!this.state.contact) return null;
+
     const email = `mailto:${this.state.contact.email}`;
     const emailManager = `mailto:${this.state.contact.emailManager}`;
 

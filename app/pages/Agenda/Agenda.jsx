@@ -4,7 +4,6 @@ import moment from 'moment';
 import commons from '../../commons';
 import Page from '../../components/Page/Page';
 import ContentPanel from '../../components/ContentPanel/ContentPanel';
-import data from './Agenda.data.json';
 
 import './Agenda.scss';
 
@@ -73,7 +72,7 @@ class Agenda extends React.Component {
   }
 
   static renderEvents(events, title) {
-    return events.length ? (
+    return events && events.length ? (
       <ContentPanel>
         <h1>{title}</h1>
         <ul className="Agenda-list">{Agenda.listEvents(events)}</ul>
@@ -83,19 +82,22 @@ class Agenda extends React.Component {
 
   constructor(props) {
     super(props);
+    this.state = {};
+  }
 
-    this.state = {
-      futureEvents: [],
-      oldEvents: [],
-    };
+  componentDidMount() {
+    commons.getData('agenda', (agenda) => {
+      const events = Agenda.computeDates(agenda);
+      const splitted = Agenda.splitEvents(events);
 
-    const events = Agenda.computeDates(data);
-    const splitted = Agenda.splitEvents(events);
+      splitted.futureEvents.sort(commons.sortByDate);
+      splitted.oldEvents.sort(commons.sortByDate).reverse();
 
-    splitted.futureEvents.sort(commons.sortByDate);
-    splitted.oldEvents.sort(commons.sortByDate).reverse();
-
-    this.state = splitted;
+      this.setState({
+        futureEvents: splitted.futureEvents,
+        oldEvents: splitted.oldEvents,
+      });
+    });
   }
 
   render() {
