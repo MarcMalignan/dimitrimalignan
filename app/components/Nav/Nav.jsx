@@ -54,8 +54,11 @@ class Nav extends React.Component {
   renderLang() {
     const pathname = this.props.location.pathname;
 
-    const linkFr = pathname;
-    const linkEn = `${pathname}?lang=en`;
+    const linkFr = { pathname };
+    const linkEn = {
+      pathname,
+      search: '?lang=en',
+    };
 
     return (
       <div className="Nav-lang">

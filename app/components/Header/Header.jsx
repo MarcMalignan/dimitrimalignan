@@ -8,12 +8,15 @@ import './Header.scss';
 
 const Header = (props) => {
   const search = props.location.search;
-  const href = `/${search}`;
+  const link = {
+    pathname: '/',
+    search,
+  };
 
   return (
     <header className="Header">
       <div className="Header-logo">
-        <Link to={href}>Dimitri Malignan</Link>
+        <Link to={link}>Dimitri Malignan</Link>
       </div>
       <Nav />
     </header>
