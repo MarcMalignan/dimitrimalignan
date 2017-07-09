@@ -1,6 +1,5 @@
 import React from 'react';
-import { withRouter, Link } from 'react-router-dom';
-import classNames from 'classnames';
+import { withRouter, Link, NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import Modal from '../../components/Modal/Modal';
@@ -24,20 +23,22 @@ class Nav extends React.Component {
   }
 
   listLinks() {
-    const pathname = this.props.location.pathname;
     const search = this.props.location.search;
 
     return this.state.links.map((link) => {
-      const classes = classNames(
-        'Nav-list-item',
-        { active: pathname === link.url },
-      );
-
-      const href = link.url + search;
+      const href = {
+        pathname: link.url,
+        search,
+      };
 
       return (
-        <li className={classes} key={link.url}>
-          <Link className="Nav-list-item-link" to={href}>{link.label}</Link>
+        <li className="Nav-list-item" key={link.url}>
+          <NavLink
+            className="Nav-list-item-link"
+            activeClassName="active"
+            exact="true"
+            to={href}
+          >{link.label}</NavLink>
         </li>
       );
     });
