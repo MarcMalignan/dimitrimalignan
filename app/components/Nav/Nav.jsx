@@ -36,7 +36,7 @@ class Nav extends React.Component {
           <NavLink
             className="Nav-list-item-link"
             activeClassName="active"
-            exact="true"
+            exact
             to={href}
           >{link.label}</NavLink>
         </li>
