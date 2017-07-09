@@ -59,8 +59,12 @@ class Nav extends React.Component {
 
     return (
       <div className="Nav-lang">
-        <Link to={linkFr}>FR</Link>
-        <Link to={linkEn}>EN</Link>
+        <Link className="Nav-lang-flag" to={linkFr}>
+          <img src="images/flag_fr.svg" alt="Français" />
+        </Link>
+        <Link className="Nav-lang-flag" to={linkEn}>
+          <img src="images/flag_en.svg" alt="English" />
+        </Link>
       </div>
     );
   }
