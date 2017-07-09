@@ -114,5 +114,19 @@ $brg-nb: 3;
     position: absolute;
     top: 20px;
     right: 0;
+
+    @include sizeMobile {
+      display: none;
+    }
+  }
+
+  .Modal {
+    .Nav-lang {
+      @include sizeMobile {
+        display: block;
+        right: auto;
+        left: 20px;
+      }
+    }
   }
 }
