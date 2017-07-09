@@ -25,6 +25,7 @@ class Nav extends React.Component {
 
   listLinks() {
     const pathname = this.props.location.pathname;
+    const search = this.props.location.search;
 
     return this.state.links.map((link) => {
       const classes = classNames(
@@ -32,9 +33,11 @@ class Nav extends React.Component {
         { active: pathname === link.url },
       );
 
+      const href = link.url + search;
+
       return (
         <li className={classes} key={link.url}>
-          <Link className="Nav-list-item-link" to={link.url}>{link.label}</Link>
+          <Link className="Nav-list-item-link" to={href}>{link.label}</Link>
         </li>
       );
     });
@@ -48,12 +51,27 @@ class Nav extends React.Component {
     this.setState({ modal: false });
   }
 
+  renderLang() {
+    const pathname = this.props.location.pathname;
+
+    const linkFr = pathname;
+    const linkEn = `${pathname}?lang=en`;
+
+    return (
+      <div className="Nav-lang">
+        <Link to={linkFr}>FR</Link>
+        <Link to={linkEn}>EN</Link>
+      </div>
+    );
+  }
+
   renderModal() {
     if (!this.state.modal) return null;
 
     return (
       <Modal closeOnClick onClose={() => { this.closeModal(); }}>
         <ul className="Nav-list mobile">{this.listLinks()}</ul>
+        {this.renderLang()}
       </Modal>
     );
   }
@@ -67,6 +85,7 @@ class Nav extends React.Component {
           <div />
         </div>
         <ul className="Nav-list">{this.listLinks()}</ul>
+        {this.renderLang()}
         {this.renderModal()}
       </nav>
     );
@@ -76,12 +95,14 @@ class Nav extends React.Component {
 Nav.propTypes = {
   location: PropTypes.shape({
     pathname: PropTypes.string,
+    search: PropTypes.string,
   }),
 };
 
 Nav.defaultProps = {
   location: {
     pathname: '/',
+    search: '',
   },
 };
 
