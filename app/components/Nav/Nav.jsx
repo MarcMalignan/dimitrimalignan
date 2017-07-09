@@ -2,6 +2,7 @@ import React from 'react';
 import { withRouter, Link, NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
+import commons from '../../commons';
 import Modal from '../../components/Modal/Modal';
 
 import './Nav.scss';
@@ -11,13 +12,13 @@ class Nav extends React.Component {
     super(props);
     this.state = {
       links: [
-        { url: '/', label: 'Accueil' },
-        { url: '/bio', label: 'Bio' },
-        { url: '/photos', label: 'Photos' },
-        { url: '/media', label: 'Média' },
-        { url: '/presse', label: 'Presse' },
-        { url: '/agenda', label: 'Agenda' },
-        { url: '/contact', label: 'Contact' },
+        { url: '/', label: { fr: 'Accueil', en: 'Home' } },
+        { url: '/bio', label: { fr: 'Bio', en: 'Bio' } },
+        { url: '/photos', label: { fr: 'Photos', en: 'Photos' } },
+        { url: '/media', label: { fr: 'Média', en: 'Media' } },
+        { url: '/presse', label: { fr: 'Presse', en: 'Press' } },
+        { url: '/agenda', label: { fr: 'Agenda', en: 'Agenda' } },
+        { url: '/contact', label: { fr: 'Contact', en: 'Contact' } },
       ],
     };
   }
@@ -38,7 +39,7 @@ class Nav extends React.Component {
             activeClassName="active"
             exact
             to={href}
-          >{link.label}</NavLink>
+          >{commons.lang(search, link.label)}</NavLink>
         </li>
       );
     });

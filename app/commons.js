@@ -26,4 +26,21 @@ export default {
     .then(file => file.data)
     .then(callback);
   },
+
+  getUrlParams(search) {
+    const params = {};
+    search.substr(1).split('&').forEach((param) => {
+      const [key, value] = param.split('=');
+      if (key && value) {
+        params[key] = value;
+      }
+    });
+    return params;
+  },
+
+  lang(search, data) {
+    const urlParams = this.getUrlParams(search);
+    const lang = urlParams.lang || 'fr';
+    return data[lang];
+  },
 };
