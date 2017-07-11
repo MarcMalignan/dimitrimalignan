@@ -44,52 +44,51 @@ $brg-nb: 3;
     }
 
     &-item {
-      position: relative;
       display: inline-block;
       margin: 0 10px;
 
-      &:after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        right: 50%;
-        height: 1px;
-        background: $text-color;
-        transition: background-color $duration-fast, left $duration-fast, right $duration-fast;
-      }
-
       a {
-        transition: color $duration-fast;
-      }
-
-      &:hover {
-        &:after {
-          left: 0;
-          right: 0;
-        }
-      }
-
-      &.active {
-        &:after {
-          left: 0;
-          right: 0;
-          background-color: $accent-color;
-        }
-
-        a {
-          color: $accent-color;
-        }
-      }
-
-      &-link {
         @include fontTitle;
+        position: relative;
         display: block;
         padding: 10px 15px;
         color: $text-color;
         text-decoration: none;
         text-transform: uppercase;
         font-size: 20px;
+        transition: color $duration-fast;
+
+        @include sizeMobile {
+          display: inline-block;
+        }
+
+        &:after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          right: 50%;
+          height: 1px;
+          background: $text-color;
+          transition: background-color $duration-fast, left $duration-fast, right $duration-fast;
+        }
+
+        &:hover {
+          &:after {
+            left: 0;
+            right: 0;
+          }
+        }
+
+        &.active {
+          color: $accent-color;
+
+          &:after {
+            left: 0;
+            right: 0;
+            background-color: $accent-color;
+          }
+        }
       }
     }
 
@@ -106,6 +105,46 @@ $brg-nb: 3;
 
       a {
         font-size: 28px;
+      }
+    }
+  }
+
+  &-lang {
+    position: absolute;
+    top: 20px;
+    right: 0;
+
+    @include sizeMobile {
+      display: none;
+      top: 15px;
+    }
+
+    &-flag {
+      $flag-ratio: 9 / 6;
+      $flag-width: 30px;
+
+      display: inline-block;
+      width: $flag-width;
+      height: $flag-width / $flag-ratio;
+      margin-right: 10px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
+  .Modal {
+    .Nav-lang {
+      @include sizeMobile {
+        display: block;
+        right: auto;
+        left: 15px;
       }
     }
   }

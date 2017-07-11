@@ -1,5 +1,6 @@
 /* eslint-disable global-require, import/no-dynamic-require */
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import commons from '../../commons';
 import Page from '../../components/Page/Page';
@@ -71,11 +72,17 @@ class Photos extends React.Component {
       backgroundImage: `url(${srcHighres})`,
     };
 
+    const search = this.props.location.search;
+    const highresLabel = {
+      fr: 'Version haute définition',
+      en: 'High-resolution version',
+    };
+
     return (
       <Modal onClose={() => { this.closeModal(); }}>
         <div className="Photos-highres-img" style={style} />
         <div className="Photos-highres-info">
-          <a href={srcFullres} target="_blank">Voir la version haute définition</a>
+          <a href={srcFullres} target="_blank">{commons.translate(search, highresLabel)}</a>
           <div className="Photos-highres-info-copyright">© {photo.copyright}</div>
         </div>
       </Modal>
@@ -97,5 +104,17 @@ class Photos extends React.Component {
     );
   }
 }
+
+Photos.propTypes = {
+  location: PropTypes.shape({
+    search: PropTypes.string,
+  }),
+};
+
+Photos.defaultProps = {
+  location: {
+    search: '',
+  },
+};
 
 export default Photos;

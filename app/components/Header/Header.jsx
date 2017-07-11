@@ -1,17 +1,38 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import Nav from '../Nav/Nav';
 
 import './Header.scss';
 
-const Header = () => (
-  <header className="Header">
-    <div className="Header-logo">
-      <Link to="/">Dimitri Malignan</Link>
-    </div>
-    <Nav />
-  </header>
-);
+const Header = (props) => {
+  const search = props.location.search;
+  const link = {
+    pathname: '/',
+    search,
+  };
 
-export default Header;
+  return (
+    <header className="Header">
+      <div className="Header-logo">
+        <Link to={link}>Dimitri Malignan</Link>
+      </div>
+      <Nav />
+    </header>
+  );
+};
+
+Header.propTypes = {
+  location: PropTypes.shape({
+    search: PropTypes.string,
+  }),
+};
+
+Header.defaultProps = {
+  location: {
+    search: '',
+  },
+};
+
+export default withRouter(Header);

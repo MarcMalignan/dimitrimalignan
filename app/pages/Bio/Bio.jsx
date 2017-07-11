@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import commons from '../../commons';
 import Page from '../../components/Page/Page';
@@ -18,7 +19,11 @@ class Bio extends React.Component {
 
   listParagraphs() {
     if (!this.state.bio) return null;
-    return this.state.bio.map((p, index) => {
+
+    const search = this.props.location.search;
+    const bio = commons.translate(search, this.state.bio) || [];
+
+    return bio.map((p, index) => {
       const innerHtml = { __html: p };
       return (
         <p key={index} dangerouslySetInnerHTML={innerHtml} />
@@ -34,5 +39,17 @@ class Bio extends React.Component {
     );
   }
 }
+
+Bio.propTypes = {
+  location: PropTypes.shape({
+    search: PropTypes.string,
+  }),
+};
+
+Bio.defaultProps = {
+  location: {
+    search: '',
+  },
+};
 
 export default Bio;
