@@ -26,6 +26,32 @@ class Agenda extends React.Component {
     return splitted;
   }
 
+  static getEventType(type) {
+    const labels = {
+      CONCERT: {
+        fr: 'Concert',
+        en: 'Concert',
+      },
+      FESTIVAL: {
+        fr: 'Festival',
+        en: 'Festival',
+      },
+      FESTIVAL_CONCERT: {
+        fr: 'Festival / Concert',
+        en: 'Festival / Concert',
+      },
+      FESTIVAL_RECITAL: {
+        fr: 'Festival / Récital',
+        en: 'Festival / Recital',
+      },
+      RECITAL: {
+        fr: 'Récital',
+        en: 'Recital',
+      },
+    };
+    return labels[type];
+  }
+
   constructor(props) {
     super(props);
     this.state = {};
@@ -50,7 +76,8 @@ class Agenda extends React.Component {
     const lang = commons.getLang(search);
 
     return events.map((event, index) => {
-      const title = event.title || event.type;
+      const type = commons.translate(search, Agenda.getEventType(event.type));
+      const title = event.title || type;
 
       return (
         <li
@@ -59,7 +86,7 @@ class Agenda extends React.Component {
           itemScope
           itemType="http://schema.org/MusicEvent"
         >
-          <div className="Agenda-list-item-type">{event.type}</div>
+          <div className="Agenda-list-item-type">{type}</div>
           <div className="Agenda-list-item-info">
             <div
               className="Agenda-list-item-title"
