@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import commons from '../../commons';
 import Page from '../../components/Page/Page';
@@ -38,33 +39,40 @@ class Presse extends React.Component {
 
   listArticles() {
     if (!this.state.articles) return null;
-    return this.state.articles.map((article, index) => (
-      <div
-        key={index}
-        className="Presse-article"
-        itemScope
-        itemType="http://schema.org/Article"
-      >
-        <div className="Presse-article-header">
-          <span
-            className="Presse-article-source"
-            itemProp="publisher"
-            itemScope
-            itemType="http://schema.org/Organization"
-          >
-            <span itemProp="name">{article.source}</span>
-          </span>
-          <span className="Presse-article-header-separator"> - </span>
-          <span className="Presse-article-author" itemProp="author">{article.author}</span>
-          <span className="Presse-article-date">{article.formattedDate}</span>
+
+    const search = this.props.location.search;
+
+    return this.state.articles.map((article, index) => {
+      const content = commons.lang(search, article.content) || [];
+
+      return (
+        <div
+          key={index}
+          className="Presse-article"
+          itemScope
+          itemType="http://schema.org/Article"
+        >
+          <div className="Presse-article-header">
+            <span
+              className="Presse-article-source"
+              itemProp="publisher"
+              itemScope
+              itemType="http://schema.org/Organization"
+            >
+              <span itemProp="name">{article.source}</span>
+            </span>
+            <span className="Presse-article-header-separator"> - </span>
+            <span className="Presse-article-author" itemProp="author">{article.author}</span>
+            <span className="Presse-article-date">{article.formattedDate}</span>
+          </div>
+          <blockquote className="Presse-article-content" itemProp="text">
+            {Presse.listParagraphs(content)}
+          </blockquote>
+          <meta itemProp="datePublished" content={article.date} />
+          <meta itemProp="headline" content={article.source} />
         </div>
-        <blockquote className="Presse-article-content" itemProp="text">
-          {Presse.listParagraphs(article.content)}
-        </blockquote>
-        <meta itemProp="datePublished" content={article.date} />
-        <meta itemProp="headline" content={article.source} />
-      </div>
-    ));
+      );
+    });
   }
 
   render() {
@@ -75,5 +83,17 @@ class Presse extends React.Component {
     );
   }
 }
+
+Presse.propTypes = {
+  location: PropTypes.shape({
+    search: PropTypes.string,
+  }),
+};
+
+Presse.defaultProps = {
+  location: {
+    search: '',
+  },
+};
 
 export default Presse;
