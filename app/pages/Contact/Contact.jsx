@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import commons from '../../commons';
 import Page from '../../components/Page/Page';
@@ -27,6 +28,12 @@ class Contact extends React.Component {
     const email = `mailto:${this.state.contact.email}`;
     const emailManager = `mailto:${this.state.contact.emailManager}`;
 
+    const search = this.props.location.search;
+    const developLabel = {
+      fr: 'Ce site est développé et maintenu par',
+      en: 'Website developped and managed by',
+    };
+
     return (
       <Page pageName="Contact">
         <ContentPanel>
@@ -46,7 +53,7 @@ class Contact extends React.Component {
         <ContentPanel>
           <div className="Contact-info">
             <p>
-              <span>Ce site est développé et maintenu par </span>
+              <span>{commons.lang(search, developLabel)} </span>
               <a href={emailManager} target="_blank">Marc Malignan</a>
               <span>.</span>
             </p>
@@ -56,5 +63,17 @@ class Contact extends React.Component {
     );
   }
 }
+
+Contact.propTypes = {
+  location: PropTypes.shape({
+    search: PropTypes.string,
+  }),
+};
+
+Contact.defaultProps = {
+  location: {
+    search: '',
+  },
+};
 
 export default Contact;

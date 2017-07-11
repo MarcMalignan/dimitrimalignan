@@ -1,5 +1,6 @@
 import React from 'react';
 import moment from 'moment';
+import PropTypes from 'prop-types';
 
 import commons from '../../commons';
 import Page from '../../components/Page/Page';
@@ -71,15 +72,6 @@ class Agenda extends React.Component {
     });
   }
 
-  static renderEvents(events, title) {
-    return events && events.length ? (
-      <ContentPanel>
-        <h1>{title}</h1>
-        <ul className="Agenda-list">{Agenda.listEvents(events)}</ul>
-      </ContentPanel>
-    ) : null;
-  }
-
   constructor(props) {
     super(props);
     this.state = {};
@@ -100,14 +92,46 @@ class Agenda extends React.Component {
     });
   }
 
+  renderEvents(events, title) {
+    const search = this.props.location.search;
+
+    return events && events.length ? (
+      <ContentPanel>
+        <h1>{commons.lang(search, title)}</h1>
+        <ul className="Agenda-list">{Agenda.listEvents(events)}</ul>
+      </ContentPanel>
+    ) : null;
+  }
+
   render() {
+    const futureEventsLabel = {
+      fr: 'Dates à venir',
+      en: 'Upcoming events',
+    };
+    const oldEventsLabel = {
+      fr: 'Dates passées',
+      en: 'Past events',
+    };
+
     return (
       <Page pageName="Agenda">
-        {Agenda.renderEvents(this.state.futureEvents, 'Dates à venir')}
-        {Agenda.renderEvents(this.state.oldEvents, 'Dates passées')}
+        {this.renderEvents(this.state.futureEvents, futureEventsLabel)}
+        {this.renderEvents(this.state.oldEvents, oldEventsLabel)}
       </Page>
     );
   }
 }
+
+Agenda.propTypes = {
+  location: PropTypes.shape({
+    search: PropTypes.string,
+  }),
+};
+
+Agenda.defaultProps = {
+  location: {
+    search: '',
+  },
+};
 
 export default Agenda;

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import commons from '../../commons';
 import Page from '../../components/Page/Page';
@@ -33,10 +34,16 @@ class Media extends React.Component {
   }
 
   render() {
+    const search = this.props.location.search;
+    const videosLabel = {
+      fr: 'Vidéos',
+      en: 'Videos',
+    };
+
     return (
       <Page pageName="Media">
         <ContentPanel>
-          <h1>Vidéos</h1>
+          <h1>{commons.lang(search, videosLabel)}</h1>
           <div
             className="Media-videos"
             itemScope
@@ -47,5 +54,17 @@ class Media extends React.Component {
     );
   }
 }
+
+Media.propTypes = {
+  location: PropTypes.shape({
+    search: PropTypes.string,
+  }),
+};
+
+Media.defaultProps = {
+  location: {
+    search: '',
+  },
+};
 
 export default Media;

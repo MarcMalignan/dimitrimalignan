@@ -12,13 +12,55 @@ class Nav extends React.Component {
     super(props);
     this.state = {
       links: [
-        { url: '/', label: { fr: 'Accueil', en: 'Home' } },
-        { url: '/bio', label: { fr: 'Bio', en: 'Bio' } },
-        { url: '/photos', label: { fr: 'Photos', en: 'Photos' } },
-        { url: '/media', label: { fr: 'Média', en: 'Media' } },
-        { url: '/presse', label: { fr: 'Presse', en: 'Press' } },
-        { url: '/agenda', label: { fr: 'Agenda', en: 'Concerts' } },
-        { url: '/contact', label: { fr: 'Contact', en: 'Contact' } },
+        {
+          url: '/',
+          label: {
+            fr: 'Accueil',
+            en: 'Home',
+          },
+        },
+        {
+          url: '/bio',
+          label: {
+            fr: 'Bio',
+            en: 'Bio',
+          },
+        },
+        {
+          url: '/photos',
+          label: {
+            fr: 'Photos',
+            en: 'Photos',
+          },
+        },
+        {
+          url: '/media',
+          label: {
+            fr: 'Média',
+            en: 'Media',
+          },
+        },
+        {
+          url: '/presse',
+          label: {
+            fr: 'Presse',
+            en: 'Press',
+          },
+        },
+        {
+          url: '/agenda',
+          label: {
+            fr: 'Agenda',
+            en: 'Concerts',
+          },
+        },
+        {
+          url: '/contact',
+          label: {
+            fr: 'Contact',
+            en: 'Contact',
+          },
+        },
       ],
     };
   }
