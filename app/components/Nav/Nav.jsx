@@ -17,7 +17,7 @@ class Nav extends React.Component {
         { url: '/photos', label: { fr: 'Photos', en: 'Photos' } },
         { url: '/media', label: { fr: 'Média', en: 'Media' } },
         { url: '/presse', label: { fr: 'Presse', en: 'Press' } },
-        { url: '/agenda', label: { fr: 'Agenda', en: 'Agenda' } },
+        { url: '/agenda', label: { fr: 'Agenda', en: 'Concerts' } },
         { url: '/contact', label: { fr: 'Contact', en: 'Contact' } },
       ],
     };
