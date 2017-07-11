@@ -22,7 +22,10 @@ export default {
   },
 
   getData(type, callback) {
-    axios.get(`https://raw.githubusercontent.com/MarcMalignan/dimitrimalignan-data/master/data/${type}.json`)
+    // TODO : remove when stable data structure
+    const now = Date.now();
+
+    axios.get(`https://raw.githubusercontent.com/MarcMalignan/dimitrimalignan-data/master/data/${type}.json?d=${now}`)
     .then(file => file.data)
     .then(callback);
   },
