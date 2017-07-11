@@ -24,7 +24,10 @@ class Modal extends React.Component {
   }
 
   close(e) {
-    if (e.type === 'click' || (e.type === 'keyup' && e.keyCode === 27)) {
+    if (
+      (e.type === 'click' && e.target.tagName !== 'IMG') ||
+      (e.type === 'keyup' && e.keyCode === 27)
+    ) {
       this.props.onClose();
     }
   }
