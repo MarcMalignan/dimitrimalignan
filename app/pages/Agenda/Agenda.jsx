@@ -9,12 +9,6 @@ import ContentPanel from '../../components/ContentPanel/ContentPanel';
 import './Agenda.scss';
 
 class Agenda extends React.Component {
-  static computeDates(events) {
-    return events.map(event => Object.assign(event, {
-      formattedDate: commons.formatDate(event.date),
-    }));
-  }
-
   static splitEvents(events) {
     const splitted = {
       futureEvents: [],
@@ -32,7 +26,29 @@ class Agenda extends React.Component {
     return splitted;
   }
 
-  static listEvents(events) {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+
+  componentDidMount() {
+    commons.getData('agenda', (agenda) => {
+      const splitted = Agenda.splitEvents(agenda);
+
+      splitted.futureEvents.sort(commons.sortByDate);
+      splitted.oldEvents.sort(commons.sortByDate).reverse();
+
+      this.setState({
+        futureEvents: splitted.futureEvents,
+        oldEvents: splitted.oldEvents,
+      });
+    });
+  }
+
+  listEvents(events) {
+    const search = this.props.location.search;
+    const lang = commons.getLang(search);
+
     return events.map((event, index) => {
       const title = event.title || event.type;
 
@@ -64,31 +80,11 @@ class Agenda extends React.Component {
               <span>{event.location}</span>
             </div>
           </div>
-          <div className="Agenda-list-item-date">{event.formattedDate}</div>
+          <div className="Agenda-list-item-date">{commons.formatDate(lang, event.date)}</div>
           <meta itemProp="startDate" content={event.date} />
           <meta itemProp="performer" content="Dimitri Malignan" />
         </li>
       );
-    });
-  }
-
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-
-  componentDidMount() {
-    commons.getData('agenda', (agenda) => {
-      const events = Agenda.computeDates(agenda);
-      const splitted = Agenda.splitEvents(events);
-
-      splitted.futureEvents.sort(commons.sortByDate);
-      splitted.oldEvents.sort(commons.sortByDate).reverse();
-
-      this.setState({
-        futureEvents: splitted.futureEvents,
-        oldEvents: splitted.oldEvents,
-      });
     });
   }
 
@@ -97,8 +93,8 @@ class Agenda extends React.Component {
 
     return events && events.length ? (
       <ContentPanel>
-        <h1>{commons.lang(search, title)}</h1>
-        <ul className="Agenda-list">{Agenda.listEvents(events)}</ul>
+        <h1>{commons.translate(search, title)}</h1>
+        <ul className="Agenda-list">{this.listEvents(events)}</ul>
       </ContentPanel>
     ) : null;
   }

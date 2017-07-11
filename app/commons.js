@@ -1,6 +1,7 @@
 import axios from 'axios';
 import moment from 'moment';
 import 'moment/locale/fr';
+import 'moment/locale/en-gb';
 
 export default {
   sortByDate(a, b) {
@@ -9,15 +10,16 @@ export default {
     return 0;
   },
 
-  formatDate(date) {
+  formatDate(lang, date) {
     if (!date) return '';
 
     const hasTime = date.includes('T');
+    const separator = (lang === 'fr') ? 'h' : ':';
 
     let format = 'D MMM YYYY';
-    format += hasTime ? ' - HH[h]mm' : '';
+    format += hasTime ? ` - HH[${separator}]mm` : '';
 
-    moment.locale('fr');
+    moment.locale(lang);
     return moment(date).format(format);
   },
 
@@ -41,9 +43,13 @@ export default {
     return params;
   },
 
-  lang(search, data) {
+  getLang(search) {
     const urlParams = this.getUrlParams(search);
-    const lang = urlParams.lang || 'fr';
+    return urlParams.lang || 'fr';
+  },
+
+  translate(search, data) {
+    const lang = this.getLang(search);
     return data[lang];
   },
 };

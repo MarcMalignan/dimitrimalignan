@@ -82,7 +82,7 @@ class Photos extends React.Component {
       <Modal onClose={() => { this.closeModal(); }}>
         <div className="Photos-highres-img" style={style} />
         <div className="Photos-highres-info">
-          <a href={srcFullres} target="_blank">{commons.lang(search, highresLabel)}</a>
+          <a href={srcFullres} target="_blank">{commons.translate(search, highresLabel)}</a>
           <div className="Photos-highres-info-copyright">© {photo.copyright}</div>
         </div>
       </Modal>

@@ -21,7 +21,7 @@ class Bio extends React.Component {
     if (!this.state.bio) return null;
 
     const search = this.props.location.search;
-    const bio = commons.lang(search, this.state.bio) || [];
+    const bio = commons.translate(search, this.state.bio) || [];
 
     return bio.map((p, index) => {
       const innerHtml = { __html: p };

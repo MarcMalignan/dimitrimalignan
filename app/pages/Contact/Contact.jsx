@@ -53,7 +53,7 @@ class Contact extends React.Component {
         <ContentPanel>
           <div className="Contact-info">
             <p>
-              <span>{commons.lang(search, developLabel)} </span>
+              <span>{commons.translate(search, developLabel)} </span>
               <a href={emailManager} target="_blank">Marc Malignan</a>
               <span>.</span>
             </p>

@@ -8,12 +8,6 @@ import ContentPanel from '../../components/ContentPanel/ContentPanel';
 import './Presse.scss';
 
 class Presse extends React.Component {
-  static computeDates(articles) {
-    return articles.map(article => Object.assign(article, {
-      formattedDate: commons.formatDate(article.date),
-    }));
-  }
-
   static listParagraphs(content) {
     return content.map((p, index) => {
       const innerHtml = { __html: p };
@@ -29,8 +23,7 @@ class Presse extends React.Component {
   }
 
   componentDidMount() {
-    commons.getData('presse', (presse) => {
-      const articles = Presse.computeDates(presse);
+    commons.getData('presse', (articles) => {
       articles.sort(commons.sortByDate).reverse();
 
       this.setState({ articles });
@@ -41,9 +34,10 @@ class Presse extends React.Component {
     if (!this.state.articles) return null;
 
     const search = this.props.location.search;
+    const lang = commons.getLang(search);
 
     return this.state.articles.map((article, index) => {
-      const content = commons.lang(search, article.content) || [];
+      const content = commons.translate(search, article.content) || [];
 
       return (
         <div
@@ -63,7 +57,7 @@ class Presse extends React.Component {
             </span>
             <span className="Presse-article-header-separator"> - </span>
             <span className="Presse-article-author" itemProp="author">{article.author}</span>
-            <span className="Presse-article-date">{article.formattedDate}</span>
+            <span className="Presse-article-date">{commons.formatDate(lang, article.date)}</span>
           </div>
           <blockquote className="Presse-article-content" itemProp="text">
             {Presse.listParagraphs(content)}

@@ -43,7 +43,7 @@ class Media extends React.Component {
     return (
       <Page pageName="Media">
         <ContentPanel>
-          <h1>{commons.lang(search, videosLabel)}</h1>
+          <h1>{commons.translate(search, videosLabel)}</h1>
           <div
             className="Media-videos"
             itemScope

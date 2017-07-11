@@ -81,7 +81,7 @@ class Nav extends React.Component {
             activeClassName="active"
             exact
             to={href}
-          >{commons.lang(search, link.label)}</NavLink>
+          >{commons.translate(search, link.label)}</NavLink>
         </li>
       );
     });
