@@ -44,6 +44,10 @@ class Agenda extends React.Component {
         fr: 'Festival / Récital',
         en: 'Festival / Recital',
       },
+      MASTERCLASS: {
+        fr: 'Masterclass',
+        en: 'Masterclass',
+      },
       RECITAL: {
         fr: 'Récital',
         en: 'Recital',
