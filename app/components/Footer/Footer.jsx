@@ -1,10 +1,11 @@
 import React from 'react';
+import moment from 'moment';
 
 import './Footer.scss';
 
 const Footer = () => (
   <footer className="Footer">
-    <span>© 2017 Dimitri Malignan</span>
+    <span>© {moment().format('YYYY')} Dimitri Malignan</span>
   </footer>
 );
 
