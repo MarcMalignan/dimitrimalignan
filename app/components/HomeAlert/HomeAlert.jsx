@@ -17,11 +17,13 @@ const HomeAlert = ({ img, imgAlt, imgLink, links, title }) => (
     )}
 
     <div className="HomeAlert-body">
-      {links.map((link, index) => (
-        <a href={link.url} target="_blank" key={index}>
-          <button>{link.label}</button>
-        </a>
-      ))}
+      <div className="HomeAlert-body-links">
+        {links.map((link, index) => (
+          <a href={link.url} target="_blank" key={index}>
+            <button className={link.className}>{link.label}</button>
+          </a>
+        ))}
+      </div>
     </div>
 
   </div>

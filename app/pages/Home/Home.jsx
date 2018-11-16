@@ -11,6 +11,7 @@ const Home = (props) => {
   const albumImg = require('../../../images/album.jpg');
   const albumTitle = 'Dimitri Malignan - Robert Schumann / Serge Prokofiev';
   const albumLink = 'http://www.passavantmusictest.fr/produit/dimitri-malignan-robert-schumann-serge-prokofiev';
+  const spotifyLink = 'https://open.spotify.com/album/7zkkAFajFz8NUJF5EDS5vy?si=ZIVU7kZyT1-H7IJGXIrSnQ';
 
   const search = props.location.search;
   const titleLabel = {
@@ -21,9 +22,14 @@ const Home = (props) => {
     fr: 'Découvrir le CD',
     en: 'Discover the CD',
   };
+  const listenLinkLabel = {
+    fr: 'Ecouter sur Spotify',
+    en: 'Listen on Spotify',
+  };
 
   const links = [
     { label: commons.translate(search, discoverLinkLabel), url: albumLink },
+    { label: commons.translate(search, listenLinkLabel), url: spotifyLink, className: 'spotify' },
   ];
 
   return (

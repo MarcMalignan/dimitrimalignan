@@ -17,20 +17,53 @@
     }
   }
 
-  button {
-    @include fontText;
-    padding: 8px 16px;
-    background-color: transparent;
-    border: 1px solid $text-color;
-    color: $text-color;
-    font-size: 14px;
-    text-transform: uppercase;
-    transition: border-color $duration-fast, color $duration-fast, background-color $duration-medium;
-    cursor: pointer;
+  &-body {
+    &-links {
+      a {
+        display: inline-block;
+        margin: 0 10px;
 
-    &:hover {
-      border-color: $accent-color;
-      color: $accent-color;
+        @include sizeMobile {
+          width: 100%;
+          margin: 0;
+
+          &:not(:last-child) {
+            margin-bottom: 10px;
+          }
+        }
+
+        button {
+          @include fontText;
+          padding: 8px 16px;
+          background-color: transparent;
+          border: 1px solid $text-color;
+          color: $text-color;
+          font-size: 14px;
+          text-transform: uppercase;
+          transition: border-color $duration-fast, color $duration-fast, background-color $duration-medium;
+          cursor: pointer;
+
+          @include sizeMobile {
+            width: 100%;
+          }
+
+          &:hover {
+            border-color: $accent-color;
+            color: $accent-color;
+          }
+
+          &.spotify {
+            background-color: $spotify-color;
+            border-color: $spotify-color;
+            color: $text-color;
+
+            &:hover {
+              background-color: $spotify-color-hover;
+              border-color: $spotify-color-hover;
+            }
+          }
+        }
+      }
     }
   }
 }
