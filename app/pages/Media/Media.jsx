@@ -29,6 +29,7 @@ class Media extends React.Component {
         videoId={video.id}
         title={video.title}
         date={video.date}
+        type={video.type}
       />
     ));
   }
