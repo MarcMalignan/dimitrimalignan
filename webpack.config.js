@@ -3,8 +3,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
-  .BundleAnalyzerPlugin;
+// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const path = require('path');
 
 module.exports = env => {
@@ -26,11 +25,7 @@ module.exports = env => {
         },
         {
           test: /\.scss$/,
-          loader: ExtractTextPlugin.extract([
-            'css-loader',
-            'sass-loader',
-            'postcss-loader',
-          ]),
+          loader: ExtractTextPlugin.extract(['css-loader', 'sass-loader', 'postcss-loader']),
         },
         {
           test: /\.(jpe?g|svg)$/,
@@ -85,11 +80,11 @@ module.exports = env => {
     config.devServer = {
       historyApiFallback: true,
     };
-    config.plugins.push(
-      new BundleAnalyzerPlugin({
-        openAnalyzer: false,
-      }),
-    );
+    // config.plugins.push(
+    //   new BundleAnalyzerPlugin({
+    //     openAnalyzer: false,
+    //   }),
+    // );
   }
 
   return config;
