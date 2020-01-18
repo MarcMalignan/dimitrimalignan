@@ -11,9 +11,7 @@ class Presse extends React.Component {
   static listParagraphs(content) {
     return content.map((p, index) => {
       const innerHtml = { __html: p };
-      return (
-        <p key={index} dangerouslySetInnerHTML={innerHtml} />
-      );
+      return <p key={index} dangerouslySetInnerHTML={innerHtml} />;
     });
   }
 
@@ -23,7 +21,7 @@ class Presse extends React.Component {
   }
 
   componentDidMount() {
-    commons.getData('presse', (articles) => {
+    commons.getData('presse', articles => {
       articles.sort(commons.sortByDate).reverse();
 
       this.setState({ articles });
@@ -40,12 +38,7 @@ class Presse extends React.Component {
       const content = commons.translate(search, article.content) || [];
 
       return (
-        <div
-          key={index}
-          className="Presse-article"
-          itemScope
-          itemType="http://schema.org/Article"
-        >
+        <div key={index} className="Presse-article" itemScope itemType="http://schema.org/Article">
           <div className="Presse-article-header">
             <span
               className="Presse-article-source"
@@ -56,7 +49,9 @@ class Presse extends React.Component {
               <span itemProp="name">{article.source}</span>
             </span>
             <span className="Presse-article-header-separator"> - </span>
-            <span className="Presse-article-author" itemProp="author">{article.author}</span>
+            <span className="Presse-article-author" itemProp="author">
+              {article.author}
+            </span>
             <span className="Presse-article-date">{commons.formatDate(lang, article.date)}</span>
           </div>
           <blockquote className="Presse-article-content" itemProp="text">

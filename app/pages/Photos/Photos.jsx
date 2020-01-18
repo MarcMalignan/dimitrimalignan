@@ -19,7 +19,7 @@ class Photos extends React.Component {
   }
 
   componentDidMount() {
-    commons.getData('photos', (photos) => {
+    commons.getData('photos', photos => {
       this.setState({ photos });
     });
   }
@@ -38,10 +38,7 @@ class Photos extends React.Component {
           itemScope
           itemType="http://schema.org/ImageObject"
         >
-          <div
-            className="Photos-gallery-item-wrapper"
-            onClick={() => this.openModal(photo)}
-          >
+          <div className="Photos-gallery-item-wrapper" onClick={() => this.openModal(photo)}>
             <img src={srcThumb} alt="" />
           </div>
           <meta itemProp="author" content={photo.copyright} />
@@ -79,10 +76,16 @@ class Photos extends React.Component {
     };
 
     return (
-      <Modal onClose={() => { this.closeModal(); }}>
+      <Modal
+        onClose={() => {
+          this.closeModal();
+        }}
+      >
         <div className="Photos-highres-img" style={style} />
         <div className="Photos-highres-info">
-          <a href={srcFullres} target="_blank">{commons.translate(search, highresLabel)}</a>
+          <a href={srcFullres} target="_blank">
+            {commons.translate(search, highresLabel)}
+          </a>
           <div className="Photos-highres-info-copyright">© {photo.copyright}</div>
         </div>
       </Modal>
@@ -93,11 +96,9 @@ class Photos extends React.Component {
     return (
       <Page pageName="Photos">
         <ContentPanel>
-          <div
-            className="Photos-gallery"
-            itemScope
-            itemType="http://schema.org/ImageGallery"
-          >{this.listPhotos()}</div>
+          <div className="Photos-gallery" itemScope itemType="http://schema.org/ImageGallery">
+            {this.listPhotos()}
+          </div>
         </ContentPanel>
         {this.renderModal()}
       </Page>

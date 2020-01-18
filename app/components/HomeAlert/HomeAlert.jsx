@@ -5,8 +5,7 @@ import './HomeAlert.scss';
 
 const HomeAlert = ({ img, imgAlt, imgLink, links, title }) => (
   <div className="HomeAlert">
-
-    {title && (<h1>{title}</h1>)}
+    {title && <h1>{title}</h1>}
 
     {img && (
       <div className="HomeAlert-img">
@@ -25,7 +24,6 @@ const HomeAlert = ({ img, imgAlt, imgLink, links, title }) => (
         ))}
       </div>
     </div>
-
   </div>
 );
 
@@ -33,10 +31,12 @@ HomeAlert.propTypes = {
   img: PropTypes.string,
   imgAlt: PropTypes.string,
   imgLink: PropTypes.string,
-  links: PropTypes.arrayOf(PropTypes.shape({
-    label: PropTypes.string,
-    url: PropTypes.string,
-  })),
+  links: PropTypes.arrayOf(
+    PropTypes.shape({
+      label: PropTypes.string,
+      url: PropTypes.string,
+    }),
+  ),
   title: PropTypes.string,
 };
 

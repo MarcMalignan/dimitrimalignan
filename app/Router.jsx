@@ -25,17 +25,10 @@ class Router extends React.Component {
 
   render() {
     const listRoutes = this.routes.map(route => (
-      <Route
-        exact
-        key={route.path}
-        path={route.path}
-        component={route.component}
-      />
+      <Route exact key={route.path} path={route.path} component={route.component} />
     ));
 
-    return (
-      <Switch>{listRoutes}</Switch>
-    );
+    return <Switch>{listRoutes}</Switch>;
   }
 }
 

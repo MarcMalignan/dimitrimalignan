@@ -17,7 +17,7 @@ class Contact extends React.Component {
   }
 
   componentDidMount() {
-    commons.getData('contact', (contact) => {
+    commons.getData('contact', contact => {
       this.setState({ contact });
     });
   }
@@ -54,7 +54,9 @@ class Contact extends React.Component {
           <div className="Contact-info">
             <p>
               <span>{commons.translate(search, developLabel)} </span>
-              <a href={emailManager} target="_blank">Marc Malignan</a>
+              <a href={emailManager} target="_blank">
+                Marc Malignan
+              </a>
               <span>.</span>
             </p>
           </div>

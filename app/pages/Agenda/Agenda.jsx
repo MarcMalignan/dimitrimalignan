@@ -15,7 +15,7 @@ class Agenda extends React.Component {
       oldEvents: [],
     };
 
-    events.forEach((e) => {
+    events.forEach(e => {
       if (moment().isAfter(e.date)) {
         splitted.oldEvents.push(e);
       } else {
@@ -62,7 +62,7 @@ class Agenda extends React.Component {
   }
 
   componentDidMount() {
-    commons.getData('agenda', (agenda) => {
+    commons.getData('agenda', agenda => {
       const splitted = Agenda.splitEvents(agenda);
 
       splitted.futureEvents.sort(commons.sortByDate);
@@ -84,21 +84,17 @@ class Agenda extends React.Component {
       const title = event.title || type;
 
       return (
-        <li
-          key={index}
-          className="Agenda-list-item"
-          itemScope
-          itemType="http://schema.org/MusicEvent"
-        >
+        <li key={index} className="Agenda-list-item" itemScope itemType="http://schema.org/MusicEvent">
           <div className="Agenda-list-item-type">{type}</div>
           <div className="Agenda-list-item-info">
-            <div
-              className="Agenda-list-item-title"
-              itemProp="name"
-            >
-              {event.link ?
-                <a href={event.link} itemProp="url" target="_blank">{title}</a> : title
-              }
+            <div className="Agenda-list-item-title" itemProp="name">
+              {event.link ? (
+                <a href={event.link} itemProp="url" target="_blank">
+                  {title}
+                </a>
+              ) : (
+                title
+              )}
             </div>
             <div
               className="Agenda-list-item-location"

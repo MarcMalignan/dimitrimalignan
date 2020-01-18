@@ -17,10 +17,7 @@ class Page extends React.Component {
   constructor(props) {
     super(props);
 
-    const pageClass = classNames(
-      'Page',
-      props.pageName,
-    );
+    const pageClass = classNames('Page', props.pageName);
 
     this.state = { pageClass };
   }
@@ -46,13 +43,29 @@ class Page extends React.Component {
 
     // TODO : add descriptions for all pages
     switch (this.props.pageName) {
-      case 'Bio': desc = ''; break;
-      case 'Photos': desc = ''; break;
-      case 'Media': desc = ''; break;
-      case 'Presse': desc = ''; break;
-      case 'Agenda': desc = ''; break;
-      case 'Contact': desc = ''; break;
-      default: desc = 'Site officiel de Dimitri Malignan, Pianiste français né en 1998, Prix Cortot de l\'Ecole Normale de Musique de Paris, lauréat de nombreux concours internationaux'; break;
+      case 'Bio':
+        desc = '';
+        break;
+      case 'Photos':
+        desc = '';
+        break;
+      case 'Media':
+        desc = '';
+        break;
+      case 'Presse':
+        desc = '';
+        break;
+      case 'Agenda':
+        desc = '';
+        break;
+      case 'Contact':
+        desc = '';
+        break;
+      default:
+        desc =
+          // eslint-disable-next-line max-len
+          "Site officiel de Dimitri Malignan, Pianiste français né en 1998, Prix Cortot de l'Ecole Normale de Musique de Paris, lauréat de nombreux concours internationaux";
+        break;
     }
 
     document.getElementById('metaDesc').content = desc;
@@ -70,10 +83,7 @@ class Page extends React.Component {
 Page.propTypes = {
   pageName: PropTypes.string,
   pageTitle: PropTypes.string,
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.object),
-    PropTypes.shape({}),
-  ]),
+  children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.object), PropTypes.shape({})]),
 };
 
 Page.defaultProps = {

@@ -24,7 +24,7 @@ $brg-nb: 3;
       div {
         display: block;
         height: 1px;
-        margin-bottom: (($brg - ($brg-padding*2) - $brg-nb) / ($brg-nb - 1)) - 1;
+        margin-bottom: (($brg - ($brg-padding * 2) - $brg-nb) / ($brg-nb - 1)) - 1;
         background-color: $accent-color;
 
         &:last-child {

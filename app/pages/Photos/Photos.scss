@@ -4,7 +4,6 @@
 $spacing: 20px;
 
 .Photos {
-
   &-gallery {
     display: flex;
     flex-flow: row wrap;
@@ -47,7 +46,7 @@ $spacing: 20px;
 
         &:hover {
           &:after {
-            opacity: .5;
+            opacity: 0.5;
           }
         }
 

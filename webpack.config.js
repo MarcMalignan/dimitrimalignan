@@ -3,10 +3,11 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
+  .BundleAnalyzerPlugin;
 const path = require('path');
 
-module.exports = (env) => {
+module.exports = env => {
   const title = 'Dimitri Malignan';
   const themeColor = '#223f6b';
 
@@ -84,9 +85,11 @@ module.exports = (env) => {
     config.devServer = {
       historyApiFallback: true,
     };
-    config.plugins.push(new BundleAnalyzerPlugin({
-      openAnalyzer: false,
-    }));
+    config.plugins.push(
+      new BundleAnalyzerPlugin({
+        openAnalyzer: false,
+      }),
+    );
   }
 
   return config;

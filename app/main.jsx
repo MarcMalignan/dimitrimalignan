@@ -8,7 +8,7 @@ import Footer from './components/Footer/Footer';
 
 import './style/main.scss';
 
-ReactDOM.render((
+ReactDOM.render(
   <BrowserRouter>
     <div id="app">
       <Header />
@@ -17,5 +17,6 @@ ReactDOM.render((
       </main>
       <Footer />
     </div>
-  </BrowserRouter>
-), document.getElementById('root'));
+  </BrowserRouter>,
+  document.getElementById('root'),
+);

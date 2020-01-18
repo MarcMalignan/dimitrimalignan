@@ -71,7 +71,7 @@ class Nav extends React.Component {
   listLinks() {
     const search = this.props.location.search;
 
-    return this.state.links.map((link) => {
+    return this.state.links.map(link => {
       const href = {
         pathname: link.url,
         search,
@@ -79,12 +79,9 @@ class Nav extends React.Component {
 
       return (
         <li className="Nav-list-item" key={link.url}>
-          <NavLink
-            className="Nav-list-item-link"
-            activeClassName="active"
-            exact
-            to={href}
-          >{commons.translate(search, link.label)}</NavLink>
+          <NavLink className="Nav-list-item-link" activeClassName="active" exact to={href}>
+            {commons.translate(search, link.label)}
+          </NavLink>
         </li>
       );
     });
@@ -123,7 +120,12 @@ class Nav extends React.Component {
     if (!this.state.modal) return null;
 
     return (
-      <Modal closeOnClick onClose={() => { this.closeModal(); }}>
+      <Modal
+        closeOnClick
+        onClose={() => {
+          this.closeModal();
+        }}
+      >
         <ul className="Nav-list mobile">{this.listLinks()}</ul>
         {this.renderLang()}
       </Modal>

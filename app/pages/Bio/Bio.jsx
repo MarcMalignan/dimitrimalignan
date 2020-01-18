@@ -12,7 +12,7 @@ class Bio extends React.Component {
   }
 
   componentDidMount() {
-    commons.getData('bio', (bio) => {
+    commons.getData('bio', bio => {
       this.setState({ bio });
     });
   }
@@ -25,9 +25,7 @@ class Bio extends React.Component {
 
     return bio.map((p, index) => {
       const innerHtml = { __html: p };
-      return (
-        <p key={index} dangerouslySetInnerHTML={innerHtml} />
-      );
+      return <p key={index} dangerouslySetInnerHTML={innerHtml} />;
     });
   }
 

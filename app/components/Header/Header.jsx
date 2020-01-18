@@ -6,7 +6,7 @@ import Nav from '../Nav/Nav';
 
 import './Header.scss';
 
-const Header = (props) => {
+const Header = props => {
   const search = props.location.search;
   const link = {
     pathname: '/',

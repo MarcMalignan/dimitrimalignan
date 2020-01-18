@@ -14,7 +14,7 @@ const videoConfig = {
   },
 };
 
-const Video = (props) => {
+const Video = props => {
   const config = videoConfig[props.type];
   if (!config) return null;
 
@@ -22,24 +22,12 @@ const Video = (props) => {
   const href = config.href + props.videoId;
 
   return (
-    <div
-      className="Video"
-      itemProp="associatedMedia"
-      itemScope
-      itemType="http://schema.org/VideoObject"
-    >
-      <a
-        className="Video-link"
-        href={href}
-        target="_blank"
-      >{props.title}</a>
+    <div className="Video" itemProp="associatedMedia" itemScope itemType="http://schema.org/VideoObject">
+      <a className="Video-link" href={href} target="_blank">
+        {props.title}
+      </a>
       <div className="Video-wrapper">
-        <iframe
-          title={props.title}
-          src={src}
-          allowFullScreen="true"
-          itemProp="embedUrl"
-        />
+        <iframe title={props.title} src={src} allowFullScreen="true" itemProp="embedUrl" />
       </div>
       <meta itemProp="name" content={props.title} />
       <meta itemProp="description" content={props.title} />

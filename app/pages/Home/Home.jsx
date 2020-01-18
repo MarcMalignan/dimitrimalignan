@@ -7,7 +7,7 @@ import Page from '../../components/Page/Page';
 import ContentPanel from '../../components/ContentPanel/ContentPanel';
 import HomeAlert from '../../components/HomeAlert/HomeAlert';
 
-const Home = (props) => {
+const Home = props => {
   const albumImg = require('../../../images/album.jpg');
   const albumTitle = 'Dimitri Malignan - Robert Schumann / Serge Prokofiev';
   const albumLink = 'http://www.passavantmusictest.fr/produit/dimitri-malignan-robert-schumann-serge-prokofiev';
@@ -29,13 +29,16 @@ const Home = (props) => {
 
   const links = [
     { label: commons.translate(search, discoverLinkLabel), url: albumLink },
-    { label: commons.translate(search, listenLinkLabel), url: spotifyLink, className: 'spotify' },
+    {
+      label: commons.translate(search, listenLinkLabel),
+      url: spotifyLink,
+      className: 'spotify',
+    },
   ];
 
   return (
     <Page pageName="Home">
       <ContentPanel>
-
         <HomeAlert
           img={albumImg}
           imgAlt={albumTitle}
@@ -43,7 +46,6 @@ const Home = (props) => {
           links={links}
           title={commons.translate(search, titleLabel)}
         />
-
       </ContentPanel>
     </Page>
   );

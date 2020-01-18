@@ -14,7 +14,7 @@ export default {
     if (!date) return '';
 
     const hasTime = date.includes('T');
-    const separator = (lang === 'fr') ? 'h' : ':';
+    const separator = lang === 'fr' ? 'h' : ':';
 
     let format = 'D MMM YYYY';
     format += hasTime ? ` - HH[${separator}]mm` : '';
@@ -27,19 +27,23 @@ export default {
     // TODO : remove when stable data structure
     const now = Date.now();
 
-    axios.get(`https://raw.githubusercontent.com/MarcMalignan/dimitrimalignan-data/master/data/${type}.json?d=${now}`)
-    .then(file => file.data)
-    .then(callback);
+    axios
+      .get(`https://raw.githubusercontent.com/MarcMalignan/dimitrimalignan-data/master/data/${type}.json?d=${now}`)
+      .then(file => file.data)
+      .then(callback);
   },
 
   getUrlParams(search) {
     const params = {};
-    search.substr(1).split('&').forEach((param) => {
-      const [key, value] = param.split('=');
-      if (key && value) {
-        params[key] = value;
-      }
-    });
+    search
+      .substr(1)
+      .split('&')
+      .forEach(param => {
+        const [key, value] = param.split('=');
+        if (key && value) {
+          params[key] = value;
+        }
+      });
     return params;
   },
 
