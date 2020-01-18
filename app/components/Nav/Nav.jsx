@@ -30,6 +30,13 @@ class Nav extends React.Component {
           },
         },
         {
+          url: '/projects',
+          label: {
+            fr: 'Projets',
+            en: 'Projects',
+          },
+        },
+        {
           url: '/photos',
           label: {
             fr: 'Photos',
@@ -79,7 +86,15 @@ class Nav extends React.Component {
 
       return (
         <li className="Nav-list-item" key={link.url}>
-          <NavLink className="Nav-list-item-link" activeClassName="active" exact to={href}>
+          <NavLink
+            className="Nav-list-item-link"
+            activeClassName="active"
+            isActive={(_, location) =>
+              (href.pathname === '/' && location.pathname === '/') ||
+              (href.pathname !== '/' && location.pathname.startsWith(href.pathname))
+            }
+            to={href}
+          >
             {commons.translate(search, link.label)}
           </NavLink>
         </li>

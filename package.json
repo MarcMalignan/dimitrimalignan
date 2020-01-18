@@ -50,7 +50,6 @@
   "scripts": {
     "build": "run-s build:*",
     "build:webpack": "webpack -p --env production",
-    "build:prod": "cp -a prod/. dist/",
     "lint": "run-s lint:*",
     "lint:js": "eslint . --ext .js,.jsx --ignore-path .gitignore",
     "lint:sass": "sass-lint -v -q",

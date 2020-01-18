@@ -46,6 +46,9 @@ class Page extends React.Component {
       case 'Bio':
         desc = '';
         break;
+      case 'Projects':
+        desc = '';
+        break;
       case 'Photos':
         desc = '';
         break;
@@ -59,6 +62,9 @@ class Page extends React.Component {
         desc = '';
         break;
       case 'Contact':
+        desc = '';
+        break;
+      case 'MissingVoices':
         desc = '';
         break;
       default:

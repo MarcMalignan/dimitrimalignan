@@ -14,10 +14,6 @@ const Home = props => {
   const spotifyLink = 'https://open.spotify.com/album/7zkkAFajFz8NUJF5EDS5vy?si=ZIVU7kZyT1-H7IJGXIrSnQ';
 
   const search = props.location.search;
-  const titleLabel = {
-    fr: 'Nouveau CD disponible',
-    en: 'New CD available',
-  };
   const discoverLinkLabel = {
     fr: 'Découvrir le CD',
     en: 'Discover the CD',
@@ -39,13 +35,7 @@ const Home = props => {
   return (
     <Page pageName="Home">
       <ContentPanel>
-        <HomeAlert
-          img={albumImg}
-          imgAlt={albumTitle}
-          imgLink={albumLink}
-          links={links}
-          title={commons.translate(search, titleLabel)}
-        />
+        <HomeAlert img={albumImg} imgAlt={albumTitle} imgLink={albumLink} links={links} />
       </ContentPanel>
     </Page>
   );

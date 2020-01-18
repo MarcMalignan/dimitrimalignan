@@ -14,6 +14,7 @@ module.exports = env => {
     entry: './app/main.jsx',
     output: {
       path: path.join(__dirname, 'dist'),
+      publicPath: '/',
       filename: '[hash].bundle.js',
     },
     module: {
