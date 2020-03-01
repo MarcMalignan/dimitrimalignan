@@ -5,12 +5,13 @@ import ContentPanel from '../../../components/ContentPanel/ContentPanel';
 import Page from '../../../components/Page/Page';
 import './MissingVoices.scss';
 
-const missingVoices = require('../../../../images/missing_voices.jpg');
+const concert1Img = require('../../../../images/projects/missingVoices/concert1.jpg');
+const concert2Img = require('../../../../images/projects/missingVoices/concert2.jpg');
 
 const MissingVoices = props => {
   const textLabel = {
-    fr: "Détails de l'évènement accessibles en cliquant sur l'image ci-dessous.",
-    en: 'Access the event details by clicking on the image below.',
+    fr: 'Détails des évènements accessibles en cliquant sur les images ci-dessous.',
+    en: 'Access the events details by clicking on the images below.',
   };
 
   const search = props.location.search;
@@ -20,9 +21,18 @@ const MissingVoices = props => {
       <ContentPanel>
         <h1>Missing Voices</h1>
         <p>{commons.translate(search, textLabel)}</p>
-        <a href="https://www.facebook.com/events/486563595386643/" target="_blank">
-          <img src={missingVoices} alt="Missing Voices" />
-        </a>
+        <div className="gallery">
+          <div className="gallery-item">
+            <a href="https://jck.nl/en/node/4155" target="_blank">
+              <img src={concert2Img} alt="Missing Voices - Salon Viotta" />
+            </a>
+          </div>
+          <div className="gallery-item">
+            <a href="https://www.facebook.com/events/486563595386643/" target="_blank">
+              <img src={concert1Img} alt="Missing Voices - Conservatorium van Amsterdam" />
+            </a>
+          </div>
+        </div>
       </ContentPanel>
     </Page>
   );
