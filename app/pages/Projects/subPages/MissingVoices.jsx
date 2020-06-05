@@ -3,6 +3,7 @@ import React from 'react';
 import commons from '../../../commons';
 import ContentPanel from '../../../components/ContentPanel/ContentPanel';
 import Page from '../../../components/Page/Page';
+import Video from '../../../components/Video/Video';
 import './MissingVoices.scss';
 
 const concert1Img = require('../../../../images/projects/missingVoices/concert1.jpg');
@@ -20,6 +21,14 @@ const MissingVoices = props => {
     <Page pageName="MissingVoices">
       <ContentPanel>
         <h1>Missing Voices</h1>
+        <div className="videoWrapper">
+          <Video
+            videoId="0DbnsYpIv0c"
+            title="Missing Voices: The Irreparable Loss Of Jewish Composers In The Shoah"
+            date="2020-03-29"
+            type="youtube"
+          />
+        </div>
         <p>{commons.translate(search, textLabel)}</p>
         <div className="gallery">
           <div className="gallery-item">

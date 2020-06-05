@@ -10,6 +10,15 @@
     width: 100%;
   }
 
+  .videoWrapper {
+    width: 75%;
+    margin: 0 auto 40px;
+
+    @include sizeMobile {
+      width: 100%;
+    }
+  }
+
   .gallery {
     display: flex;
     margin: 0 -20px -20px 0;
