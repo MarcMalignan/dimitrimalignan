@@ -11,40 +11,27 @@
     }
 
     &-column {
+      flex-basis: 0;
       flex-grow: 1;
 
       @include sizeMobile {
-        &:not(:last-child) {
-          margin-bottom: 40px;
-        }
+        margin-bottom: 40px;
       }
     }
   }
 
   &-sub {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    flex-wrap: wrap;
+    margin-top: 20px;
 
-    &-link {
-      flex-basis: 20%;
-      padding: $paragraph-margin * 1.5;
-      box-sizing: border-box;
+    a {
+      display: inline-block;
+      margin: 0 10px;
+    }
 
-      @include sizeMobile {
-        flex-basis: 30%;
-        padding: $paragraph-margin;
-      }
-
-      a {
-        display: block;
-
-        img {
-          display: block;
-          width: 100%;
-        }
-      }
+    img {
+      display: block;
+      height: 60px;
+      width: 60px;
     }
   }
 

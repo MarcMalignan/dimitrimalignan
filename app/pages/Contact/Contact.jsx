@@ -54,6 +54,17 @@ class Contact extends React.Component {
               <div className="Contact-main-line">
                 <a href={email} target="_blank">{this.state.contact.email}</a>
               </div>
+              <div className="Contact-sub">
+                <a href={this.state.contact.facebook} target="_blank">
+                  <img src={iconFacebook} alt="Facebook" />
+                </a>
+                <a href={this.state.contact.instagram} target="_blank">
+                  <img src={iconInstagram} alt="Instagram" />
+                </a>
+                <a href={this.state.contact.spotify} target="_blank">
+                  <img src={iconSpotify} alt="Spotify" />
+                </a>
+              </div>
             </div>
             <div className="Contact-main-column">
               <h1>{commons.translate(search, contactAgentLabel)}</h1>
@@ -69,25 +80,6 @@ class Contact extends React.Component {
               <div className="Contact-main-line">
                 <a href={phoneAgent} target="_blank">{this.state.contact.agent.phone}</a>
               </div>
-            </div>
-          </div>
-        </ContentPanel>
-        <ContentPanel>
-          <div className="Contact-sub">
-            <div className="Contact-sub-link">
-              <a href={this.state.contact.facebook} target="_blank">
-                <img src={iconFacebook} alt="Facebook" />
-              </a>
-            </div>
-            <div className="Contact-sub-link">
-              <a href={this.state.contact.instagram} target="_blank">
-                <img src={iconInstagram} alt="Instagram" />
-              </a>
-            </div>
-            <div className="Contact-sub-link">
-              <a href={this.state.contact.spotify} target="_blank">
-                <img src={iconSpotify} alt="Spotify" />
-              </a>
             </div>
           </div>
         </ContentPanel>
