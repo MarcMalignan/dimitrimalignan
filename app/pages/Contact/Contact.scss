@@ -4,17 +4,36 @@
 .Contact {
   &-main {
     display: flex;
+    text-align: center;
+
+    @include sizeMobile {
+      display: block;
+    }
+
+    &-column {
+      flex-grow: 1;
+
+      @include sizeMobile {
+        &:not(:last-child) {
+          margin-bottom: 40px;
+        }
+      }
+    }
+  }
+
+  &-sub {
+    display: flex;
     align-items: center;
     justify-content: space-around;
     flex-wrap: wrap;
 
     &-link {
-      flex-basis: 25%;
+      flex-basis: 20%;
       padding: $paragraph-margin * 1.5;
       box-sizing: border-box;
 
       @include sizeMobile {
-        flex-basis: 51%;
+        flex-basis: 30%;
         padding: $paragraph-margin;
       }
 
