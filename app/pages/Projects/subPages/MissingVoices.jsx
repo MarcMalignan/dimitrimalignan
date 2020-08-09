@@ -10,6 +10,14 @@ const concert1Img = require('../../../../images/projects/missingVoices/concert1.
 const concert2Img = require('../../../../images/projects/missingVoices/concert2.jpg');
 
 const MissingVoices = props => {
+  const instagramLabel = {
+    fr: 'Suivez le projet sur instagram : ',
+    en: 'Follow the project on Instagram: ',
+  };
+  const instagramLinkLabel = {
+    fr: 'cliquez ici',
+    en: 'click here',
+  };
   const textLabel = {
     fr: 'Détails des évènements accessibles en cliquant sur les images ci-dessous.',
     en: 'Access the events details by clicking on the images below.',
@@ -29,6 +37,12 @@ const MissingVoices = props => {
             type="youtube"
           />
         </div>
+        <p>
+          {commons.translate(search, instagramLabel)}
+          <a href="https://www.instagram.com/missing.voices/" target="_blank">
+            {commons.translate(search, instagramLinkLabel)}
+          </a>
+        </p>
         <p>{commons.translate(search, textLabel)}</p>
         <div className="gallery">
           <div className="gallery-item">

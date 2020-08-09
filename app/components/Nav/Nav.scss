@@ -122,9 +122,10 @@ $brg-nb: 3;
     a {
       color: $text-color;
       text-decoration: none;
-    }
-    a:not(:last-child) {
-      margin-right: 10px;
+
+      &:not(:last-child) {
+        margin-right: 10px;
+      }
     }
   }
 

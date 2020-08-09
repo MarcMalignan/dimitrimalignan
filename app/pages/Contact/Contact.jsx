@@ -59,7 +59,9 @@ class Contact extends React.Component {
               <h1>{commons.translate(search, contactAgentLabel)}</h1>
               <div className="Contact-main-line">{this.state.contact.agent.name}</div>
               <div className="Contact-main-line">
-                {this.state.contact.agent.title} - <a href={this.state.contact.agent.link} target="_blank">{this.state.contact.agent.company}</a>
+                {this.state.contact.agent.title}
+                {' - '}
+                <a href={this.state.contact.agent.link} target="_blank">{this.state.contact.agent.company}</a>
               </div>
               <div className="Contact-main-line">
                 <a href={emailAgent} target="_blank">{this.state.contact.agent.email}</a>
