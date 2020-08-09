@@ -119,23 +119,12 @@ $brg-nb: 3;
       top: 15px;
     }
 
-    &-flag {
-      $flag-ratio: 9 / 6;
-      $flag-width: 30px;
-
-      display: inline-block;
-      width: $flag-width;
-      height: $flag-width / $flag-ratio;
+    a {
+      color: $text-color;
+      text-decoration: none;
+    }
+    a:not(:last-child) {
       margin-right: 10px;
-
-      &:last-child {
-        margin-right: 0;
-      }
-
-      img {
-        width: 100%;
-        height: 100%;
-      }
     }
   }
 

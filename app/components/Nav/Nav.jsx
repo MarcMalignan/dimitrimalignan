@@ -7,9 +7,6 @@ import Modal from '../../components/Modal/Modal';
 
 import './Nav.scss';
 
-import FlagFrImg from '../../../images/flag_fr.svg';
-import FlagEnImg from '../../../images/flag_en.svg';
-
 class Nav extends React.Component {
   constructor(props) {
     super(props);
@@ -121,12 +118,8 @@ class Nav extends React.Component {
 
     return (
       <div className="Nav-lang">
-        <Link className="Nav-lang-flag" to={linkFr}>
-          <img src={FlagFrImg} alt="Français" />
-        </Link>
-        <Link className="Nav-lang-flag" to={linkEn}>
-          <img src={FlagEnImg} alt="English" />
-        </Link>
+        <Link to={linkFr}>FR</Link>
+        <Link to={linkEn}>EN</Link>
       </div>
     );
   }
