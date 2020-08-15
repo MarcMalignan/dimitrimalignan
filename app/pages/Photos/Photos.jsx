@@ -3,9 +3,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import commons from '../../commons';
-import Page from '../../components/Page/Page';
 import ContentPanel from '../../components/ContentPanel/ContentPanel';
+import { Gallery, GalleryItem } from '../../components/Gallery/Gallery';
 import Modal from '../../components/Modal/Modal';
+import Page from '../../components/Page/Page';
 
 import './Photos.scss';
 
@@ -30,21 +31,23 @@ class Photos extends React.Component {
       const srcThumb = require(`../../../images/gallery/thumbs/${photo.filename}`);
       const srcFullres = require(`../../../images/gallery/fullres/${photo.filename}`);
 
+      const onClick = () => this.openModal(photo);
+
       return (
-        <div
-          key={index}
-          className="Photos-gallery-item"
-          itemProp="associatedMedia"
-          itemScope
-          itemType="http://schema.org/ImageObject"
-        >
-          <div className="Photos-gallery-item-wrapper" onClick={() => this.openModal(photo)}>
+        <GalleryItem key={index}>
+          <div
+            className="Photo-wrapper"
+            onClick={onClick}
+            itemProp="associatedMedia"
+            itemScope
+            itemType="http://schema.org/ImageObject"
+          >
             <img src={srcThumb} alt="" />
           </div>
           <meta itemProp="author" content={photo.copyright} />
           <meta itemProp="thumbnail" content={`http://www.dimitrimalignan.com/${srcThumb}`} />
           <meta itemProp="contentUrl" content={`http://www.dimitrimalignan.com/${srcFullres}`} />
-        </div>
+        </GalleryItem>
       );
     });
   }
@@ -96,8 +99,10 @@ class Photos extends React.Component {
     return (
       <Page pageName="Photos">
         <ContentPanel>
-          <div className="Photos-gallery" itemScope itemType="http://schema.org/ImageGallery">
-            {this.listPhotos()}
+          <div itemScope itemType="http://schema.org/ImageGallery">
+            <Gallery>
+              {this.listPhotos()}
+            </Gallery>
           </div>
         </ContentPanel>
         {this.renderModal()}
