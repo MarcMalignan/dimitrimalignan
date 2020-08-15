@@ -10,7 +10,7 @@ class Page extends React.Component {
   }
 
   static sendAnalytics() {
-    ga('set', 'page', location.pathname);
+    ga('set', 'page', window.location.pathname);
     ga('send', 'pageview');
   }
 
@@ -30,19 +30,23 @@ class Page extends React.Component {
   }
 
   setTitle() {
-    const pageTitle = this.props.pageTitle || this.props.pageName;
+    const { pageTitle, pageName } = this.props;
+
+    const page = pageTitle || pageName;
 
     let title = 'Dimitri Malignan';
-    title += pageTitle === 'Home' ? '' : ` - ${pageTitle}`;
+    title += page === 'Home' ? '' : ` - ${page}`;
 
     document.title = title;
   }
 
   setDescription() {
+    const { pageName } = this.props;
+
     let desc;
 
     // TODO : add descriptions for all pages
-    switch (this.props.pageName) {
+    switch (pageName) {
       case 'Bio':
         desc = '';
         break;
@@ -68,9 +72,8 @@ class Page extends React.Component {
         desc = '';
         break;
       default:
-        desc =
-          // eslint-disable-next-line max-len
-          "Site officiel de Dimitri Malignan, Pianiste français né en 1998, Prix Cortot de l'Ecole Normale de Musique de Paris, lauréat de nombreux concours internationaux";
+        // eslint-disable-next-line max-len
+        desc = "Site officiel de Dimitri Malignan, Pianiste français né en 1998, Prix Cortot de l'Ecole Normale de Musique de Paris, lauréat de nombreux concours internationaux";
         break;
     }
 
@@ -78,9 +81,12 @@ class Page extends React.Component {
   }
 
   render() {
+    const { children } = this.props;
+    const { pageClass } = this.state;
+
     return (
-      <div className={this.state.pageClass}>
-        <div className="Page-content">{this.props.children}</div>
+      <div className={pageClass}>
+        <div className="Page-content">{children}</div>
       </div>
     );
   }

@@ -14,24 +14,29 @@ const videoConfig = {
   },
 };
 
-const Video = props => {
-  const config = videoConfig[props.type];
+const Video = ({
+  date,
+  title,
+  type,
+  videoId,
+}) => {
+  const config = videoConfig[type];
   if (!config) return null;
 
-  const src = config.src + props.videoId;
-  const href = config.href + props.videoId;
+  const src = config.src + videoId;
+  const href = config.href + videoId;
 
   return (
     <div className="Video" itemProp="associatedMedia" itemScope itemType="http://schema.org/VideoObject">
       <a className="Video-link" href={href} target="_blank">
-        {props.title}
+        {title}
       </a>
       <div className="Video-wrapper">
-        <iframe title={props.title} src={src} allowFullScreen="true" itemProp="embedUrl" />
+        <iframe title={title} src={src} allowFullScreen="true" itemProp="embedUrl" />
       </div>
-      <meta itemProp="name" content={props.title} />
-      <meta itemProp="description" content={props.title} />
-      <meta itemProp="uploadDate" content={props.date} />
+      <meta itemProp="name" content={title} />
+      <meta itemProp="description" content={title} />
+      <meta itemProp="uploadDate" content={date} />
     </div>
   );
 };

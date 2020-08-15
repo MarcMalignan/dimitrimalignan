@@ -10,32 +10,37 @@ class Modal extends React.Component {
   }
 
   componentDidMount() {
-    if (this.props.closeOnClick === true) {
+    const { closeOnClick } = this.props;
+    if (closeOnClick === true) {
       document.addEventListener('click', this.close);
     }
     document.addEventListener('keyup', this.close);
   }
 
   componentWillUnmount() {
-    if (this.props.closeOnClick === true) {
+    const { closeOnClick } = this.props;
+    if (closeOnClick === true) {
       document.removeEventListener('click', this.close);
     }
     document.removeEventListener('keyup', this.close);
   }
 
   close(e) {
+    const { onClose } = this.props;
     if ((e.type === 'click' && e.target.tagName !== 'IMG') || (e.type === 'keyup' && e.keyCode === 27)) {
-      this.props.onClose();
+      onClose();
     }
   }
 
   render() {
+    const { children } = this.props;
+
     return (
       <div className="Modal">
         <div className="Modal-close">
           <span onClick={this.close}>✕</span>
         </div>
-        <div className="Modal-content">{this.props.children}</div>
+        <div className="Modal-content">{children}</div>
       </div>
     );
   }
@@ -49,7 +54,7 @@ Modal.propTypes = {
 
 Modal.defaultProps = {
   children: [],
-  onClose: () => {},
+  onClose: () => { },
   closeOnClick: false,
 };
 

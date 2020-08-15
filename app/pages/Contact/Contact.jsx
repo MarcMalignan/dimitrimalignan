@@ -24,14 +24,16 @@ class Contact extends React.Component {
   }
 
   render() {
-    if (!this.state.contact) return null;
+    const { location: { search } } = this.props;
+    const { contact } = this.state;
 
-    const email = `mailto:${this.state.contact.email}`;
-    const emailManager = `mailto:${this.state.contact.emailManager}`;
-    const emailAgent = `mailto:${this.state.contact.agent.email}`;
-    const phoneAgent = `tel:${this.state.contact.agent.phone.replace(/ /g, '')}`;
+    if (!contact) return null;
 
-    const search = this.props.location.search;
+    const email = `mailto:${contact.email}`;
+    const emailManager = `mailto:${contact.emailManager}`;
+    const emailAgent = `mailto:${contact.agent.email}`;
+    const phoneAgent = `tel:${contact.agent.phone.replace(/ /g, '')}`;
+
     const contactMeLabel = {
       fr: 'Me contacter',
       en: 'Contact me',
@@ -52,33 +54,33 @@ class Contact extends React.Component {
             <div className="Contact-main-column">
               <h1>{commons.translate(search, contactMeLabel)}</h1>
               <div className="Contact-main-line">
-                <a href={email} target="_blank">{this.state.contact.email}</a>
+                <a href={email} target="_blank">{contact.email}</a>
               </div>
               <div className="Contact-sub">
-                <a href={this.state.contact.facebook} target="_blank">
+                <a href={contact.facebook} target="_blank">
                   <img src={iconFacebook} alt="Facebook" />
                 </a>
-                <a href={this.state.contact.instagram} target="_blank">
+                <a href={contact.instagram} target="_blank">
                   <img src={iconInstagram} alt="Instagram" />
                 </a>
-                <a href={this.state.contact.spotify} target="_blank">
+                <a href={contact.spotify} target="_blank">
                   <img src={iconSpotify} alt="Spotify" />
                 </a>
               </div>
             </div>
             <div className="Contact-main-column">
               <h1>{commons.translate(search, contactAgentLabel)}</h1>
-              <div className="Contact-main-line">{this.state.contact.agent.name}</div>
+              <div className="Contact-main-line">{contact.agent.name}</div>
               <div className="Contact-main-line">
-                {this.state.contact.agent.title}
+                {contact.agent.title}
                 {' - '}
-                <a href={this.state.contact.agent.link} target="_blank">{this.state.contact.agent.company}</a>
+                <a href={contact.agent.link} target="_blank">{contact.agent.company}</a>
               </div>
               <div className="Contact-main-line">
-                <a href={emailAgent} target="_blank">{this.state.contact.agent.email}</a>
+                <a href={emailAgent} target="_blank">{contact.agent.email}</a>
               </div>
               <div className="Contact-main-line">
-                <a href={phoneAgent} target="_blank">{this.state.contact.agent.phone}</a>
+                <a href={phoneAgent} target="_blank">{contact.agent.phone}</a>
               </div>
             </div>
           </div>
@@ -86,7 +88,10 @@ class Contact extends React.Component {
         <ContentPanel>
           <div className="Contact-info">
             <p>
-              <span>{commons.translate(search, developLabel)} </span>
+              <span>
+                {commons.translate(search, developLabel)}
+                {' '}
+              </span>
               <a href={emailManager} target="_blank">
                 Marc Malignan
               </a>

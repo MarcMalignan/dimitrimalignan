@@ -13,10 +13,7 @@ import './Photos.scss';
 class Photos extends React.Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      modal: false,
-    };
+    this.state = {};
   }
 
   componentDidMount() {
@@ -26,8 +23,10 @@ class Photos extends React.Component {
   }
 
   listPhotos() {
-    if (!this.state.photos) return null;
-    return this.state.photos.map((photo, index) => {
+    const { photos } = this.state;
+
+    if (!photos) return null;
+    return photos.map((photo, index) => {
       const srcThumb = require(`../../../images/gallery/thumbs/${photo.filename}`);
       const srcFullres = require(`../../../images/gallery/fullres/${photo.filename}`);
 
@@ -61,7 +60,8 @@ class Photos extends React.Component {
   }
 
   renderModal() {
-    const photo = this.state.highres;
+    const { location: { search } } = this.props;
+    const { highres: photo } = this.state;
 
     if (!photo) return null;
 
@@ -72,7 +72,6 @@ class Photos extends React.Component {
       backgroundImage: `url(${srcHighres})`,
     };
 
-    const search = this.props.location.search;
     const highresLabel = {
       fr: 'Version haute définition',
       en: 'High-resolution version',
@@ -89,7 +88,10 @@ class Photos extends React.Component {
           <a href={srcFullres} target="_blank">
             {commons.translate(search, highresLabel)}
           </a>
-          <div className="Photos-highres-info-copyright">© {photo.copyright}</div>
+          <div className="Photos-highres-info-copyright">
+            ©
+            {photo.copyright}
+          </div>
         </div>
       </Modal>
     );

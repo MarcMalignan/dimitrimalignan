@@ -18,12 +18,14 @@ class Bio extends React.Component {
   }
 
   listParagraphs() {
-    if (!this.state.bio) return null;
+    const { location: { search } } = this.props;
+    const { bio } = this.state;
 
-    const search = this.props.location.search;
-    const bio = commons.translate(search, this.state.bio) || [];
+    if (!bio) return null;
 
-    return bio.map((p, index) => {
+    const bioParagraphs = commons.translate(search, bio) || [];
+
+    return bioParagraphs.map((p, index) => {
       const innerHtml = { __html: p };
       return <p key={index} dangerouslySetInnerHTML={innerHtml} />;
     });

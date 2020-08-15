@@ -9,7 +9,7 @@ import './MissingVoices.scss';
 const concert1Img = require('../../../../images/projects/missingVoices/concert1.jpg');
 const concert2Img = require('../../../../images/projects/missingVoices/concert2.jpg');
 
-const MissingVoices = props => {
+const MissingVoices = ({ location: { search } }) => {
   const instagramLabel = {
     fr: 'Suivez le projet sur instagram : ',
     en: 'Follow the project on Instagram: ',
@@ -22,8 +22,6 @@ const MissingVoices = props => {
     fr: 'Détails des évènements accessibles en cliquant sur les images ci-dessous.',
     en: 'Access the events details by clicking on the images below.',
   };
-
-  const search = props.location.search;
 
   return (
     <Page pageName="MissingVoices">
