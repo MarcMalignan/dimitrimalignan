@@ -29,7 +29,7 @@
     &-content {
       margin: 0;
       padding-left: $paragraph-margin;
-      border-left: 1px solid transparentize($accent-color, .5);
+      border-left: 1px solid transparentize($accent-color, 0.5);
     }
 
     &-source,

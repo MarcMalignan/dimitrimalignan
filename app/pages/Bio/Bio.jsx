@@ -18,7 +18,9 @@ class Bio extends React.Component {
   }
 
   listParagraphs() {
-    const { location: { search } } = this.props;
+    const {
+      location: { search },
+    } = this.props;
     const { bio } = this.state;
 
     if (!bio) return null;

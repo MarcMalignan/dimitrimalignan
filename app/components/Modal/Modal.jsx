@@ -54,7 +54,7 @@ Modal.propTypes = {
 
 Modal.defaultProps = {
   children: [],
-  onClose: () => { },
+  onClose: () => {},
   closeOnClick: false,
 };
 

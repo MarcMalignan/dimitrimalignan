@@ -72,8 +72,8 @@ class Page extends React.Component {
         desc = '';
         break;
       default:
-        // eslint-disable-next-line max-len
-        desc = "Site officiel de Dimitri Malignan, Pianiste français né en 1998, Prix Cortot de l'Ecole Normale de Musique de Paris, lauréat de nombreux concours internationaux";
+        desc =
+          "Site officiel de Dimitri Malignan, Pianiste français né en 1998, Prix Cortot de l'Ecole Normale de Musique de Paris, lauréat de nombreux concours internationaux";
         break;
     }
 

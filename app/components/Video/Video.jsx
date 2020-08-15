@@ -14,12 +14,7 @@ const videoConfig = {
   },
 };
 
-const Video = ({
-  date,
-  title,
-  type,
-  videoId,
-}) => {
+const Video = ({ date, title, type, videoId }) => {
   const config = videoConfig[type];
   if (!config) return null;
 

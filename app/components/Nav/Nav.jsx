@@ -73,7 +73,9 @@ class Nav extends React.Component {
   }
 
   listLinks() {
-    const { location: { search } } = this.props;
+    const {
+      location: { search },
+    } = this.props;
     const { links } = this.state;
 
     return links.map(link => {
@@ -82,17 +84,13 @@ class Nav extends React.Component {
         search,
       };
 
-      const isActive = (_, location) => (href.pathname === '/' && location.pathname === '/')
-        || (href.pathname !== '/' && location.pathname.startsWith(href.pathname));
+      const isActive = (_, location) =>
+        (href.pathname === '/' && location.pathname === '/') ||
+        (href.pathname !== '/' && location.pathname.startsWith(href.pathname));
 
       return (
         <li className="Nav-list-item" key={link.url}>
-          <NavLink
-            className="Nav-list-item-link"
-            activeClassName="active"
-            isActive={isActive}
-            to={href}
-          >
+          <NavLink className="Nav-list-item-link" activeClassName="active" isActive={isActive} to={href}>
             {commons.translate(search, link.label)}
           </NavLink>
         </li>
@@ -109,7 +107,9 @@ class Nav extends React.Component {
   }
 
   renderLang() {
-    const { location: { pathname } } = this.props;
+    const {
+      location: { pathname },
+    } = this.props;
 
     const linkFr = { pathname };
     const linkEn = {

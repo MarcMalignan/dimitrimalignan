@@ -24,7 +24,9 @@ class Contact extends React.Component {
   }
 
   render() {
-    const { location: { search } } = this.props;
+    const {
+      location: { search },
+    } = this.props;
     const { contact } = this.state;
 
     if (!contact) return null;
@@ -54,7 +56,9 @@ class Contact extends React.Component {
             <div className="Contact-main-column">
               <h1>{commons.translate(search, contactMeLabel)}</h1>
               <div className="Contact-main-line">
-                <a href={email} target="_blank">{contact.email}</a>
+                <a href={email} target="_blank">
+                  {contact.email}
+                </a>
               </div>
               <div className="Contact-sub">
                 <a href={contact.facebook} target="_blank">
@@ -74,13 +78,19 @@ class Contact extends React.Component {
               <div className="Contact-main-line">
                 {contact.agent.title}
                 {' - '}
-                <a href={contact.agent.link} target="_blank">{contact.agent.company}</a>
+                <a href={contact.agent.link} target="_blank">
+                  {contact.agent.company}
+                </a>
               </div>
               <div className="Contact-main-line">
-                <a href={emailAgent} target="_blank">{contact.agent.email}</a>
+                <a href={emailAgent} target="_blank">
+                  {contact.agent.email}
+                </a>
               </div>
               <div className="Contact-main-line">
-                <a href={phoneAgent} target="_blank">{contact.agent.phone}</a>
+                <a href={phoneAgent} target="_blank">
+                  {contact.agent.phone}
+                </a>
               </div>
             </div>
           </div>
@@ -88,10 +98,7 @@ class Contact extends React.Component {
         <ContentPanel>
           <div className="Contact-info">
             <p>
-              <span>
-                {commons.translate(search, developLabel)}
-                {' '}
-              </span>
+              <span>{commons.translate(search, developLabel)} </span>
               <a href={emailManager} target="_blank">
                 Marc Malignan
               </a>

@@ -30,7 +30,9 @@ class Media extends React.Component {
   }
 
   render() {
-    const { location: { search } } = this.props;
+    const {
+      location: { search },
+    } = this.props;
 
     const videosLabel = {
       fr: 'Vidéos',

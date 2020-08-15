@@ -60,7 +60,9 @@ class Photos extends React.Component {
   }
 
   renderModal() {
-    const { location: { search } } = this.props;
+    const {
+      location: { search },
+    } = this.props;
     const { highres: photo } = this.state;
 
     if (!photo) return null;
@@ -88,10 +90,7 @@ class Photos extends React.Component {
           <a href={srcFullres} target="_blank">
             {commons.translate(search, highresLabel)}
           </a>
-          <div className="Photos-highres-info-copyright">
-            ©
-            {photo.copyright}
-          </div>
+          <div className="Photos-highres-info-copyright">© {photo.copyright}</div>
         </div>
       </Modal>
     );
@@ -102,9 +101,7 @@ class Photos extends React.Component {
       <Page pageName="Photos">
         <ContentPanel>
           <div itemScope itemType="http://schema.org/ImageGallery">
-            <Gallery>
-              {this.listPhotos()}
-            </Gallery>
+            <Gallery>{this.listPhotos()}</Gallery>
           </div>
         </ContentPanel>
         {this.renderModal()}

@@ -3,13 +3,7 @@ import PropTypes from 'prop-types';
 
 import './HomeAlert.scss';
 
-const HomeAlert = ({
-  img,
-  imgAlt,
-  imgLink,
-  links,
-  title,
-}) => (
+const HomeAlert = ({ img, imgAlt, imgLink, links, title }) => (
   <div className="HomeAlert">
     {title && <h1>{title}</h1>}
 
@@ -25,7 +19,9 @@ const HomeAlert = ({
       <div className="HomeAlert-body-links">
         {links.map((link, index) => (
           <a href={link.url} target="_blank" key={index}>
-            <button type="button" className={link.className}>{link.label}</button>
+            <button type="button" className={link.className}>
+              {link.label}
+            </button>
           </a>
         ))}
       </div>

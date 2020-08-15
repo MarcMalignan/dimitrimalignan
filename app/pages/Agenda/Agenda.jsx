@@ -76,7 +76,9 @@ class Agenda extends React.Component {
   }
 
   listEvents(events) {
-    const { location: { search } } = this.props;
+    const {
+      location: { search },
+    } = this.props;
 
     const lang = commons.getLang(search);
 
@@ -93,7 +95,9 @@ class Agenda extends React.Component {
                 <a href={event.link} itemProp="url" target="_blank">
                   {title}
                 </a>
-              ) : title}
+              ) : (
+                title
+              )}
             </div>
             <div
               className="Agenda-list-item-location"
@@ -115,7 +119,9 @@ class Agenda extends React.Component {
   }
 
   renderEvents(events, title) {
-    const { location: { search } } = this.props;
+    const {
+      location: { search },
+    } = this.props;
 
     return events && events.length ? (
       <ContentPanel>

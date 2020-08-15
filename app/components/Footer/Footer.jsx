@@ -5,9 +5,7 @@ import './Footer.scss';
 
 const Footer = () => (
   <footer className="Footer">
-    <span>
-      {`© ${moment().format('YYYY')} Dimitri Malignan`}
-    </span>
+    <span>© {moment().format('YYYY')} Dimitri Malignan</span>
   </footer>
 );
 

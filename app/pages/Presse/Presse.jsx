@@ -29,7 +29,9 @@ class Presse extends React.Component {
   }
 
   listArticles() {
-    const { location: { search } } = this.props;
+    const {
+      location: { search },
+    } = this.props;
     const { articles } = this.state;
 
     if (!articles) return null;
