@@ -1,5 +1,13 @@
 @import '../../style/variables';
 
 .Page {
+  display: flex;
+  align-items: center;
+  min-height: 100%;
   animation: fadeIn $duration-fast forwards;
+}
+
+.Page,
+.Page-content {
+  width: 100%;
 }

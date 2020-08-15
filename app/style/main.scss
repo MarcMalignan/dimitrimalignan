@@ -3,6 +3,10 @@
 @import 'variables';
 @import 'media-queries';
 
+* {
+  box-sizing: border-box;
+}
+
 html,
 body,
 #root,
@@ -17,7 +21,7 @@ body {
   background-color: $bg-color;
   background-position: center;
   background-repeat: no-repeat;
-  background-size: auto 100%;
+  background-size: cover;
   color: $text-color;
 }
 
@@ -50,7 +54,7 @@ body {
   }
 
   &::-webkit-scrollbar-track {
-    background: $accent-color-dark;
+    background: $panel-content-bg;
   }
 
   &::-webkit-scrollbar-thumb {
