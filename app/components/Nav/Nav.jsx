@@ -3,7 +3,7 @@ import { withRouter, Link, NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import commons from '../../commons';
-import Modal from '../../components/Modal/Modal';
+import Modal from '../Modal/Modal';
 
 import './Nav.scss';
 
@@ -73,25 +73,24 @@ class Nav extends React.Component {
   }
 
   listLinks() {
-    const search = this.props.location.search;
+    const {
+      location: { search },
+    } = this.props;
+    const { links } = this.state;
 
-    return this.state.links.map(link => {
+    return links.map(link => {
       const href = {
         pathname: link.url,
         search,
       };
 
+      const isActive = (_, location) =>
+        (href.pathname === '/' && location.pathname === '/') ||
+        (href.pathname !== '/' && location.pathname.startsWith(href.pathname));
+
       return (
         <li className="Nav-list-item" key={link.url}>
-          <NavLink
-            className="Nav-list-item-link"
-            activeClassName="active"
-            isActive={(_, location) =>
-              (href.pathname === '/' && location.pathname === '/') ||
-              (href.pathname !== '/' && location.pathname.startsWith(href.pathname))
-            }
-            to={href}
-          >
+          <NavLink className="Nav-list-item-link" activeClassName="active" isActive={isActive} to={href}>
             {commons.translate(search, link.label)}
           </NavLink>
         </li>
@@ -108,7 +107,9 @@ class Nav extends React.Component {
   }
 
   renderLang() {
-    const pathname = this.props.location.pathname;
+    const {
+      location: { pathname },
+    } = this.props;
 
     const linkFr = { pathname };
     const linkEn = {
@@ -125,7 +126,9 @@ class Nav extends React.Component {
   }
 
   renderModal() {
-    if (!this.state.modal) return null;
+    const { modal } = this.state;
+
+    if (!modal) return null;
 
     return (
       <Modal

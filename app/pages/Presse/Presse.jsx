@@ -29,12 +29,16 @@ class Presse extends React.Component {
   }
 
   listArticles() {
-    if (!this.state.articles) return null;
+    const {
+      location: { search },
+    } = this.props;
+    const { articles } = this.state;
 
-    const search = this.props.location.search;
+    if (!articles) return null;
+
     const lang = commons.getLang(search);
 
-    return this.state.articles.map((article, index) => {
+    return articles.map((article, index) => {
       const content = commons.translate(search, article.content) || [];
 
       return (

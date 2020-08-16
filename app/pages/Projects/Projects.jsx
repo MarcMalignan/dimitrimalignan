@@ -7,7 +7,7 @@ import Page from '../../components/Page/Page';
 
 import './Projects.scss';
 
-const missingVoicesBanner = require('../../../images/projects/missingVoices/banner.jpg');
+import missingVoicesBanner from '../../../images/projects/missingVoices/banner.jpg';
 
 const Projects = () => (
   <Page pageName="Projects">

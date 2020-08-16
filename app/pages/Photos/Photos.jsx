@@ -10,27 +10,49 @@ import Page from '../../components/Page/Page';
 
 import './Photos.scss';
 
+const getImages = async (photos, folder) => {
+  const fetchImages = [];
+  photos.forEach(photo =>
+    fetchImages.push(
+      import(
+        /* webpackChunkName: "lazy", webpackMode: "lazy-once" */ `../../../images/gallery/${folder}/${photo.filename}`
+      ),
+    ),
+  );
+
+  const images = await Promise.all(fetchImages);
+  return images.map(image => image.default);
+};
+
 class Photos extends React.Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      modal: false,
-    };
+    this.state = {};
   }
 
   componentDidMount() {
-    commons.getData('photos', photos => {
-      this.setState({ photos });
+    commons.getData('photos', async photos => {
+      const [thumbs, highres, fullres] = await Promise.all([
+        getImages(photos, 'thumbs'),
+        getImages(photos, 'highres'),
+        getImages(photos, 'fullres'),
+      ]);
+
+      const photosWithImages = photos.map((photo, index) => ({
+        ...photo,
+        srcThumb: thumbs[index],
+        srcHighres: highres[index],
+        srcFullres: fullres[index],
+      }));
+
+      this.setState({ photos: photosWithImages });
     });
   }
 
   listPhotos() {
-    if (!this.state.photos) return null;
-    return this.state.photos.map((photo, index) => {
-      const srcThumb = require(`../../../images/gallery/thumbs/${photo.filename}`);
-      const srcFullres = require(`../../../images/gallery/fullres/${photo.filename}`);
-
+    const { photos } = this.state;
+    if (!photos) return null;
+    return photos.map((photo, index) => {
       const onClick = () => this.openModal(photo);
 
       return (
@@ -42,11 +64,11 @@ class Photos extends React.Component {
             itemScope
             itemType="http://schema.org/ImageObject"
           >
-            <img src={srcThumb} alt="" />
+            <img src={photo.srcThumb} alt="" />
           </div>
           <meta itemProp="author" content={photo.copyright} />
-          <meta itemProp="thumbnail" content={`http://www.dimitrimalignan.com/${srcThumb}`} />
-          <meta itemProp="contentUrl" content={`http://www.dimitrimalignan.com/${srcFullres}`} />
+          <meta itemProp="thumbnail" content={`http://www.dimitrimalignan.com/${photo.srcThumb}`} />
+          <meta itemProp="contentUrl" content={`http://www.dimitrimalignan.com/${photo.srcFullres}`} />
         </GalleryItem>
       );
     });
@@ -61,18 +83,17 @@ class Photos extends React.Component {
   }
 
   renderModal() {
-    const photo = this.state.highres;
+    const {
+      location: { search },
+    } = this.props;
+    const { highres: photo } = this.state;
 
     if (!photo) return null;
 
-    const srcHighres = require(`../../../images/gallery/highres/${photo.filename}`);
-    const srcFullres = require(`../../../images/gallery/fullres/${photo.filename}`);
-
     const style = {
-      backgroundImage: `url(${srcHighres})`,
+      backgroundImage: `url(${photo.srcHighres})`,
     };
 
-    const search = this.props.location.search;
     const highresLabel = {
       fr: 'Version haute définition',
       en: 'High-resolution version',
@@ -86,7 +107,7 @@ class Photos extends React.Component {
       >
         <div className="Photos-highres-img" style={style} />
         <div className="Photos-highres-info">
-          <a href={srcFullres} target="_blank">
+          <a href={photo.srcFullres} target="_blank">
             {commons.translate(search, highresLabel)}
           </a>
           <div className="Photos-highres-info-copyright">© {photo.copyright}</div>
@@ -100,9 +121,7 @@ class Photos extends React.Component {
       <Page pageName="Photos">
         <ContentPanel>
           <div itemScope itemType="http://schema.org/ImageGallery">
-            <Gallery>
-              {this.listPhotos()}
-            </Gallery>
+            <Gallery>{this.listPhotos()}</Gallery>
           </div>
         </ContentPanel>
         {this.renderModal()}

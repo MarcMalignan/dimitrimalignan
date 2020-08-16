@@ -76,7 +76,10 @@ class Agenda extends React.Component {
   }
 
   listEvents(events) {
-    const search = this.props.location.search;
+    const {
+      location: { search },
+    } = this.props;
+
     const lang = commons.getLang(search);
 
     return events.map((event, index) => {
@@ -116,7 +119,9 @@ class Agenda extends React.Component {
   }
 
   renderEvents(events, title) {
-    const search = this.props.location.search;
+    const {
+      location: { search },
+    } = this.props;
 
     return events && events.length ? (
       <ContentPanel>
@@ -127,6 +132,8 @@ class Agenda extends React.Component {
   }
 
   render() {
+    const { futureEvents, oldEvents } = this.state;
+
     const futureEventsLabel = {
       fr: 'Dates à venir',
       en: 'Upcoming events',
@@ -138,8 +145,8 @@ class Agenda extends React.Component {
 
     return (
       <Page pageName="Agenda">
-        {this.renderEvents(this.state.futureEvents, futureEventsLabel)}
-        {this.renderEvents(this.state.oldEvents, oldEventsLabel)}
+        {this.renderEvents(futureEvents, futureEventsLabel)}
+        {this.renderEvents(oldEvents, oldEventsLabel)}
       </Page>
     );
   }

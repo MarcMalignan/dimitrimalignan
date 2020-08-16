@@ -21,14 +21,19 @@ class Media extends React.Component {
   }
 
   listVideos() {
-    if (!this.state.videos) return null;
-    return this.state.videos.map(video => (
+    const { videos } = this.state;
+
+    if (!videos) return null;
+    return videos.map(video => (
       <Video key={video.id} videoId={video.id} title={video.title} date={video.date} type={video.type} />
     ));
   }
 
   render() {
-    const search = this.props.location.search;
+    const {
+      location: { search },
+    } = this.props;
+
     const videosLabel = {
       fr: 'Vidéos',
       en: 'Videos',
