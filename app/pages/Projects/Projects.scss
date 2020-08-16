@@ -1,12 +1,9 @@
 @import '../../style/variables';
-@import '../../style/media-queries';
-
-$spacing: 20px;
 
 .Projects {
   .Project {
     &-title {
-      margin-bottom: $spacing;
+      margin-bottom: $paragraph-margin;
       text-align: center;
     }
 
