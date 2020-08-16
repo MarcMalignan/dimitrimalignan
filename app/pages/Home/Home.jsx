@@ -7,8 +7,9 @@ import Page from '../../components/Page/Page';
 import ContentPanel from '../../components/ContentPanel/ContentPanel';
 import HomeAlert from '../../components/HomeAlert/HomeAlert';
 
+import albumImg from '../../../images/album.jpg';
+
 const Home = ({ location: { search } }) => {
-  const albumImg = require('../../../images/album.jpg');
   const albumTitle = 'Dimitri Malignan - Robert Schumann / Serge Prokofiev';
   const albumLink = 'http://www.passavantmusictest.fr/produit/dimitri-malignan-robert-schumann-serge-prokofiev';
   const spotifyLink = 'https://open.spotify.com/album/7zkkAFajFz8NUJF5EDS5vy?si=ZIVU7kZyT1-H7IJGXIrSnQ';

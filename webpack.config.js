@@ -1,9 +1,9 @@
-const webpack = require('webpack');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 // const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+
+const webpack = require('webpack');
 const path = require('path');
 
 module.exports = env => {
@@ -15,10 +15,11 @@ module.exports = env => {
     output: {
       path: path.join(__dirname, 'dist'),
       publicPath: '/',
-      filename: '[hash].bundle.js',
+      filename: '[name]-[hash:6].bundle.js',
+      chunkFilename: '[name]-[hash:6].bundle.js',
     },
     module: {
-      loaders: [
+      rules: [
         {
           test: /\.jsx?$/,
           include: path.join(__dirname, 'app'),
@@ -26,14 +27,18 @@ module.exports = env => {
         },
         {
           test: /\.scss$/,
-          loader: ExtractTextPlugin.extract(['css-loader', 'sass-loader', 'postcss-loader']),
+          use: ['style-loader', 'css-loader', 'sass-loader'],
         },
         {
           test: /\.(jpe?g|svg)$/,
-          loader: 'file-loader',
-          options: {
-            name: '[path][name].[ext]',
-          },
+          use: [
+            {
+              loader: 'file-loader',
+              options: {
+                name: 'images/[name]-[hash:6].[ext]',
+              },
+            },
+          ],
         },
       ],
     },
@@ -41,19 +46,15 @@ module.exports = env => {
       extensions: ['.js', '.jsx'],
     },
     plugins: [
-      new CleanWebpackPlugin(['dist']),
+      new CleanWebpackPlugin(),
       new HtmlWebpackPlugin({
         template: 'index.ejs',
-      }),
-      new ExtractTextPlugin({
-        filename: '[hash].bundle.css',
-        allChunks: true,
       }),
       new FaviconsWebpackPlugin({
         title,
         background: themeColor,
         logo: './images/favicon.png',
-        prefix: 'images/favicons-[hash]/',
+        prefix: 'images/favicons/[hash:6]/',
         inject: true,
         icons: {
           android: true,
@@ -79,13 +80,12 @@ module.exports = env => {
   } else {
     config.devtool = 'eval';
     config.devServer = {
+      contentBase: path.resolve(__dirname, 'dist'),
+      compress: true,
+      hot: true,
       historyApiFallback: true,
     };
-    // config.plugins.push(
-    //   new BundleAnalyzerPlugin({
-    //     openAnalyzer: false,
-    //   }),
-    // );
+    // config.plugins.push(new BundleAnalyzerPlugin());
   }
 
   return config;

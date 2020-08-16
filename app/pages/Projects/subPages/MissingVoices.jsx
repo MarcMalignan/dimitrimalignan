@@ -6,8 +6,8 @@ import Page from '../../../components/Page/Page';
 import Video from '../../../components/Video/Video';
 import './MissingVoices.scss';
 
-const concert1Img = require('../../../../images/projects/missingVoices/concert1.jpg');
-const concert2Img = require('../../../../images/projects/missingVoices/concert2.jpg');
+import concert1Img from '../../../../images/projects/missingVoices/concert1.jpg';
+import concert2Img from '../../../../images/projects/missingVoices/concert2.jpg';
 
 const MissingVoices = ({ location: { search } }) => {
   const instagramLabel = {
