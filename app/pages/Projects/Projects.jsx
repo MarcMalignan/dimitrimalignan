@@ -13,8 +13,8 @@ const Projects = () => (
   <Page pageName="Projects">
     <ContentPanel>
       <Gallery>
-        <GalleryItem>
-          <Link className="Project" to="/projects/missing-voices">
+        <GalleryItem className="Project">
+          <Link to="/projects/missing-voices">
             <div className="Project-title">Missing Voices</div>
             <img src={missingVoicesBanner} alt="Missing voices" />
           </Link>

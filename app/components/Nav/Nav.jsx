@@ -13,17 +13,17 @@ class Nav extends React.Component {
     this.state = {
       links: [
         {
-          url: '/',
-          label: {
-            fr: 'Accueil',
-            en: 'Home',
-          },
-        },
-        {
           url: '/bio',
           label: {
             fr: 'Bio',
             en: 'Bio',
+          },
+        },
+        {
+          url: '/music',
+          label: {
+            fr: 'Musique',
+            en: 'Music',
           },
         },
         {
