@@ -91,7 +91,7 @@ class Photos extends React.Component {
     if (!photo) return null;
 
     const style = {
-      backgroundImage: `url(${photo.srcHighres})`,
+      backgroundImage: `url("${photo.srcHighres}")`,
     };
 
     const highresLabel = {
