@@ -11,7 +11,7 @@ import './Music.scss';
 import imgProkofiev from '../../../images/music/albumProkofiev.jpg';
 import imgBach from '../../../images/music/albumBach.jpg';
 
-const albums = [
+export const ALBUMS = [
   {
     title: 'J.S. Bach - Peregrinations',
     link: 'https://www.editionshortus.com/catalogue_fiche.php?prod_id=279',
@@ -39,7 +39,7 @@ const Music = ({ location: { search } }) => (
   <Page pageName="Music">
     <ContentPanel>
       <Gallery>
-        {albums.map(({ title, link, spotifyLink, img }) => (
+        {ALBUMS.map(({ title, link, spotifyLink, img }) => (
           <GalleryItem className="Album">
             <a href={link} target="_blank">
               <div className="Album-title">{title}</div>
