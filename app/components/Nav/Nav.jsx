@@ -1,10 +1,10 @@
-import React from 'react';
-import { withRouter, Link, NavLink } from 'react-router-dom';
+import classNames from 'classnames';
 import PropTypes from 'prop-types';
+import React from 'react';
 
+import { Link, NavLink, withRouter } from 'react-router-dom';
 import commons from '../../commons';
 import Modal from '../Modal/Modal';
-
 import './Nav.scss';
 
 class Nav extends React.Component {
@@ -108,8 +108,10 @@ class Nav extends React.Component {
 
   renderLang() {
     const {
-      location: { pathname },
+      location: { pathname, search },
     } = this.props;
+
+    const lang = commons.getLang(search);
 
     const linkFr = { pathname };
     const linkEn = {
@@ -119,8 +121,12 @@ class Nav extends React.Component {
 
     return (
       <div className="Nav-lang">
-        <Link to={linkFr}>FR</Link>
-        <Link to={linkEn}>EN</Link>
+        <Link to={linkFr} className={classNames({ active: lang === 'fr' })}>
+          FR
+        </Link>
+        <Link to={linkEn} className={classNames({ active: lang === 'en' })}>
+          EN
+        </Link>
       </div>
     );
   }

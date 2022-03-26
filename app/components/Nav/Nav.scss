@@ -122,6 +122,10 @@ $brg-nb: 3;
       color: $text-color;
       text-decoration: none;
 
+      &.active {
+        color: $accent-color;
+      }
+
       &:not(:last-child) {
         margin-right: 10px;
       }
