@@ -7,7 +7,8 @@ import Page from '../../components/Page/Page';
 
 import './Projects.scss';
 
-import missingVoicesBanner from '../../../images/projects/missingVoices/banner.jpg';
+import imgMissingVoices from '../../../images/projects/missingVoices/banner.jpg';
+import imgBosmansBeyond from '../../../images/projects/bosmansBeyond/banner.jpg';
 
 const Projects = () => (
   <Page pageName="Projects">
@@ -16,8 +17,14 @@ const Projects = () => (
         <GalleryItem className="Project">
           <Link to="/projects/missing-voices">
             <div className="Project-title">Missing Voices</div>
-            <img src={missingVoicesBanner} alt="Missing voices" />
+            <img src={imgMissingVoices} alt="Missing voices" />
           </Link>
+        </GalleryItem>
+        <GalleryItem className="Project">
+          <a href="https://www.bosmansbeyond.com/" target="_blank">
+            <div className="Project-title">Bosmans & Beyond</div>
+            <img src={imgBosmansBeyond} alt="Bosmans & Beyond" />
+          </a>
         </GalleryItem>
       </Gallery>
     </ContentPanel>
