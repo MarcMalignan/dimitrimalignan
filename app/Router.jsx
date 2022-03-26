@@ -5,12 +5,12 @@ import Agenda from './pages/Agenda/Agenda';
 import Bio from './pages/Bio/Bio';
 import Contact from './pages/Contact/Contact';
 import Home from './pages/Home/Home';
-import Media from './pages/Media/Media';
 import MissingVoices from './pages/Projects/subPages/MissingVoices';
 import Music from './pages/Music/Music';
 import Photos from './pages/Photos/Photos';
 import Presse from './pages/Presse/Presse';
 import Projects from './pages/Projects/Projects';
+import Videos from './pages/Videos/Videos';
 
 class Router extends React.Component {
   constructor(props) {
@@ -19,7 +19,7 @@ class Router extends React.Component {
       { path: '/agenda', component: Agenda },
       { path: '/bio', component: Bio },
       { path: '/contact', component: Contact },
-      { path: '/media', component: Media },
+      { path: '/videos', component: Videos },
       { path: '/music', component: Music },
       { path: '/photos', component: Photos },
       { path: '/presse', component: Presse },

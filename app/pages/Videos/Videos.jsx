@@ -6,9 +6,9 @@ import Page from '../../components/Page/Page';
 import ContentPanel from '../../components/ContentPanel/ContentPanel';
 import Video from '../../components/Video/Video';
 
-import './Media.scss';
+import './Videos.scss';
 
-class Media extends React.Component {
+class Videos extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -30,20 +30,10 @@ class Media extends React.Component {
   }
 
   render() {
-    const {
-      location: { search },
-    } = this.props;
-
-    const videosLabel = {
-      fr: 'Vidéos',
-      en: 'Videos',
-    };
-
     return (
-      <Page pageName="Media">
+      <Page pageName="Videos">
         <ContentPanel>
-          <h1>{commons.translate(search, videosLabel)}</h1>
-          <div className="Media-videos" itemScope itemType="http://schema.org/VideoGallery">
+          <div className="Videos-videos" itemScope itemType="http://schema.org/VideoGallery">
             {this.listVideos()}
           </div>
         </ContentPanel>
@@ -52,16 +42,16 @@ class Media extends React.Component {
   }
 }
 
-Media.propTypes = {
+Videos.propTypes = {
   location: PropTypes.shape({
     search: PropTypes.string,
   }),
 };
 
-Media.defaultProps = {
+Videos.defaultProps = {
   location: {
     search: '',
   },
 };
 
-export default Media;
+export default Videos;

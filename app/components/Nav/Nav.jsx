@@ -41,10 +41,10 @@ class Nav extends React.Component {
           },
         },
         {
-          url: '/media',
+          url: '/videos',
           label: {
-            fr: 'Média',
-            en: 'Media',
+            fr: 'Vidéos',
+            en: 'Videos',
           },
         },
         {
