@@ -1,0 +1,45 @@
+@import '../../style/variables';
+@import '../../style/media-queries';
+
+.Contact {
+  &-main {
+    display: flex;
+    text-align: center;
+
+    @include sizeMobile {
+      display: block;
+    }
+
+    &-column {
+      flex-basis: 0;
+      flex-grow: 1;
+
+      @include sizeMobile {
+        margin-bottom: 40px;
+      }
+    }
+  }
+
+  &-sub {
+    margin-top: 20px;
+
+    a {
+      display: inline-block;
+      margin: 0 10px;
+    }
+
+    img {
+      display: block;
+      height: 60px;
+      width: 60px;
+    }
+  }
+
+  &-info {
+    p {
+      text-align: center;
+      font-style: italic;
+      font-size: 14px;
+    }
+  }
+}
