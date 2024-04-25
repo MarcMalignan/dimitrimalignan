@@ -7,10 +7,13 @@
   text-align: center;
 
   &-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: $logo-height;
     @include fontLogo;
     text-align: center;
     font-size: 50px;
-    line-height: $logo-height;
     white-space: nowrap;
 
     @include sizeMobile {
@@ -18,7 +21,6 @@
       margin: 10px auto;
       font-size: 28px;
       height: $logo-height-mobile - 20px;
-      line-height: calc(($logo-height-mobile - 20px) / 2);
       white-space: normal;
     }
 

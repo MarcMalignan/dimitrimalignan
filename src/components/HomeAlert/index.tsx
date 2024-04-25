@@ -1,8 +1,9 @@
+import Button, { SpotifyButton } from '@components/Button';
 import './HomeAlert.scss';
 
-type HomeAlertLink = {
-  className?: string;
-  label: string;
+export type HomeAlertLink = {
+  isSpotify?: boolean;
+  label?: string;
   url: string;
 };
 
@@ -19,12 +20,6 @@ const HomeAlert = ({ img, imgAlt, imgLink, links = [], title, text }: HomeAlertP
   <div className="HomeAlert">
     {title && <h1>{title}</h1>}
 
-    {text && (
-      <p className="HomeAlert-text">
-        <i>{text}</i>
-      </p>
-    )}
-
     {img && (
       <div className="HomeAlert-img">
         <a href={imgLink} target="_blank">
@@ -33,13 +28,13 @@ const HomeAlert = ({ img, imgAlt, imgLink, links = [], title, text }: HomeAlertP
       </div>
     )}
 
+    {text && <p className="HomeAlert-text">{text}</p>}
+
     <div className="HomeAlert-body">
       <div className="HomeAlert-body-links">
-        {links.map(({ className, label, url }, index) => (
+        {links.map(({ isSpotify, label, url }, index) => (
           <a href={url} target="_blank" key={index}>
-            <button type="button" className={className}>
-              {label}
-            </button>
+            {isSpotify ? <SpotifyButton /> : <Button>{label}</Button>}
           </a>
         ))}
       </div>

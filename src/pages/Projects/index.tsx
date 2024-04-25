@@ -11,13 +11,13 @@ const Projects = () => (
       <Gallery>
         <GalleryItem className="Project">
           <Link to="/projects/missing-voices">
-            <div className="Project-title">Missing Voices</div>
+            <h2 className="Project-title">Missing Voices</h2>
             <img src="/images/projects/missingVoices/banner.jpg" alt="Missing voices" />
           </Link>
         </GalleryItem>
         <GalleryItem className="Project">
           <a href="https://www.bosmansbeyond.com/" target="_blank">
-            <div className="Project-title">Bosmans & Beyond</div>
+            <h2 className="Project-title">Bosmans & Beyond</h2>
             <img src="/images/projects/bosmansBeyond/banner.jpg" alt="Bosmans & Beyond" />
           </a>
         </GalleryItem>

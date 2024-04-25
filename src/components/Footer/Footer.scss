@@ -1,9 +1,11 @@
 .Footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  height: 50px;
   font-size: 12px;
-  line-height: 50px;
-  text-align: center;
   font-style: italic;
-  white-space: nowrap;
   opacity: 0.75;
   z-index: -1;
 }

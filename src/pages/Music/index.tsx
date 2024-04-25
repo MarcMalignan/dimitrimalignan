@@ -1,5 +1,6 @@
 import { useLocation } from 'react-router';
 
+import Button, { SpotifyButton } from '@components/Button';
 import { Gallery, GalleryItem } from '@components/Gallery';
 import Page from '@components/Page';
 import { Album } from '@types';
@@ -8,6 +9,18 @@ import ContentPanel from '../../components/ContentPanel';
 import './Music.scss';
 
 export const ALBUMS: Album[] = [
+  {
+    title: 'Elegies and Echoes',
+    link: 'http://www.shevacollection.co.uk/modules/myalbum/photo.php?lid=250',
+    spotifyLink: 'https://open.spotify.com/intl-fr/album/2thhCytpOyKOh58CjKv54r',
+    img: '/images/music/albumElegiesEchoes.jpg',
+  },
+  {
+    title: 'Pál Hermann: Complete Surviving Music, Volume Three',
+    link: 'https://toccataclassics.com/product/pal-hermann-complete-surviving-music-volume-three-chamber-instrumental-and-vocal-music/',
+    spotifyLink: 'https://open.spotify.com/intl-fr/album/4bWMx0rzXnxfpsy35MfWxO',
+    img: '/images/music/albumPalHermann.jpg',
+  },
   {
     title: 'J.S. Bach - Peregrinations',
     link: 'https://www.editionshortus.com/catalogue_fiche.php?prod_id=279',
@@ -26,10 +39,6 @@ const DISOVER_LABEL = {
   fr: 'Découvrir le CD',
   en: 'Discover the CD',
 };
-const LISTEN_LABEL = {
-  fr: 'Ecouter sur Spotify',
-  en: 'Listen on Spotify',
-};
 
 const Music = () => {
   const { search } = useLocation();
@@ -41,17 +50,15 @@ const Music = () => {
           {ALBUMS.map(({ title, link, spotifyLink, img }) => (
             <GalleryItem key={title} className="Album">
               <a href={link} target="_blank">
-                <div className="Album-title">{title}</div>
+                <h2 className="Album-title">{title}</h2>
                 <img src={img} alt={title} />
               </a>
               <div className="Album-links">
                 <a className="Album-link" href={link} target="_blank">
-                  <button type="button">{translate(search, DISOVER_LABEL)}</button>
+                  <Button>{translate(search, DISOVER_LABEL)}</Button>
                 </a>
                 <a className="Album-link" href={spotifyLink} target="_blank">
-                  <button type="button" className="spotify">
-                    {translate(search, LISTEN_LABEL)}
-                  </button>
+                  <SpotifyButton />
                 </a>
               </div>
             </GalleryItem>

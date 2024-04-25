@@ -1,0 +1,44 @@
+@import '../../style/fonts';
+@import '../../style/media-queries';
+@import '../../style/variables';
+
+.Button {
+  @include fontText;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  padding: 0 12px;
+  background-color: transparent;
+  border: 1px solid $text-color;
+  color: $text-color;
+  font-size: 12px;
+  text-transform: uppercase;
+  transition: border-color $duration-fast, color $duration-fast, background-color $duration-medium;
+  cursor: pointer;
+
+  @include sizeMobile {
+    width: 100%;
+  }
+
+  &:hover {
+    border-color: $accent-color;
+    color: $accent-color;
+  }
+
+  &.spotify {
+    background-color: $spotify-color;
+    border-color: $spotify-color;
+    color: $text-color;
+
+    &:hover {
+      background-color: $spotify-color-hover;
+      border-color: $spotify-color-hover;
+    }
+  }
+
+  img {
+    display: block;
+    margin: 0 auto;
+  }
+}

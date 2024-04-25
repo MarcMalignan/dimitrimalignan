@@ -15,7 +15,7 @@ $spacing: 20px;
   }
 
   &-item {
-    width: 33.33%;
+    width: calc(100% / 3);
     padding: 0 $spacing $spacing 0;
 
     @include sizeMobile {
@@ -23,5 +23,9 @@ $spacing: 20px;
       max-width: initial;
       padding-right: 0;
     }
+  }
+
+  &.large .Gallery-item {
+    width: calc(100% / 2);
   }
 }

@@ -2,7 +2,7 @@ import { useLocation } from 'react-router';
 
 import { translate } from '@utils';
 import ContentPanel from '../../components/ContentPanel';
-import HomeAlert from '../../components/HomeAlert';
+import HomeAlert, { HomeAlertLink } from '../../components/HomeAlert';
 import Page from '../../components/Page';
 import { ALBUMS } from '../Music';
 
@@ -11,7 +11,7 @@ const Home = () => {
 
   const album = ALBUMS[0];
 
-  const links = [
+  const links: HomeAlertLink[] = [
     {
       label: translate(search, {
         fr: 'Découvrir le CD',
@@ -25,7 +25,7 @@ const Home = () => {
         en: 'Listen on Spotify',
       }),
       url: album.spotifyLink,
-      className: 'spotify',
+      isSpotify: true,
     },
   ];
 

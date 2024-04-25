@@ -16,19 +16,23 @@
   z-index: 1;
 
   &-close {
-    padding-bottom: $paragraph-margin;
-    line-height: 40px;
-    font-size: 40px;
     text-align: right;
 
-    @include sizeMobile {
-      line-height: 30px;
-      font-size: 30px;
-    }
-
     span {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      font-size: 40px;
       color: $accent-color;
       cursor: pointer;
+
+      @include sizeMobile {
+        width: 30px;
+        height: 30px;
+        font-size: 30px;
+      }
     }
   }
 

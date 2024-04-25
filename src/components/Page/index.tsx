@@ -41,19 +41,8 @@ const getDescription = (pageName: string) => {
 const Page = ({ children, pageName, pageTitle }: PageProps & PropsWithChildren) => {
   const scrollTop = () => document.getElementById('content')?.scrollTo(0, 0);
 
-  // const sendAnalytics = () => {
-  //   // @ts-expect-error
-  //   window.ga('set', 'page', window.location.pathname);
-  //   // @ts-expect-error
-  //   window.ga('send', 'pageview');
-  // };
-
   useState(() => {
     scrollTop();
-
-    // if (process.env.NODE_ENV !== 'development') {
-    //   sendAnalytics();
-    // }
   });
 
   return (
