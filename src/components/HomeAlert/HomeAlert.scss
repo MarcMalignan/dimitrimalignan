@@ -32,10 +32,6 @@
       display: flex;
       justify-content: center;
 
-      @include sizeMobile {
-        display: initial;
-      }
-
       a {
         display: block;
         margin: 0 calc($paragraph-margin / 2);
@@ -46,15 +42,6 @@
         }
         &:last-child {
           margin-right: 0;
-        }
-
-        @include sizeMobile {
-          width: 100%;
-          margin: 0;
-
-          &:not(:last-child) {
-            margin-bottom: calc($paragraph-margin / 2);
-          }
         }
       }
     }

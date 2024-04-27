@@ -7,10 +7,6 @@ import { Contact as ContactType } from '@types';
 import { getData, translate } from '@utils';
 import './Contact.scss';
 
-import iconFacebook from '../../icons/facebook.svg';
-import iconInstagram from '../../icons/instagram.svg';
-import iconSpotify from '../../icons/spotify.svg';
-
 const Contact = () => {
   const { search } = useLocation();
 
@@ -49,13 +45,13 @@ const Contact = () => {
             </div>
             <div className="Contact-sub">
               <a href={contact.facebook} target="_blank">
-                <img src={iconFacebook} alt="Facebook" />
+                <img src="/images/icons/facebook.svg" alt="Facebook" />
               </a>
               <a href={contact.instagram} target="_blank">
-                <img src={iconInstagram} alt="Instagram" />
+                <img src="/images/icons/instagram.svg" alt="Instagram" />
               </a>
               <a href={contact.spotify} target="_blank">
-                <img src={iconSpotify} alt="Spotify" />
+                <img src="/images/icons/spotify.svg" alt="Spotify" />
               </a>
             </div>
           </div>

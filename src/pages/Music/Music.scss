@@ -21,10 +21,6 @@
       display: flex;
       justify-content: center;
       margin-top: $paragraph-margin;
-
-      @include sizeMobile {
-        display: initial;
-      }
     }
 
     &-link {
@@ -38,11 +34,6 @@
       }
       &:last-child {
         margin-right: 0;
-      }
-
-      @include sizeMobile {
-        width: 100%;
-        margin: calc($paragraph-margin / 2) 0 0;
       }
 
       button {

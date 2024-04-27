@@ -2,9 +2,8 @@ import classNames from 'classnames';
 import { PropsWithChildren } from 'react';
 
 import { WithClassName } from '@types';
+import SpotifyIcon from '../Icons/SpotifyIcon';
 import './Button.scss';
-
-import iconSpotify from '../../icons/spotify_button.svg';
 
 const Button = ({ children, className }: WithClassName & PropsWithChildren) => (
   <button className={classNames('Button', className)} type="button">
@@ -14,7 +13,7 @@ const Button = ({ children, className }: WithClassName & PropsWithChildren) => (
 
 export const SpotifyButton = () => (
   <Button className="spotify">
-    <img height="28" src={iconSpotify} alt="Spotify" />
+    <SpotifyIcon height="24" />
   </Button>
 );
 

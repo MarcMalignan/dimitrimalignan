@@ -65,7 +65,7 @@ const LINKS = [
   },
 ];
 
-const listLinks = (search: string) => {
+const listLinks = (search: string, onClick?: () => void) => {
   return LINKS.map((link) => {
     const href = {
       pathname: link.url,
@@ -74,7 +74,11 @@ const listLinks = (search: string) => {
 
     return (
       <li className="Nav-list-item" key={link.url}>
-        <NavLink className={({ isActive }) => classNames('Nav-list-item-link', { active: isActive })} to={href}>
+        <NavLink
+          className={({ isActive }) => classNames('Nav-list-item-link', { active: isActive })}
+          to={href}
+          onClick={onClick}
+        >
           {translate(search, link.label)}
         </NavLink>
       </li>
@@ -124,7 +128,7 @@ const Nav = () => {
 
       {modal ? (
         <Modal onClose={closeModal}>
-          <ul className="Nav-list mobile">{listLinks(search)}</ul>
+          <ul className="Nav-list mobile">{listLinks(search, closeModal)}</ul>
           {renderLang(pathname, search)}
         </Modal>
       ) : null}

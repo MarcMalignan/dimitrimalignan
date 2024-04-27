@@ -1,3 +1,5 @@
+import { HTMLProps } from 'react';
+
 export enum Lang {
   'fr' = 'fr',
   'en' = 'en',
@@ -70,3 +72,5 @@ export type Article = {
 export type WithClassName = {
   className?: string;
 };
+
+export type IconType = Omit<HTMLProps<SVGElement>, 'ref'>;

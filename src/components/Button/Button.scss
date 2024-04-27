@@ -27,13 +27,10 @@
   }
 
   &.spotify {
-    background-color: $spotify-color;
-    border-color: $spotify-color;
-    color: $text-color;
-
     &:hover {
-      background-color: $spotify-color-hover;
-      border-color: $spotify-color-hover;
+      color: $text-color;
+      background: $spotify-color;
+      border-color: $spotify-color;
     }
   }
 
