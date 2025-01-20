@@ -22,11 +22,11 @@ const Presse = () => {
   return (
     <Page pageName="Presse">
       <ContentPanel>
-        {articles?.map((article, index) => {
+        {articles?.map((article) => {
           const content = translate<string[]>(search, article.content) || [];
 
           return (
-            <div key={index} className="Presse-article" itemScope itemType="http://schema.org/Article">
+            <div key={article.date} className="Presse-article" itemScope itemType="http://schema.org/Article">
               <div className="Presse-article-header">
                 <span
                   className="Presse-article-source"

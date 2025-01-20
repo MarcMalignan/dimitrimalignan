@@ -20,14 +20,20 @@ const Photos = () => {
     queryFn: () =>
       getData<Photo[]>('photos').then(
         (data) =>
-          data.map((photo) => ({
-            ...photo,
-            srcThumb: `/images/gallery/thumbs/${photo.filename}`,
-            srcHighres: `/images/gallery/highres/${photo.filename}`,
-            srcFullres: `/images/gallery/fullres/${photo.filename}`,
-          })) as PhotoWithImage[]
+          data.map((photo) => {
+            const filename = photo.filename.replace(/ /g, '');
+            return {
+              ...photo,
+              filename,
+              srcThumb: `/images/gallery/thumbs/${filename}`,
+              srcHighres: `/images/gallery/highres/${filename}`,
+              srcFullres: `/images/gallery/fullres/${filename}`,
+            };
+          }) as PhotoWithImage[]
       ),
   });
+
+  console.log('>>>', photos);
 
   const renderModal = (photo: PhotoWithImage) => {
     const style = {
@@ -57,9 +63,9 @@ const Photos = () => {
       <ContentPanel>
         <div itemScope itemType="http://schema.org/ImageGallery">
           <Gallery>
-            {photos?.map((photo, index) => {
+            {photos?.map((photo) => {
               return (
-                <GalleryItem key={index}>
+                <GalleryItem key={photo.filename}>
                   <div
                     className="Photo-wrapper"
                     onClick={() => setHighres(photo)}
@@ -67,7 +73,13 @@ const Photos = () => {
                     itemScope
                     itemType="http://schema.org/ImageObject"
                   >
-                    <img src={photo.srcThumb} alt="" />
+                    <div
+                      className="Photo"
+                      style={{
+                        backgroundImage: `url(${photo.srcThumb})`,
+                        backgroundSize: 'cover',
+                      }}
+                    />
                   </div>
                   <meta itemProp="author" content={photo.copyright} />
                   <meta itemProp="thumbnail" content={`http://www.dimitrimalignan.com/${photo.srcThumb}`} />

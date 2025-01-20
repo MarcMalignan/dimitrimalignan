@@ -32,8 +32,8 @@ const HomeAlert = ({ img, imgAlt, imgLink, links = [], title, text }: HomeAlertP
 
     <div className="HomeAlert-body">
       <div className="HomeAlert-body-links">
-        {links.map(({ isSpotify, label, url }, index) => (
-          <a href={url} target="_blank" key={index}>
+        {links.map(({ isSpotify, label, url }) => (
+          <a href={url} target="_blank" key={label}>
             {isSpotify ? <SpotifyButton /> : <Button>{label}</Button>}
           </a>
         ))}
