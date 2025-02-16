@@ -1,0 +1,31 @@
+@import '../../style/media-queries';
+@import '../../style/variables';
+
+.MissingVoices {
+  h1 {
+    img {
+      max-width: 300px;
+    }
+  }
+  h2 {
+    color: $accent-color;
+    text-align: center;
+  }
+
+  section:not(:last-child) {
+    margin-bottom: 40px;
+  }
+
+  .videoWrapper {
+    width: 50%;
+    margin: 0 auto;
+
+    @include sizeMobile {
+      width: 100%;
+    }
+  }
+
+  &-InstagramLink {
+    text-align: center;
+  }
+}

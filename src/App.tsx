@@ -8,11 +8,10 @@ import Agenda from './pages/Agenda';
 import Bio from './pages/Bio';
 import Contact from './pages/Contact';
 import Home from './pages/Home';
+import MissingVoices from './pages/MissingVoices';
 import Music from './pages/Music';
 import Photos from './pages/Photos';
 import Presse from './pages/Presse';
-import Projects from './pages/Projects';
-import MissingVoices from './pages/Projects/subPages/MissingVoices';
 import Videos from './pages/Videos';
 
 const client = new QueryClient();
@@ -33,8 +32,7 @@ const App = () => (
               <Route path="/music" element={<Music />} />
               <Route path="/photos" element={<Photos />} />
               <Route path="/presse" element={<Presse />} />
-              <Route path="/projects/missing-voices" element={<MissingVoices />} />
-              <Route path="/projects" element={<Projects />} />
+              <Route path="/missing-voices" element={<MissingVoices />} />
               <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
           </main>

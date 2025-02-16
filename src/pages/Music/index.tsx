@@ -1,14 +1,10 @@
-import { useLocation } from 'react-router';
-
-import Button, { SpotifyButton } from '@components/Button';
-import { Gallery, GalleryItem } from '@components/Gallery';
+import Album from '@components/Album';
+import { Gallery } from '@components/Gallery';
 import Page from '@components/Page';
-import { Album } from '@types';
-import { translate } from '@utils';
+import { Album as AlbumType } from '@types';
 import ContentPanel from '../../components/ContentPanel';
-import './Music.scss';
 
-export const ALBUMS: Album[] = [
+export const ALBUMS: AlbumType[] = [
   {
     title: 'Elegies and Echoes',
     link: 'http://www.shevacollection.co.uk/modules/myalbum/photo.php?lid=250',
@@ -35,33 +31,13 @@ export const ALBUMS: Album[] = [
   },
 ];
 
-const DISOVER_LABEL = {
-  fr: 'Découvrir le CD',
-  en: 'Discover the CD',
-};
-
 const Music = () => {
-  const { search } = useLocation();
-
   return (
     <Page pageName="Music">
       <ContentPanel>
         <Gallery>
-          {ALBUMS.map(({ title, link, spotifyLink, img }) => (
-            <GalleryItem key={title} className="Album">
-              <a href={link} target="_blank">
-                <h2 className="Album-title">{title}</h2>
-                <img src={img} alt={title} />
-              </a>
-              <div className="Album-links">
-                <a className="Album-link" href={link} target="_blank">
-                  <Button>{translate(search, DISOVER_LABEL)}</Button>
-                </a>
-                <a className="Album-link" href={spotifyLink} target="_blank">
-                  <SpotifyButton />
-                </a>
-              </div>
-            </GalleryItem>
+          {ALBUMS.map((album) => (
+            <Album key={album.title} album={album} />
           ))}
         </Gallery>
       </ContentPanel>

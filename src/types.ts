@@ -17,8 +17,9 @@ export type CalendarEvent = {
 
 export type Album = {
   img: string;
-  link: string;
-  spotifyLink: string;
+  link?: string;
+  spotifyLink?: string;
+  releaseDate?: Translation;
   title: string;
 };
 

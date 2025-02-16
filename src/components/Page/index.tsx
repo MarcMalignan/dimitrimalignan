@@ -19,8 +19,6 @@ const getDescription = (pageName: string) => {
   switch (pageName) {
     case 'Bio':
       return '';
-    case 'Projects':
-      return '';
     case 'Photos':
       return '';
     case 'Media':

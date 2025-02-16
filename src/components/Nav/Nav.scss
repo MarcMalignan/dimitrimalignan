@@ -13,7 +13,7 @@ $brg-nb: 3;
     @include sizeMobile {
       position: absolute;
       top: calc(($logo-height-mobile - $brg) / 2);
-      right: $app-padding;
+      right: 0;
       width: $brg;
       height: $brg;
       padding: $brg-padding;
@@ -92,7 +92,10 @@ $brg-nb: 3;
     }
 
     &.mobile {
-      display: block;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 100%;
     }
 
     &.mobile > &-item {

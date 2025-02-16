@@ -22,13 +22,6 @@ const LINKS = [
     },
   },
   {
-    url: '/projects',
-    label: {
-      fr: 'Projets',
-      en: 'Projects',
-    },
-  },
-  {
     url: '/photos',
     label: {
       fr: 'Photos',
@@ -54,6 +47,13 @@ const LINKS = [
     label: {
       fr: 'Agenda',
       en: 'Concerts',
+    },
+  },
+  {
+    url: '/missing-voices',
+    label: {
+      fr: 'Missing Voices',
+      en: 'Missing Voices',
     },
   },
   {
